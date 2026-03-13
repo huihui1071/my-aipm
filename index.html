@@ -4694,7 +4694,7 @@ function buildTOC(pageId) {
     var text = h.textContent.replace(/^[▾▸]\s*/, '');
     var id = h.id;
     if (!id) return;
-    html += '<a class="toc-item toc-' + tag + '" href="javascript:void(0)" data-target="' + id + '" onclick="scrollToHeading('' + id + '')">' + text + '</a>';
+    html += '<a class="toc-item toc-' + tag + '" href="javascript:void(0)" data-target="' + id + '" onclick="scrollToHeading(this.dataset.target)">' + text + '</a>';
     count++;
   });
   tocEl.innerHTML = count > 0 ? html : '<div class="toc-empty">暂无目录</div>';
