@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AI PM 知识库和求职管理系统</title>
+<title>AI 求职战略局</title>
 <style>
 :root {
   --bg: #ffffff; --bg2: #f7f8fa; --bg3: #eef0f4;
@@ -63,12 +63,12 @@ body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hi
 .nav-item:hover { color:var(--accent); background:var(--bg3); }
 .nav-item.active { color:var(--accent); border-left-color:var(--accent); background:var(--bg3); font-weight:600; }
 /* ── Right TOC ── */
-.toc { position:fixed; top:52px; right:0; bottom:0; width:220px; background:var(--bg2);
+.toc { position:fixed; top:52px; right:0; bottom:0; width:374px; background:var(--bg2);
   border-left:1px solid var(--border); overflow-y:auto; padding:12px 0; z-index:50; transition:background .3s; }
 .toc-header { padding:8px 16px; font-size:12px; font-weight:600; color:var(--text3); text-transform:uppercase; letter-spacing:.5px; }
 .toc-item { display:block; padding:4px 16px; font-size:12px; color:var(--text3); cursor:pointer;
   text-decoration:none; border-right:2px solid transparent; transition:all .15s; line-height:1.5;
-  overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  white-space:normal; word-break:break-word; overflow-wrap:anywhere; }
 .toc-item:hover { color:var(--accent); background:var(--bg3); }
 .toc-item.active { color:var(--accent); border-right-color:var(--accent); font-weight:600; }
 .toc-h2 { padding-left:16px; font-size:12px; font-weight:600; color:var(--text2); }
@@ -76,7 +76,7 @@ body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hi
 .toc-h4 { padding-left:40px; font-size:11px; }
 .toc-empty { padding:16px; font-size:12px; color:var(--text3); text-align:center; }
 /* ── Main Content ── */
-.main { margin-left:var(--sidebar-w); margin-right:220px; margin-top:52px; padding:32px 48px 80px; max-width:960px; }
+.main { margin-left:var(--sidebar-w); margin-right:374px; margin-top:52px; padding:32px 48px 80px; max-width:960px; }
 .page { display:none; }
 .page.active { display:block; }
 h1 { font-size:28px; font-weight:700; margin-bottom:8px; color:var(--text); }
@@ -147,7 +147,7 @@ hr { border:none; border-top:1px solid var(--border); margin:24px 0; }
 <body>
 
 <div class="topbar">
-  <div class="topbar-title">AI PM 知识库和求职管理系统<span>Powered by Cursor · Vibe Coding</span></div>
+  <div class="topbar-title">AI 求职战略局<span>互联网求职者的 AI 作战系统</span></div>
   <div class="search-box">
     <input type="text" id="searchInput" placeholder="搜索知识库..." oninput="handleSearch(this.value)" onfocus="handleSearch(this.value)">
     <div class="search-results" id="searchResults"></div>
@@ -161,12 +161,17 @@ hr { border:none; border-top:1px solid var(--border); margin:24px 0; }
 
 <nav class="sidebar">
 <div class="nav-group">
-<div class="nav-group-title" onclick="toggleNavGroup(this)"><span class="nav-arrow">▾</span> 系统介绍</div>
+<div class="nav-group-title" onclick="toggleNavGroup(this)"><span class="nav-arrow">▾</span> 产品介绍</div>
 <div class="nav-group-items">
-<a class="nav-item" href="javascript:void(0)" data-page="readme" onclick="showPage('readme')">系统介绍</a>
+<a class="nav-item" href="javascript:void(0)" data-page="readme" onclick="showPage('readme')">产品总览</a>
 </div></div>
 <div class="nav-group">
-<div class="nav-group-title" onclick="toggleNavGroup(this)"><span class="nav-arrow">▾</span> 知识库</div>
+<div class="nav-group-title" onclick="toggleNavGroup(this)"><span class="nav-arrow">▾</span> 用户画像</div>
+<div class="nav-group-items">
+<a class="nav-item" href="javascript:void(0)" data-page="profile" onclick="showPage('profile')">用户画像</a>
+</div></div>
+<div class="nav-group">
+<div class="nav-group-title" onclick="toggleNavGroup(this)"><span class="nav-arrow">▾</span> 定制知识库</div>
 <div class="nav-group-items">
 <a class="nav-item" href="javascript:void(0)" data-page="m1" onclick="showPage('m1')">01 LLM与AI技术基础</a>
 <a class="nav-item" href="javascript:void(0)" data-page="m2" onclick="showPage('m2')">02 RAG与Agent框架</a>
@@ -178,26 +183,31 @@ hr { border:none; border-top:1px solid var(--border); margin:24px 0; }
 <a class="nav-item" href="javascript:void(0)" data-page="m8" onclick="showPage('m8')">08 AI产品设计与商业化</a>
 </div></div>
 <div class="nav-group">
-<div class="nav-group-title" onclick="toggleNavGroup(this)"><span class="nav-arrow">▾</span> 项目讲解</div>
-<div class="nav-group-items">
-<a class="nav-item" href="javascript:void(0)" data-page="project" onclick="showPage('project')">AI沟通摘要系统 · 深度讲解</a>
-</div></div>
-<div class="nav-group">
 <div class="nav-group-title" onclick="toggleNavGroup(this)"><span class="nav-arrow">▾</span> 求职管理</div>
 <div class="nav-group-items">
-<a class="nav-item" href="javascript:void(0)" data-page="tracker" onclick="showPage('tracker')">岗位追踪表</a>
-<a class="nav-item" href="javascript:void(0)" data-page="prep" onclick="showPage('prep')">B公司·二面准备</a>
-<a class="nav-item" href="javascript:void(0)" data-page="review" onclick="showPage('review')">C公司·一面复盘</a>
+<a class="nav-item" href="javascript:void(0)" data-page="tracker" onclick="showPage('tracker')">目标岗位追踪</a>
+<a class="nav-item" href="javascript:void(0)" data-page="prep" onclick="showPage('prep')">面试准备</a>
+<a class="nav-item" href="javascript:void(0)" data-page="review" onclick="showPage('review')">面试复盘</a>
+</div></div>
+<div class="nav-group">
+<div class="nav-group-title" onclick="toggleNavGroup(this)"><span class="nav-arrow">▾</span> 简历与自我介绍</div>
+<div class="nav-group-items">
+<a class="nav-item" href="javascript:void(0)" data-page="resume" onclick="showPage('resume')">简历与自我介绍</a>
+</div></div>
+<div class="nav-group">
+<div class="nav-group-title" onclick="toggleNavGroup(this)"><span class="nav-arrow">▾</span> 案例演示</div>
+<div class="nav-group-items">
+<a class="nav-item" href="javascript:void(0)" data-page="project" onclick="showPage('project')">能力来源：AI沟通摘要系统</a>
 </div></div>
 </nav>
 
 <main class="main">
 <div class="page" id="page-readme" data-raw="readme">
 
-<h1 id="readme-AI产品经理---知识库和求职管理系统">AI产品经理 · 知识库和求职管理系统</h1>
+<h1 id="readme-AI-求职战略局">AI 求职战略局</h1>
 
 
-<blockquote><p>基于Cursor + Vibe Coding搭建 | 全程零手写代码 | 部署在GitHub Pages</p></blockquote>
+<blockquote><p>输入目标岗位、经历与项目，生成你的专属求职作战系统</p></blockquote>
 
 
 <hr>
@@ -205,64 +215,251 @@ hr { border:none; border-top:1px solid var(--border); margin:24px 0; }
 
 
 <div class="section collapsible">
-<h2 id="readme-关于这个系统" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 关于这个系统</h2>
+<h2 id="readme-产品定位" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 产品定位</h2>
 <div class="section-body">
 
 
-<p>这是我用Cursor（AI编程IDE）通过纯自然语言对话搭建的个人知识库和求职管理系统。</p>
+<p>AI 求职战略局是一款面向互联网求职者的 AI 求职产品，首批核心用户聚焦<strong>产品、运营、数据</strong>三类岗位。</p>
 
 
-<blockquote class="interview-template"><p><strong>说明</strong>：本系统&quot;求职管理&quot;板块中的公司名称、岗位信息及面试内容均为<strong>虚拟数据</strong>，用于展示系统的功能结构和使用方式。因个人真实求职信息涉及隐私，不便在展示版中公开，敬请理解。</p></blockquote>
+<p>它解决的不是“缺一份模板”的问题，而是“求职链路里每一环都零散、重复、难以沉淀”的问题。</p>
 
 
-<h3 id="readme-系统架构">系统架构</h3>
-
-
-<pre><code>┌──────────────────────────────────────────────────────────────┐
-│                       知识管理系统                              │
-│                                                              │
-│  ┌──────────┐     ┌──────────────┐     ┌──────────────────┐  │
-│  │ Markdown  │ ──→ │ Python脚本   │ ──→ │ 单页HTML网站     │  │
-│  │ 知识文件  │     │ (build_page) │     │ (GitHub Pages)   │  │
-│  └──────────┘     └──────────────┘     └──────────────────┘  │
-│       ↑                                       ↓              │
-│  日常学习/复盘                          随时随地访问           │
-│  持续沉淀更新                          搜索/导航/暗色模式     │
-└──────────────────────────────────────────────────────────────┘</code></pre>
-
-
-<h3 id="readme-核心功能">核心功能</h3>
-
-
-<div class="table-wrap"><table><tr><th>功能</th><th>实现方式</th></tr><tr><td><strong>AI智能问答</strong></td><td>右下角对话框，基于知识库内容的RAG问答（支持DeepSeek/OpenAI）</td></tr><tr><td>知识库管理</td><td>20+ Markdown文件自动编译为结构化HTML</td></tr><tr><td>侧边栏导航</td><td>按分类分组，可折叠，记忆上次浏览位置</td></tr><tr><td>全文搜索</td><td>实时检索所有页面内容，高亮匹配</td></tr><tr><td>右侧目录</td><td>自动生成当前页面的目录锚点，滚动高亮</td></tr><tr><td>暗色模式</td><td>一键切换，自动记忆偏好</td></tr><tr><td>高亮标注</td><td>选中文本可做彩色高亮和加粗标记</td></tr><tr><td>可折叠章节</td><td>长文档按章节折叠/展开，提高浏览效率</td></tr><tr><td>一键部署</td><td>Python脚本生成 → GitHub Pages自动托管</td></tr></table></div>
-
-
-<h3 id="readme-AI助手工作原理">AI助手工作原理</h3>
-
-
-<pre><code>用户提问 → 知识库全文检索（关键词匹配+相关性排序）
-         → 提取Top3相关段落作为上下文
-         → 构造 System Prompt + Context + Question
-         → 调用LLM API（流式输出）
-         → 实时渲染回答</code></pre>
-
-
-<p>这是一个轻量级的<strong>客户端RAG方案</strong>——无需后端服务器，所有检索和API调用都在浏览器中完成，API Key安全存储在用户本地。</p>
-
-
-<h3 id="readme-技术实现">技术实现</h3>
+<p>用户只需要输入三类信息：</p>
 
 <ul>
-<li><strong>前端</strong>：纯HTML/CSS/JavaScript，无框架依赖，单文件部署</li>
-<li><strong>构建</strong>：Python脚本解析Markdown → 生成完整HTML（含导航/搜索/交互）</li>
-<li><strong>部署</strong>：GitHub Pages静态托管</li>
-<li><strong>开发方式</strong>：100% Vibe Coding — 通过与Cursor中的AI模型对话完成所有开发</li>
+<li><strong>目标岗位</strong>：想投什么岗，优先级如何</li>
+<li><strong>过往经历</strong>：实习、校园经历、做过什么业务</li>
+<li><strong>项目资产</strong>：有哪些项目、亮点、数据结果、可讲故事的素材</li>
 </ul>
 
-<h3 id="readme-为什么不用飞书-Notion">为什么不用飞书/Notion</h3>
+<p>系统会围绕这些输入，生成一整套可持续迭代的求职资产。</p>
 
 
-<div class="table-wrap"><table><tr><th>维度</th><th>飞书/Notion</th><th>本系统</th></tr><tr><td>定制化</td><td>受限于平台功能</td><td>完全按需定制</td></tr><tr><td>数据所有权</td><td>存储在平台</td><td>自有GitHub仓库</td></tr><tr><td>分享方式</td><td>需要账号/权限</td><td>公开URL直接访问</td></tr><tr><td>AI集成深度</td><td>平台提供的AI功能</td><td>与AI对话直接修改系统本身</td></tr><tr><td>离线访问</td><td>依赖网络</td><td>HTML文件可本地打开</td></tr></table></div>
+<blockquote class="interview-template"><p><strong>说明</strong>：本展示版中的用户信息、公司名称、岗位信息和面试内容均为<strong>虚拟案例</strong>，仅用于展示产品结构与使用方式，不对应任何真实求职者。</p></blockquote>
+
+
+</div></div><!-- /section -->
+<div class="section collapsible">
+<h2 id="readme-适合谁用" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 适合谁用</h2>
+<div class="section-body">
+
+
+<h3 id="readme-核心用户">核心用户</h3>
+
+<ul>
+<li>目标岗位明确，但不知道该如何系统准备的求职者</li>
+<li>有经历和项目，但不会按不同岗位重组表达的人</li>
+<li>已经在投递和面试，但缺少复盘与沉淀机制的人</li>
+</ul>
+
+<h3 id="readme-典型场景">典型场景</h3>
+
+<ul>
+<li>想从“海投”转为“有优先级的定向投递”</li>
+<li>想把一份经历改写成产品岗、运营岗、数据岗不同版本</li>
+<li>想把每一次面试失败都转化成下一次面试的优势</li>
+</ul>
+
+</div></div><!-- /section -->
+<div class="section collapsible">
+<h2 id="readme-产品工作流" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 产品工作流</h2>
+<div class="section-body">
+
+
+<pre><code>输入目标岗位 + 输入过往经历 + 输入项目资产
+                ↓
+         生成用户画像与能力地图
+                ↓
+       生成与目标岗位匹配的定制知识库
+                ↓
+岗位追踪 → 面试准备 → 面试复盘 → 简历与自我介绍优化
+                ↓
+     反哺知识库与表达体系，形成持续迭代闭环</code></pre>
+
+
+<p>这意味着它不是单次问答工具，而是一个覆盖<strong>投递前、面试前、面试后</strong>的完整求职作战系统。</p>
+
+
+</div></div><!-- /section -->
+<div class="section collapsible">
+<h2 id="readme-六大核心模块" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 六大核心模块</h2>
+<div class="section-body">
+
+
+<div class="table-wrap"><table><tr><th>模块</th><th>解决什么问题</th><th>输出结果</th></tr><tr><td><strong>用户画像</strong></td><td>我适合投什么岗位？优势和短板是什么？</td><td>岗位方向、能力标签、短板清单</td></tr><tr><td><strong>定制知识库</strong></td><td>不同岗位该补哪些知识？</td><td>按岗位组织的学习优先级与知识模块</td></tr><tr><td><strong>目标岗位追踪</strong></td><td>哪些岗位值得优先投？进度如何？</td><td>岗位池、优先级、投递状态、阶段推进</td></tr><tr><td><strong>面试准备</strong></td><td>面试前到底该准备什么？</td><td>公司画像、JD匹配、高频题、定制答案</td></tr><tr><td><strong>面试复盘</strong></td><td>面完之后如何快速进化？</td><td>逐题评分、信号分析、改进动作</td></tr><tr><td><strong>简历与自我介绍</strong></td><td>如何把同一份经历改写成不同岗位版本？</td><td>简历版本、自我介绍版本、STAR素材库</td></tr></table></div>
+
+
+</div></div><!-- /section -->
+<div class="section collapsible">
+<h2 id="readme-一个完整示例" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 一个完整示例</h2>
+<div class="section-body">
+
+
+<h3 id="readme-虚拟用户-林然">虚拟用户：林然</h3>
+
+<ul>
+<li>目标岗位：增长产品经理 / 产品运营 / 数据产品经理</li>
+<li>背景经历：内容平台运营实习 + 电商数据分析实习</li>
+<li>项目资产：做过拉新活动、指标看板、A/B测试、AI工具小项目</li>
+</ul>
+
+<h3 id="readme-系统会为她生成什么">系统会为她生成什么</h3>
+
+
+<div class="table-wrap"><table><tr><th>输入</th><th>系统判断</th><th>输出</th></tr><tr><td>目标岗位偏增长和策略</td><td>需要补强实验设计、指标体系、行业分析</td><td>推荐重点学习 AB 测试、SQL、增长分析模块</td></tr><tr><td>运营经历强，产品经历弱</td><td>表达优势在执行与数据闭环，短板在产品方法论</td><td>在面试准备中强化需求分析、方案设计、优先级表达</td></tr><tr><td>项目分散，亮点不聚焦</td><td>需要统一整理成可复用的 STAR 资产</td><td>自动沉淀为简历 bullet、自我介绍亮点和面试故事</td></tr></table></div>
+
+
+<p>最终，用户看到的不再是一堆零碎文档，而是一套围绕目标岗位持续更新的求职系统。</p>
+
+
+</div></div><!-- /section -->
+<div class="section collapsible">
+<h2 id="readme-当前知识库如何使用" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 当前知识库如何使用</h2>
+<div class="section-body">
+
+
+<p>展示版当前沉淀了 8 组高频知识模块，覆盖 AI、产品、数据三类互联网岗位中最常见的能力要求：</p>
+
+
+<pre><code>模块1：LLM与AI技术基础    — 技术理解、模型认知、AI岗位通识
+模块2：RAG与Agent框架     — AI应用、Agent、工作流与工具调用
+模块3：统计学与AB测试      — 实验设计、效果验证、增长分析
+模块4：Python与SQL         — 数据处理、查询能力、基础代码题
+模块5：PM产品能力           — 需求分析、优先级、竞品、指标体系
+模块6：行业与产品分析       — 产品拆解、行业视角、案例分析
+模块7：Prompt与工作流       — Prompt、MCP、工作流设计
+模块8：AI产品设计与商业化   — PRD、成本、风险、商业化</code></pre>
+
+
+<h3 id="readme-不同岗位的推荐使用方式">不同岗位的推荐使用方式</h3>
+
+<ul>
+<li><strong>产品岗</strong>：优先看模块 5、6、8，再补模块 3 和 4</li>
+<li><strong>运营岗</strong>：优先看模块 3、6，再补模块 5 和 4</li>
+<li><strong>数据岗</strong>：优先看模块 3、4，再补模块 5 和 6</li>
+</ul>
+
+<p>左侧导航中的知识模块，本质上就是系统生成“定制知识库”的公开展示版。</p>
+
+
+</div></div><!-- /section -->
+<div class="section collapsible">
+<h2 id="readme-为什么不是普通模板库" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 为什么不是普通模板库</h2>
+<div class="section-body">
+
+
+<div class="table-wrap"><table><tr><th>维度</th><th>普通求职模板库</th><th>AI 求职战略局</th></tr><tr><td>起点</td><td>给所有人同一套模板</td><td>先理解你的岗位与经历</td></tr><tr><td>内容组织</td><td>文档堆砌</td><td>以求职流程组织</td></tr><tr><td>更新机制</td><td>看完即结束</td><td>每次面试后持续反哺</td></tr><tr><td>个性化程度</td><td>弱</td><td>强，围绕个人资产生成</td></tr><tr><td>输出形式</td><td>单篇文档</td><td>一整套作战系统</td></tr></table></div>
+
+
+</div></div><!-- /section -->
+<div class="section collapsible">
+<h2 id="readme-AI-求职教练如何工作" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> AI 求职教练如何工作</h2>
+<div class="section-body">
+
+
+<p>右下角的 AI 助手在当前版本中扮演的是<strong>求职教练 / 知识助手</strong>的角色。</p>
+
+
+<pre><code>用户提问 → 检索知识库与求职模板
+         → 提取最相关内容作为上下文
+         → 结合问题生成回答
+         → 输出结构化建议</code></pre>
+
+
+<p>它可以回答的不是泛泛的“面试怎么办”，而是更具体的问题，例如：</p>
+
+<ul>
+<li>如何把同一个项目改写成增长产品和数据产品两个版本？</li>
+<li>运营岗面试前应该优先准备哪些知识模块？</li>
+<li>一场复盘里哪些信号最值得追踪？</li>
+</ul>
+
+</div></div><!-- /section -->
+<div class="section collapsible">
+<h2 id="readme-当前版本实现" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 当前版本实现</h2>
+<div class="section-body">
+
+
+<p>本展示版是一个轻量级产品原型，重点验证的是<strong>产品结构与用户价值</strong>，而不是复杂后端能力。</p>
+
+<ul>
+<li><strong>前端</strong>：纯 HTML/CSS/JavaScript，单文件可部署</li>
+<li><strong>内容组织</strong>：Markdown 资产化管理</li>
+<li><strong>构建方式</strong>：Python 脚本自动编译为结构化网站</li>
+<li><strong>部署方式</strong>：GitHub Pages 静态托管</li>
+<li><strong>AI能力</strong>：客户端知识检索 + LLM API 问答</li>
+</ul>
+
+<p>这让产品可以低成本快速迭代，也方便持续增加新的岗位模板和知识模块。</p>
+
+
+</div></div><!-- /section -->
+<div class="section collapsible">
+<h2 id="readme-隐私与展示说明" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 隐私与展示说明</h2>
+<div class="section-body">
+
+<ul>
+<li>展示版中的公司、岗位、面试内容均为虚拟案例</li>
+<li>原始个人求职数据不会出现在公开展示页中</li>
+<li>本站重点展示的是产品结构、功能逻辑和使用方式</li>
+</ul>
+
+<p>如果这个产品继续往下做，下一步会进入更强的“输入表单化、输出自动生成化、资产持续沉淀化”阶段。</p>
+
+
+</div></div><!-- /section -->
+</div>
+<div class="page" id="page-profile" data-raw="profile">
+
+<h1 id="profile-用户画像">用户画像</h1>
+
+
+<blockquote><p>这是 AI 求职战略局的起点页：先理解用户，再生成后续所有求职资产。</p></blockquote>
+
+
+<hr>
+
+
+
+<div class="section collapsible">
+<h2 id="profile-这个模块解决什么问题" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 这个模块解决什么问题</h2>
+<div class="section-body">
+
+
+<p>很多求职者的问题不是“没有资料”，而是：</p>
+
+<ul>
+<li>不知道自己到底更适合投什么岗位</li>
+<li>有很多经历，但不会提炼成统一的能力标签</li>
+<li>知道自己有短板，却不知道该优先补什么</li>
+</ul>
+
+<p>用户画像模块的作用，就是把零散信息整理成可被系统持续复用的结构化输入。</p>
+
+
+</div></div><!-- /section -->
+<div class="section collapsible">
+<h2 id="profile-系统采集哪些输入" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 系统采集哪些输入</h2>
+<div class="section-body">
+
+
+<h3 id="profile-1--目标岗位">1. 目标岗位</h3>
+
+
+<div class="table-wrap"><table><tr><th>输入项</th><th>示例</th></tr><tr><td>目标岗位</td><td>增长产品经理 / 产品运营 / 数据产品经理</td></tr><tr><td>目标行业</td><td>内容平台 / 电商 / 本地生活</td></tr><tr><td>优先级</td><td>第一志愿、第二志愿、保底方向</td></tr><tr><td>目标城市</td><td>北京 / 上海 / 杭州</td></tr></table></div>
+
+
+<h3 id="profile-2--过往经历">2. 过往经历</h3>
+
+
+<div class="table-wrap"><table><tr><th>输入项</th><th>示例</th></tr><tr><td>实习经历</td><td>内容平台运营、电商数据分析</td></tr><tr><td>校园经历</td><td>社团项目、竞赛、课程研究</td></tr><tr><td>技能栈</td><td>SQL、Excel、A/B测试、用户研究、PRD</td></tr><tr><td>产出结果</td><td>拉新提升、转化优化、看板搭建、流程优化</td></tr></table></div>
+
+
+<h3 id="profile-3--项目资产">3. 项目资产</h3>
+
+
+<div class="table-wrap"><table><tr><th>输入项</th><th>示例</th></tr><tr><td>项目名称</td><td>新用户拉新活动、商家数据看板、AI 面试助手</td></tr><tr><td>项目角色</td><td>方案设计、执行推进、数据分析、复盘总结</td></tr><tr><td>核心亮点</td><td>指标提升、流程优化、跨团队协作、MVP验证</td></tr><tr><td>可讲故事素材</td><td>冲突、决策、难点、结果、复盘</td></tr></table></div>
 
 
 </div></div><!-- /section -->
@@ -270,103 +467,127 @@ hr { border:none; border-top:1px solid var(--border); margin:24px 0; }
 
 
 <div class="section collapsible">
-<h2 id="readme-知识体系概览" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 知识体系概览</h2>
+<h2 id="profile-虚拟用户示例" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 虚拟用户示例</h2>
 <div class="section-body">
 
 
-<p>本系统目前沉淀了8大AI产品经理核心知识模块，覆盖从技术基础到产品能力到商业化的完整体系：</p>
+<h3 id="profile-用户-林然">用户：林然</h3>
 
 
-<pre><code>模块1：LLM与AI技术基础    — Transformer/训练范式/评估指标
-模块2：RAG与Agent框架     — 检索增强生成/Agent架构/工具调用
-模块3：统计学与AB测试      — 假设检验/实验设计/样本量计算
-模块4：Python与SQL         — 数据处理/查询优化/手撕代码
-模块5：PM产品能力           — 需求管理/竞品分析/数据驱动
-模块6：行业与产品分析       — 产品拆解/行业全景/分析模板
-模块7：Prompt与工作流       — 提示工程/MCP协议/工作流编排
-模块8：AI产品设计与商业化   — PRD/成本分析/伦理/技术选型</code></pre>
+<div class="table-wrap"><table><tr><th>维度</th><th>内容</th></tr><tr><td>当前身份</td><td>26届互联网求职者</td></tr><tr><td>目标岗位</td><td>增长产品经理、产品运营、数据产品经理</td></tr><tr><td>优势经历</td><td>做过内容活动运营、搭过业务看板、参与过 A/B 测试</td></tr><tr><td>核心项目</td><td>拉新活动复盘、指标监控体系、AI 工具原型</td></tr><tr><td>主要短板</td><td>产品方法论表达偏弱，项目亮点分散，行业分析不成体系</td></tr></table></div>
 
 
-<p>点击左侧导航栏即可查看各模块的详细内容。</p>
+</div></div><!-- /section -->
+<div class="section collapsible">
+<h2 id="profile-系统如何生成结构化画像" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 系统如何生成结构化画像</h2>
+<div class="section-body">
 
+
+<h3 id="profile-1--能力标签">1. 能力标签</h3>
+
+
+<p>系统会把经历拆成可以直接用于求职表达的标签：</p>
+
+
+<div class="table-wrap"><table><tr><th>能力维度</th><th>识别结果</th></tr><tr><td>数据能力</td><td>强：会做指标拆解、看板、SQL 和实验分析</td></tr><tr><td>运营能力</td><td>强：有活动推进、内容增长、执行闭环经验</td></tr><tr><td>产品能力</td><td>中：有一定方案设计意识，但缺少系统表达</td></tr><tr><td>AI认知</td><td>中：了解 AI 工具和基础应用，但需要补强深度</td></tr></table></div>
+
+
+<h3 id="profile-2--岗位匹配判断">2. 岗位匹配判断</h3>
+
+
+<div class="table-wrap"><table><tr><th>岗位方向</th><th>匹配度</th><th>理由</th></tr><tr><td>增长产品经理</td><td>88%</td><td>数据和增长能力强，适合补强产品表达后冲刺</td></tr><tr><td>产品运营</td><td>90%</td><td>执行与数据闭环优势明显，转化门槛低</td></tr><tr><td>数据产品经理</td><td>82%</td><td>数据分析和指标意识较好，但需增强产品化叙事</td></tr></table></div>
+
+
+<h3 id="profile-3--短板识别">3. 短板识别</h3>
+
+
+<p>系统不会只说“你还不错”，而是输出具体短板：</p>
+
+<ul>
+<li>项目表述偏执行，缺少“为什么这么做”的产品判断</li>
+<li>自我介绍亮点分散，没有形成一个统一的记忆点</li>
+<li>行业分析与岗位认知储备不足，容易在追问中失分</li>
+<li>同一项目没有形成产品岗、运营岗、数据岗三个版本</li>
+</ul>
 
 </div></div><!-- /section -->
 
 
 
 <div class="section collapsible">
-<h2 id="readme-求职管理系统" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 求职管理系统</h2>
+<h2 id="profile-画像如何驱动后续模块" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 画像如何驱动后续模块</h2>
 <div class="section-body">
 
 
-<p>除了知识库之外，本系统的另一个核心模块是<strong>求职全流程管理</strong>——覆盖从岗位投递、面试准备到面试复盘的完整闭环。</p>
+<pre><code>用户画像
+  ↓
+定制知识库：决定先学什么、补什么
+  ↓
+岗位追踪：决定先投什么、不投什么
+  ↓
+面试准备：决定每场面试强调哪些优势
+  ↓
+简历与自我介绍：决定同一经历如何改写
+  ↓
+面试复盘：把暴露出的新短板反哺回画像</code></pre>
 
 
-<h3 id="readme-求职管理工作流">求职管理工作流</h3>
+</div></div><!-- /section -->
+<div class="section collapsible">
+<h2 id="profile-生成结果示例" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 生成结果示例</h2>
+<div class="section-body">
 
 
-<pre><code>发现岗位 → 岗位追踪表（录入+匹配度评估+梯队分类）
-    ↓
-收到面试 → 面试准备（AI辅助生成：公司分析+JD匹配+高频题+定制答案）
-    ↓
-面试结束 → 面试复盘（AI辅助分析：逐题评分+信号解读+通过概率+改进计划）
-    ↓
-持续迭代 → 知识库更新（将面试中暴露的短板补充到知识库对应模块）</code></pre>
+<h3 id="profile-系统给林然的建议">系统给林然的建议</h3>
 
 
-<h3 id="readme-三大功能模块">三大功能模块</h3>
+<h4 id="profile-岗位策略">岗位策略</h4>
+
+<ul>
+<li>主投：增长产品经理、产品运营</li>
+<li>次投：数据产品经理</li>
+<li>暂缓：纯算法、纯研发、高门槛商业分析岗</li>
+</ul>
+
+<h4 id="profile-知识补强优先级">知识补强优先级</h4>
+
+<ol>
+<li>需求分析、优先级、竞品与方案设计</li>
+<li>行业分析与岗位认知</li>
+<li>自我介绍和 STAR 故事结构</li>
+<li>SQL 与 A/B 测试保持手感</li>
+</ol>
+
+<h4 id="profile-表达策略">表达策略</h4>
+
+<ul>
+<li>把“执行了什么”升级成“发现了什么问题、怎么判断、为什么这样做”</li>
+<li>每个项目都要补齐目标、方案、指标、结果、复盘五要素</li>
+<li>增长岗强调数据闭环，产品岗强调方案判断，数据岗强调指标与分析深度</li>
+</ul>
+
+</div></div><!-- /section -->
 
 
-<h4 id="readme-1--岗位追踪表">1. 岗位追踪表</h4>
+
+<div class="section collapsible">
+<h2 id="profile-这个模块的产品价值" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 这个模块的产品价值</h2>
+<div class="section-body">
 
 
-<p>集中管理所有投递岗位的状态和进度：</p>
+<p>用户画像不是“做一张档案卡”这么简单，它是整个系统的<strong>路由层</strong>。</p>
 
 
-<div class="table-wrap"><table><tr><th>功能</th><th>说明</th></tr><tr><td>投递进度总览</td><td>一张表看清所有岗位的一面/二面/HR面/Offer状态</td></tr><tr><td>匹配度评估</td><td>根据JD和个人经历计算匹配度百分比</td></tr><tr><td>梯队分类</td><td>按匹配度分为第一梯队（80%+）、第二梯队（70-80%）等，确定投递优先级</td></tr><tr><td>投递策略</td><td>基于匹配度和紧急程度制定行动计划</td></tr></table></div>
+<p>它决定：</p>
 
+<ul>
+<li>知识库该怎么定制</li>
+<li>岗位追踪该怎么排序</li>
+<li>面试准备该突出哪些经历</li>
+<li>简历与自我介绍该怎么改写</li>
+</ul>
 
-<p><strong>使用方式</strong>：每次投递后更新状态，每次面试后更新进度，保持全局视角。</p>
-
-
-<h4 id="readme-2--面试准备-AI辅助生成-">2. 面试准备（AI辅助生成）</h4>
-
-
-<p>每收到一个面试邀请，系统会辅助生成一份完整的面试准备文档：</p>
-
-
-<div class="table-wrap"><table><tr><th>板块</th><th>内容</th><th>AI如何辅助</th></tr><tr><td>公司深度认知</td><td>公司画像、产品矩阵、融资阶段、核心客户</td><td>AI联网搜索公司信息并结构化整理</td></tr><tr><td>JD匹配分析</td><td>逐条匹配JD要求与个人经历，量化匹配度</td><td>AI基于简历和JD自动匹配，识别短板</td></tr><tr><td>高频面试题</td><td>10+道针对该岗位的高概率面试题</td><td>AI结合JD、公司背景和个人经历定制答案</td></tr><tr><td>定制自我介绍</td><td>针对该公司/岗位优化的自我介绍版本</td><td>AI根据匹配点自动调整重点</td></tr><tr><td>面试前检查清单</td><td>需要准备的事项清单</td><td>标准模板+岗位定制项</td></tr></table></div>
-
-
-<p><strong>核心价值</strong>：每道面试题的答案都不是泛泛的模板，而是<strong>结合我的三段实习经历（时代天使AI产品+得物数据分析+蔚来AB测试）量身定制</strong>的。</p>
-
-
-<h4 id="readme-3--面试复盘-AI辅助分析-">3. 面试复盘（AI辅助分析）</h4>
-
-
-<p>每次面试结束后，将面试录音转写文本输入系统，AI会生成结构化的复盘报告：</p>
-
-
-<div class="table-wrap"><table><tr><th>板块</th><th>内容</th><th>价值</th></tr><tr><td>面试流程还原</td><td>按阶段拆分面试流程，标注时间占比</td><td>了解面试官的考察重点分布</td></tr><tr><td>逐题评分</td><td>每道题1-5星评分，分析优缺点</td><td>精确定位哪些回答好、哪些需要改进</td></tr><tr><td>面试官信号分析</td><td>解读积极/消极信号（语言、行为、追问深度）</td><td>判断面试官的态度和关注点</td></tr><tr><td>通过概率评估</td><td>基于表现综合评估通过概率</td><td>理性预期，合理安排精力</td></tr><tr><td>行动计划</td><td>具体的改进措施和后续准备</td><td>每次面试都是成长机会</td></tr></table></div>
-
-
-<p><strong>核心价值</strong>：面试不再是&quot;面完就忘&quot;，而是形成<strong>&quot;面试→复盘→知识库更新→下次面试表现更好&quot;的正向循环</strong>。</p>
-
-
-<h3 id="readme-数据驱动的求职决策">数据驱动的求职决策</h3>
-
-
-<p>通过系统性地记录和分析，可以发现一些规律性的洞察：</p>
-
-
-<pre><code>示例洞察：
-- 项目经历回答的评分普遍4-5星 → 核心武器，继续深化
-- AI行业认知类问题评分偏低 → 短板，优先补强知识库模块2和模块7
-- 填充词（&quot;呃/嗯/就是&quot;）在多场面试复盘中被反复提到 → 需要刻意练习
-- 自我介绍控制在1.5分钟最佳 → 固化为标准版本</code></pre>
-
-
-<blockquote class="interview-template"><p><strong>说明</strong>：本展示版中&quot;求职管理&quot;板块使用虚拟数据（A/B/C公司），用于展示系统的功能结构和使用方式。实际使用中，每个公司都有真实的深度分析和定制化的面试准备。</p></blockquote>
+<p>没有用户画像，后续模块只能输出通用模板；有了用户画像，后续模块才会真正个性化。</p>
 
 
 </div></div><!-- /section -->
@@ -2875,6 +3096,823 @@ API网关（鉴权、限流、路由）
 
 
 </div>
+<div class="page" id="page-tracker" data-raw="tracker">
+
+<h1 id="tracker-目标岗位追踪">目标岗位追踪</h1>
+
+
+<blockquote><p>这是 AI 求职战略局里的“求职 CRM”，用于管理岗位池、判断优先级、追踪进度和安排动作。</p></blockquote>
+
+
+<hr>
+
+
+
+<div class="section collapsible">
+<h2 id="tracker-这个模块解决什么问题" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 这个模块解决什么问题</h2>
+<div class="section-body">
+
+
+<p>很多求职者的问题不是投得少，而是：</p>
+
+<ul>
+<li>不知道哪些岗位更值得先投</li>
+<li>投递后没有统一进度管理</li>
+<li>只看公司名，不看岗位匹配度</li>
+<li>面试和投递节奏混乱，容易顾此失彼</li>
+</ul>
+
+<p>岗位追踪模块的作用，就是把“投什么、什么时候投、投完做什么”都放进同一套系统里管理。</p>
+
+
+</div></div><!-- /section -->
+<div class="section collapsible">
+<h2 id="tracker-系统会记录哪些字段" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 系统会记录哪些字段</h2>
+<div class="section-body">
+
+
+<div class="table-wrap"><table><tr><th>字段</th><th>作用</th></tr><tr><td>公司 / 岗位</td><td>记录目标机会</td></tr><tr><td>岗位方向</td><td>产品 / 运营 / 数据</td></tr><tr><td>匹配度</td><td>结合用户画像和 JD 生成匹配评分</td></tr><tr><td>当前状态</td><td>待投递、已投递、约面、面试中、Offer、淘汰</td></tr><tr><td>当前轮次</td><td>一面、二面、HR面、Offer沟通</td></tr><tr><td>优先级</td><td>立即推进、持续跟进、观察、放弃</td></tr><tr><td>备注</td><td>JD关键词、风险点、下一步动作</td></tr></table></div>
+
+
+</div></div><!-- /section -->
+
+
+
+<div class="section collapsible">
+<h2 id="tracker-示例-林然的岗位池" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 示例：林然的岗位池</h2>
+<div class="section-body">
+
+
+<blockquote><p>最后更新：2026年3月</p></blockquote>
+
+<blockquote class="interview-template"><p>总岗位数：9 | 立即推进：3 | 面试中：2 | 待投递：3 | Offer：1</p></blockquote>
+
+
+<h3 id="tracker-投递进度总览">投递进度总览</h3>
+
+
+<div class="table-wrap"><table><tr><th>#</th><th>公司</th><th>岗位</th><th>方向</th><th>匹配度</th><th>状态</th><th>当前轮次</th><th>下一步动作</th></tr><tr><td>1</td><td>A公司</td><td>增长产品经理</td><td>产品</td><td>91%</td><td>面试中</td><td>二面</td><td>完成面试准备</td></tr><tr><td>2</td><td>B公司</td><td>产品运营</td><td>运营</td><td>89%</td><td>已约面</td><td>一面</td><td>整理自我介绍</td></tr><tr><td>3</td><td>C公司</td><td>数据产品经理</td><td>数据</td><td>86%</td><td>待投递</td><td>-</td><td>优化简历版本</td></tr><tr><td>4</td><td>D公司</td><td>商业化产品经理</td><td>产品</td><td>82%</td><td>待投递</td><td>-</td><td>补充行业认知</td></tr><tr><td>5</td><td>E公司</td><td>增长运营</td><td>运营</td><td>80%</td><td>已投递</td><td>-</td><td>等待反馈</td></tr><tr><td>6</td><td>F公司</td><td>数据分析师</td><td>数据</td><td>78%</td><td>待投递</td><td>-</td><td>补充案例表达</td></tr><tr><td>7</td><td>G公司</td><td>用户运营</td><td>运营</td><td>76%</td><td>已投递</td><td>-</td><td>跟进 HR</td></tr><tr><td>8</td><td>H公司</td><td>AI产品经理</td><td>产品</td><td>74%</td><td>淘汰</td><td>一面未通过</td><td>复盘并沉淀短板</td></tr><tr><td>9</td><td>I公司</td><td>商家运营</td><td>运营</td><td>70%</td><td>观察</td><td>-</td><td>暂不优先</td></tr></table></div>
+
+
+</div></div><!-- /section -->
+<div class="section collapsible">
+<h2 id="tracker-系统如何做优先级判断" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 系统如何做优先级判断</h2>
+<div class="section-body">
+
+
+<h3 id="tracker-1--匹配度">1. 匹配度</h3>
+
+
+<p>系统会参考以下信息综合判断：</p>
+
+<ul>
+<li>目标岗位和用户画像是否匹配</li>
+<li>用户已有经历是否能支撑该岗位表达</li>
+<li>当前知识短板是否能在短时间补齐</li>
+<li>公司与岗位的投入产出比是否合理</li>
+</ul>
+
+<h3 id="tracker-2--梯队分层">2. 梯队分层</h3>
+
+
+<div class="table-wrap"><table><tr><th>梯队</th><th>定义</th><th>建议动作</th></tr><tr><td>第一梯队</td><td>匹配度 85% 以上</td><td>优先投递，重点准备</td></tr><tr><td>第二梯队</td><td>匹配度 75%-84%</td><td>有选择地投，边投边补</td></tr><tr><td>第三梯队</td><td>匹配度 75% 以下</td><td>作为补充机会，不投入过多时间</td></tr></table></div>
+
+
+<h3 id="tracker-3--风险判断">3. 风险判断</h3>
+
+
+<p>除了匹配度，系统还会提醒隐藏风险：</p>
+
+<ul>
+<li>岗位描述很好，但经历不容易讲圆</li>
+<li>公司方向匹配，但岗位技能要求偏重技术</li>
+<li>当前手上已有高优先级面试，不适合分散精力</li>
+</ul>
+
+</div></div><!-- /section -->
+
+
+
+<div class="section collapsible">
+<h2 id="tracker-示例洞察" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 示例洞察</h2>
+<div class="section-body">
+
+
+<h3 id="tracker-梯队分布">梯队分布</h3>
+
+
+<div class="table-wrap"><table><tr><th>梯队</th><th>岗位</th><th>结论</th></tr><tr><td>第一梯队</td><td>A公司增长产品、B公司产品运营、C公司数据产品</td><td>立即推进</td></tr><tr><td>第二梯队</td><td>D公司商业化产品、E公司增长运营、F公司数据分析</td><td>结合时间窗口推进</td></tr><tr><td>第三梯队</td><td>G公司用户运营、I公司商家运营</td><td>保留但不优先</td></tr></table></div>
+
+
+<h3 id="tracker-系统给出的策略建议">系统给出的策略建议</h3>
+
+
+<pre><code>当前最值得投入的不是“继续海投”，而是：
+1. 先拿下 A、B 两场面试
+2. 为 C 公司准备一份更偏数据产品的简历版本
+3. 把 H 公司一面失败的原因沉淀到知识库和自我介绍里</code></pre>
+
+
+</div></div><!-- /section -->
+
+
+
+<div class="section collapsible">
+<h2 id="tracker-这个模块如何帮助用户" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 这个模块如何帮助用户</h2>
+<div class="section-body">
+
+
+<div class="table-wrap"><table><tr><th>产品能力</th><th>体现方式</th></tr><tr><td>全局视角</td><td>一张表看清全部岗位和状态</td></tr><tr><td>节奏管理</td><td>明确每个岗位下一步动作</td></tr><tr><td>优先级决策</td><td>不再凭感觉决定先投哪个</td></tr><tr><td>资源分配</td><td>把时间投入最有胜率的机会</td></tr><tr><td>复盘闭环</td><td>把失败岗位转化为下一轮改进依据</td></tr></table></div>
+
+
+</div></div><!-- /section -->
+<div class="section collapsible">
+<h2 id="tracker-推荐使用节奏" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 推荐使用节奏</h2>
+<div class="section-body">
+
+<ol>
+<li>每周统一更新一次岗位池</li>
+<li>每次收到面试邀请，立刻把状态切换为“约面/面试中”</li>
+<li>每次面试结束，回写到复盘模块</li>
+<li>每次新增短板，反哺用户画像和知识库</li>
+</ol>
+
+<p>岗位追踪不是简单记录表，而是整套求职系统的节奏中枢。</p>
+
+
+</div></div><!-- /section -->
+</div>
+<div class="page" id="page-prep" data-raw="prep">
+
+<h1 id="prep-面试准备">面试准备</h1>
+
+
+<blockquote class="interview-template"><p>这是 AI 求职战略局里的“面试工单”模块。每收到一个面试邀请，系统都会生成一份可直接使用的准备文档。</p></blockquote>
+
+
+<hr>
+
+
+
+<div class="section collapsible">
+<h2 id="prep-这个模块解决什么问题" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 这个模块解决什么问题</h2>
+<div class="section-body">
+
+
+<p>很多求职者面试前的问题不是“不努力”，而是准备方式低效：</p>
+
+<ul>
+<li>只会查公司简介，不会做岗位拆解</li>
+<li>只会背八股，不会把回答和自己的经历绑定</li>
+<li>准备内容分散，面试前很难快速回顾</li>
+<li>不同岗位共用同一套答案，导致表达不够精准</li>
+</ul>
+
+<p>面试准备模块的目标，就是把一场面试变成一张结构化工单。</p>
+
+
+</div></div><!-- /section -->
+<div class="section collapsible">
+<h2 id="prep-系统输入什么" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 系统输入什么</h2>
+<div class="section-body">
+
+
+<div class="table-wrap"><table><tr><th>输入项</th><th>示例</th></tr><tr><td>公司名称</td><td>某本地生活平台</td></tr><tr><td>目标岗位</td><td>增长产品经理</td></tr><tr><td>面试轮次</td><td>一面 / 二面 / HR面</td></tr><tr><td>JD 关键词</td><td>增长策略、实验分析、跨团队推进</td></tr><tr><td>用户资产</td><td>过往实习、项目、优势标签、短板清单</td></tr></table></div>
+
+
+</div></div><!-- /section -->
+<div class="section collapsible">
+<h2 id="prep-系统输出什么" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 系统输出什么</h2>
+<div class="section-body">
+
+
+<div class="table-wrap"><table><tr><th>输出项</th><th>作用</th></tr><tr><td>公司与岗位认知</td><td>帮用户快速理解面试上下文</td></tr><tr><td>JD 匹配分析</td><td>知道哪些经历最该讲，哪些短板要补</td></tr><tr><td>高频问题清单</td><td>提前预判最可能被问到的题</td></tr><tr><td>个性化回答框架</td><td>不是模板答案，而是结合用户经历定制</td></tr><tr><td>面试前检查清单</td><td>最后 30 分钟快速回顾</td></tr></table></div>
+
+
+</div></div><!-- /section -->
+
+
+
+<div class="section collapsible">
+<h2 id="prep-示例工单" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 示例工单</h2>
+<div class="section-body">
+
+
+<h3 id="prep-某本地生活平台---增长产品经理---一面准备">某本地生活平台 · 增长产品经理 · 一面准备</h3>
+
+
+<blockquote><p>用户：林然</p></blockquote>
+
+<blockquote><p>目标岗位：增长产品经理</p></blockquote>
+
+<blockquote><p>轮次：一面</p></blockquote>
+
+<blockquote><p>准备日期：2026年3月</p></blockquote>
+
+
+</div></div><!-- /section -->
+<div class="section collapsible">
+<h2 id="prep-一-公司与岗位认知" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 一、公司与岗位认知</h2>
+<div class="section-body">
+
+
+<h3 id="prep-1--公司画像">1. 公司画像</h3>
+
+
+<div class="table-wrap"><table><tr><th>维度</th><th>内容</th></tr><tr><td>业务类型</td><td>本地生活平台，覆盖到店、到家、营销等业务</td></tr><tr><td>核心目标</td><td>提升用户留存、交易频次和商家增长效率</td></tr><tr><td>岗位特点</td><td>强调增长策略、数据分析、跨团队推进</td></tr><tr><td>面试重点</td><td>业务理解、指标思维、增长实验、项目表达</td></tr></table></div>
+
+
+<h3 id="prep-2--JD-匹配分析">2. JD 匹配分析</h3>
+
+
+<div class="table-wrap"><table><tr><th>JD 要求</th><th>用户可讲资产</th><th>匹配判断</th></tr><tr><td>具备增长思维</td><td>做过拉新活动和转化复盘</td><td>强匹配</td></tr><tr><td>会数据分析和实验设计</td><td>有 SQL、看板、A/B 测试经验</td><td>强匹配</td></tr><tr><td>能推动跨团队协作</td><td>有运营、数据、产品协同经历</td><td>中强匹配</td></tr><tr><td>有系统化产品表达</td><td>项目表达还需补强</td><td>需要准备</td></tr></table></div>
+
+
+<p><strong>系统建议</strong>：这场面试不要把自己讲成“纯执行型运营”，而要讲成“能基于数据发现问题、提出方案并推动落地的人”。</p>
+
+
+</div></div><!-- /section -->
+
+
+
+<div class="section collapsible">
+<h2 id="prep-二-高概率问题" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 二、高概率问题</h2>
+<div class="section-body">
+
+
+<h3 id="prep-Q1-你如何理解增长产品经理这个岗位-">Q1：你如何理解增长产品经理这个岗位？</h3>
+
+
+<p><strong>回答角度</strong>：</p>
+
+<ul>
+<li>不是单纯做活动，而是围绕用户增长目标设计长期机制</li>
+<li>要能把业务目标拆成可验证的指标和实验</li>
+<li>需要兼顾用户体验、业务结果和执行落地</li>
+</ul>
+
+<h3 id="prep-Q2-讲一个你做过的增长或转化优化案例">Q2：讲一个你做过的增长或转化优化案例</h3>
+
+
+<p><strong>优先调用的项目素材</strong>：</p>
+
+<ul>
+<li>拉新活动复盘项目</li>
+<li>指标看板和转化漏斗项目</li>
+</ul>
+
+<p><strong>回答结构</strong>：</p>
+
+<ol>
+<li>背景和问题是什么</li>
+<li>你如何判断关键流失点</li>
+<li>提出了什么方案</li>
+<li>最终结果和复盘是什么</li>
+</ol>
+
+<h3 id="prep-Q3-如果一个增长策略效果不好-你会怎么排查-">Q3：如果一个增长策略效果不好，你会怎么排查？</h3>
+
+
+<p><strong>建议回答框架</strong>：</p>
+
+<ul>
+<li>先看目标定义和指标口径是否一致</li>
+<li>再看流量、触达、转化链路哪个环节出问题</li>
+<li>再区分是方案问题、执行问题还是用户匹配问题</li>
+<li>最后通过分群分析或实验验证找到改进方向</li>
+</ul>
+
+<h3 id="prep-Q4-你为什么适合这个岗位-">Q4：你为什么适合这个岗位？</h3>
+
+
+<p><strong>系统建议强调</strong>：</p>
+
+<ul>
+<li>你有运营视角，知道业务如何落地</li>
+<li>你有数据能力，能拆指标、做分析、看实验</li>
+<li>你在补强产品表达，这让你更适合增长产品这类跨职能岗位</li>
+</ul>
+
+</div></div><!-- /section -->
+
+
+
+<div class="section collapsible">
+<h2 id="prep-三-个性化回答示例" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 三、个性化回答示例</h2>
+<div class="section-body">
+
+
+<h3 id="prep-问题-请做一个自我介绍">问题：请做一个自我介绍</h3>
+
+
+<blockquote><p>我目前主要在投增长产品、产品运营和数据产品相关岗位。过往经历里，我既做过内容运营，也做过数据分析，所以我的优势是能从业务目标出发拆解问题，并用数据去验证方案。相比只讲执行，我更想强调自己是一个能把业务问题结构化、并推动落地的人。这也是我选择增长产品方向的原因。</p></blockquote>
+
+
+<h3 id="prep-问题-你最有代表性的项目是什么-">问题：你最有代表性的项目是什么？</h3>
+
+
+<blockquote><p>我会优先讲一个拉新活动复盘项目。这个项目里，我不是只看结果，而是把整个转化链路拆开，定位关键流失点，再结合用户分群提出优化建议。这个经历让我意识到，增长岗位最关键的能力不是做了多少动作，而是能不能形成“发现问题 - 设计方案 - 数据验证 - 复盘迭代”的闭环。</p></blockquote>
+
+
+</div></div><!-- /section -->
+
+
+
+<div class="section collapsible">
+<h2 id="prep-四-面试前-30-分钟检查清单" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 四、面试前 30 分钟检查清单</h2>
+<div class="section-body">
+
+<ul class="checklist">
+<li><input type="checkbox"  disabled> 把这场面试最该讲的 2 个项目重新顺一遍</li>
+<li><input type="checkbox"  disabled> 自我介绍控制在 60-90 秒</li>
+<li><input type="checkbox"  disabled> 准备好“为什么是你”而不是只准备“你做过什么”</li>
+<li><input type="checkbox"  disabled> 准备 2 个反问问题</li>
+<li><input type="checkbox"  disabled> 最后再看一次岗位 JD 的关键词</li>
+</ul>
+
+</div></div><!-- /section -->
+<div class="section collapsible">
+<h2 id="prep-五-这个模块的产品价值" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 五、这个模块的产品价值</h2>
+<div class="section-body">
+
+
+<div class="table-wrap"><table><tr><th>产品能力</th><th>体现方式</th></tr><tr><td>个性化</td><td>基于用户画像和经历生成，不是通用模板</td></tr><tr><td>结构化</td><td>一场面试变成一张准备工单</td></tr><tr><td>可复用</td><td>同类岗位可直接复用准备框架</td></tr><tr><td>可迭代</td><td>面试结果会反哺下次准备</td></tr></table></div>
+
+
+<p>面试准备模块的本质，是帮助用户把“临时抱佛脚”变成“围绕目标岗位系统作战”。</p>
+
+
+</div></div><!-- /section -->
+</div>
+<div class="page" id="page-review" data-raw="review">
+
+<h1 id="review-面试复盘">面试复盘</h1>
+
+
+<blockquote class="interview-template"><p>这是 AI 求职战略局里的“复盘工单”模块，用来把一场面试转化成下一次面试的优势。</p></blockquote>
+
+
+<hr>
+
+
+
+<div class="section collapsible">
+<h2 id="review-这个模块解决什么问题" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 这个模块解决什么问题</h2>
+<div class="section-body">
+
+
+<p>很多求职者面试结束后只会得到一句模糊结论：</p>
+
+<ul>
+<li>感觉答得一般</li>
+<li>不知道哪里失分最多</li>
+<li>下次还会重复犯同样的问题</li>
+<li>好的表达没有被沉淀下来</li>
+</ul>
+
+<p>复盘模块的意义，是把“主观感受”变成“结构化诊断”。</p>
+
+
+</div></div><!-- /section -->
+<div class="section collapsible">
+<h2 id="review-系统输入什么" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 系统输入什么</h2>
+<div class="section-body">
+
+
+<div class="table-wrap"><table><tr><th>输入项</th><th>说明</th></tr><tr><td>面试记录</td><td>录音转写、手写笔记、关键词回忆</td></tr><tr><td>岗位信息</td><td>公司、岗位、轮次、面试官角色</td></tr><tr><td>目标表达</td><td>这场面试本来想突出什么优势</td></tr><tr><td>面试结果</td><td>进入下一轮 / 待定 / 未通过</td></tr></table></div>
+
+
+</div></div><!-- /section -->
+<div class="section collapsible">
+<h2 id="review-系统输出什么" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 系统输出什么</h2>
+<div class="section-body">
+
+
+<div class="table-wrap"><table><tr><th>输出项</th><th>作用</th></tr><tr><td>面试流程还原</td><td>还原考察重点分布</td></tr><tr><td>逐题评分</td><td>定位高分题与低分题</td></tr><tr><td>信号分析</td><td>解读面试官关注点和态度</td></tr><tr><td>通过概率判断</td><td>给出理性预期</td></tr><tr><td>行动计划</td><td>明确下次该补什么、怎么改</td></tr></table></div>
+
+
+</div></div><!-- /section -->
+
+
+
+<div class="section collapsible">
+<h2 id="review-示例工单" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 示例工单</h2>
+<div class="section-body">
+
+
+<h3 id="review-某消费互联网公司---产品运营---一面复盘">某消费互联网公司 · 产品运营 · 一面复盘</h3>
+
+
+<blockquote class="interview-template"><p>面试时间：2026年3月</p></blockquote>
+
+<blockquote class="interview-template"><p>面试轮次：一面</p></blockquote>
+
+<blockquote class="interview-template"><p>面试时长：约35分钟</p></blockquote>
+
+<blockquote><p>整体评价：中上，执行经历扎实，但产品判断表达偏弱</p></blockquote>
+
+
+</div></div><!-- /section -->
+<div class="section collapsible">
+<h2 id="review-一-面试流程还原" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 一、面试流程还原</h2>
+<div class="section-body">
+
+
+<div class="table-wrap"><table><tr><th>阶段</th><th>时间占比</th><th>考察重点</th></tr><tr><td>自我介绍</td><td>10%</td><td>基础背景与方向匹配</td></tr><tr><td>项目深挖</td><td>35%</td><td>是否具备结果导向与复盘意识</td></tr><tr><td>数据分析能力</td><td>25%</td><td>是否会看指标、做分析、讲判断</td></tr><tr><td>岗位理解</td><td>20%</td><td>是否理解产品运营岗位价值</td></tr><tr><td>反问环节</td><td>10%</td><td>求职动机与成熟度</td></tr></table></div>
+
+
+<p><strong>系统判断</strong>：这场面试最看重的不是“你做过多少执行”，而是“你能不能把执行升级成运营判断”。</p>
+
+
+</div></div><!-- /section -->
+
+
+
+<div class="section collapsible">
+<h2 id="review-二-逐题评分" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 二、逐题评分</h2>
+<div class="section-body">
+
+
+<h3 id="review-Q1-请做一个自我介绍">Q1：请做一个自我介绍</h3>
+
+
+<p><strong>评分</strong>：4/5</p>
+
+
+<p><strong>优点</strong>：</p>
+
+<ul>
+<li>时长控制较好</li>
+<li>经历顺序清晰</li>
+<li>能突出“运营 + 数据”的组合优势</li>
+</ul>
+
+<p><strong>问题</strong>：</p>
+
+<ul>
+<li>开头记忆点不够强</li>
+<li>目标岗位指向还可以更明确</li>
+</ul>
+
+<h3 id="review-Q2-讲一个你做过的运营项目">Q2：讲一个你做过的运营项目</h3>
+
+
+<p><strong>评分</strong>：5/5</p>
+
+
+<p><strong>优点</strong>：</p>
+
+<ul>
+<li>背景、动作、结果完整</li>
+<li>有数据支撑，不是泛泛描述</li>
+<li>能体现执行与复盘闭环</li>
+</ul>
+
+<p><strong>值得沉淀的表达</strong>：</p>
+
+
+<blockquote><p>我不是只复盘活动效果，而是会把过程拆成关键转化节点，看每个节点的问题在哪里，再决定下一轮优化方向。</p></blockquote>
+
+
+<h3 id="review-Q3-如果一个活动效果不达预期-你会怎么分析-">Q3：如果一个活动效果不达预期，你会怎么分析？</h3>
+
+
+<p><strong>评分</strong>：4/5</p>
+
+
+<p><strong>优点</strong>：</p>
+
+<ul>
+<li>先看目标，再看链路，再看执行，逻辑比较清楚</li>
+</ul>
+
+<p><strong>问题</strong>：</p>
+
+<ul>
+<li>还可以补一个“如何验证猜想”的实验思路</li>
+</ul>
+
+<h3 id="review-Q4-你为什么想做产品运营-">Q4：你为什么想做产品运营？</h3>
+
+
+<p><strong>评分</strong>：3/5</p>
+
+
+<p><strong>问题</strong>：</p>
+
+<ul>
+<li>回答偏经历罗列，缺少岗位理解</li>
+<li>没有把“为什么你适合”说透</li>
+</ul>
+
+<p><strong>建议改法</strong>：</p>
+
+<ul>
+<li>少讲“我做过什么”</li>
+<li>多讲“我为什么适合在产品和业务之间做连接”</li>
+</ul>
+
+</div></div><!-- /section -->
+
+
+
+<div class="section collapsible">
+<h2 id="review-三-面试官信号分析" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 三、面试官信号分析</h2>
+<div class="section-body">
+
+
+<h3 id="review-积极信号">积极信号</h3>
+
+
+<div class="table-wrap"><table><tr><th>信号</th><th>解读</th></tr><tr><td>在项目部分连续追问</td><td>说明对项目内容有兴趣</td></tr><tr><td>针对数据分析细节继续深挖</td><td>说明这部分是你的优势项</td></tr><tr><td>反问阶段认真回答团队情况</td><td>说明并未快速结束对话</td></tr></table></div>
+
+
+<h3 id="review-风险信号">风险信号</h3>
+
+
+<div class="table-wrap"><table><tr><th>信号</th><th>解读</th></tr><tr><td>岗位理解题没有继续追问</td><td>可能说明回答没有打中重点</td></tr><tr><td>自我介绍后没有明显正反馈</td><td>说明记忆点还不够强</td></tr></table></div>
+
+
+</div></div><!-- /section -->
+
+
+
+<div class="section collapsible">
+<h2 id="review-四-综合评估" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 四、综合评估</h2>
+<div class="section-body">
+
+
+<h3 id="review-表现好的地方">表现好的地方</h3>
+
+<ol>
+<li>项目经历有结果、有数据，容易建立可信度</li>
+<li>分析问题的逻辑比较清楚</li>
+<li>执行闭环能力强，适合运营与增长类岗位</li>
+</ol>
+
+<h3 id="review-需要改进的地方">需要改进的地方</h3>
+
+<ol>
+<li>要把“执行经验”升级成“岗位判断”</li>
+<li>岗位理解题不能只靠经历堆砌</li>
+<li>自我介绍的开场需要更有记忆点</li>
+</ol>
+
+<h3 id="review-通过概率评估">通过概率评估</h3>
+
+
+<p><strong>通过概率：65%-75%</strong></p>
+
+
+<p>有利因素：项目答得稳、数据意识较强</p>
+
+<p>不利因素：岗位理解表达不够突出</p>
+
+
+</div></div><!-- /section -->
+
+
+
+<div class="section collapsible">
+<h2 id="review-五-行动计划" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 五、行动计划</h2>
+<div class="section-body">
+
+<ol>
+<li>把“为什么适合产品运营”打磨成固定回答</li>
+<li>在项目题里补上“为什么这样判断”的产品视角</li>
+<li>把这次高分项目回答沉淀到简历与自我介绍模块</li>
+<li>把“岗位理解”相关短板反哺到知识库模块 5 和模块 6</li>
+</ol>
+
+</div></div><!-- /section -->
+<div class="section collapsible">
+<h2 id="review-六-复盘如何反哺整个系统" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 六、复盘如何反哺整个系统</h2>
+<div class="section-body">
+
+
+<pre><code>面试复盘
+  ↓
+更新用户短板画像
+  ↓
+更新定制知识库学习优先级
+  ↓
+更新下一场面试准备重点
+  ↓
+更新简历与自我介绍表达版本</code></pre>
+
+
+<p>这也是 AI 求职战略局最关键的闭环能力：</p>
+
+
+<p><strong>不是只记录一场面试，而是让每场面试都推动整套求职系统变得更强。</strong></p>
+
+
+</div></div><!-- /section -->
+</div>
+<div class="page" id="page-resume" data-raw="resume">
+
+<h1 id="resume-简历与自我介绍">简历与自我介绍</h1>
+
+
+<blockquote><p>这个模块负责把同一份经历，改写成适配不同岗位的表达版本。</p></blockquote>
+
+
+<hr>
+
+
+
+<div class="section collapsible">
+<h2 id="resume-这个模块解决什么问题" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 这个模块解决什么问题</h2>
+<div class="section-body">
+
+
+<p>很多求职者并不是经历不够，而是：</p>
+
+<ul>
+<li>简历写成了流水账，没有重点</li>
+<li>自我介绍总是“背简历”，没有记忆点</li>
+<li>同一项目不会按不同岗位重写</li>
+<li>面试追问时，故事细节和结构容易散</li>
+</ul>
+
+<p>这个模块的目标，是把用户已有的经历沉淀成可以复用的表达资产。</p>
+
+
+</div></div><!-- /section -->
+<div class="section collapsible">
+<h2 id="resume-输出内容" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 输出内容</h2>
+<div class="section-body">
+
+
+<div class="table-wrap"><table><tr><th>输出项</th><th>作用</th></tr><tr><td>简历 bullet 版本</td><td>把同一项目改写成适合不同岗位的描述</td></tr><tr><td>自我介绍版本</td><td>30 秒、90 秒、深挖版</td></tr><tr><td>STAR 素材库</td><td>便于应对行为面与项目追问</td></tr><tr><td>亮点词库</td><td>统一表达口径，避免每次临场重讲</td></tr></table></div>
+
+
+</div></div><!-- /section -->
+
+
+
+<div class="section collapsible">
+<h2 id="resume-简历优化逻辑" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 简历优化逻辑</h2>
+<div class="section-body">
+
+
+<h3 id="resume-一条好-bullet-的基本结构">一条好 bullet 的基本结构</h3>
+
+
+<pre><code>做了什么 + 为什么做 + 怎么做 + 结果如何</code></pre>
+
+
+<h3 id="resume-常见问题">常见问题</h3>
+
+<ul>
+<li>只写动作，不写结果</li>
+<li>只写结果，不写判断过程</li>
+<li>只写执行过程，看不出岗位匹配度</li>
+<li>不同岗位投递时完全共用一份简历</li>
+</ul>
+
+<h3 id="resume-系统优化方式">系统优化方式</h3>
+
+
+<div class="table-wrap"><table><tr><th>优化动作</th><th>说明</th></tr><tr><td>提炼关键词</td><td>从 JD 中提炼高频要求，映射到经历表达</td></tr><tr><td>统一结构</td><td>每条 bullet 尽量遵循问题、动作、结果结构</td></tr><tr><td>强化数据</td><td>能量化就量化，优先写提升、效率、转化、节省</td></tr><tr><td>岗位改写</td><td>同一项目至少生成产品版、运营版、数据版三种表达</td></tr></table></div>
+
+
+</div></div><!-- /section -->
+
+
+
+<div class="section collapsible">
+<h2 id="resume-同一项目如何按岗位重写" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 同一项目如何按岗位重写</h2>
+<div class="section-body">
+
+
+<h3 id="resume-原始项目">原始项目</h3>
+
+
+<p>项目：新用户拉新活动复盘与优化</p>
+
+
+<p>原始描述：参与了一次新用户拉新活动，做了数据分析和复盘，最后效果有提升。</p>
+
+
+<h3 id="resume-改写为产品岗版本">改写为产品岗版本</h3>
+
+
+<blockquote><p>围绕新用户激活率偏低的问题，梳理拉新链路关键节点，结合用户行为数据定位流失环节，提出激励机制与流程优化方案，并推动上线验证，最终提升次日激活率。</p></blockquote>
+
+
+<h3 id="resume-改写为运营岗版本">改写为运营岗版本</h3>
+
+
+<blockquote><p>参与拉新活动从策划、执行到复盘的完整流程，跟踪渠道效果与转化表现，优化活动玩法与触达节奏，推动活动效果持续改善。</p></blockquote>
+
+
+<h3 id="resume-改写为数据岗版本">改写为数据岗版本</h3>
+
+
+<blockquote><p>基于拉新活动数据搭建转化分析框架，拆解曝光、点击、注册、激活各环节指标，定位关键流失节点，并输出优化建议支持业务决策。</p></blockquote>
+
+
+<h3 id="resume-核心差异">核心差异</h3>
+
+
+<div class="table-wrap"><table><tr><th>岗位</th><th>重点强调</th></tr><tr><td>产品岗</td><td>问题定义、方案判断、推进落地</td></tr><tr><td>运营岗</td><td>活动执行、用户触达、增长闭环</td></tr><tr><td>数据岗</td><td>指标拆解、分析框架、归因结论</td></tr></table></div>
+
+
+</div></div><!-- /section -->
+
+
+
+<div class="section collapsible">
+<h2 id="resume-自我介绍怎么生成" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 自我介绍怎么生成</h2>
+<div class="section-body">
+
+
+<h3 id="resume-30-秒版本">30 秒版本</h3>
+
+
+<p>适合开场、校招 AI 面、时间很短的场景。</p>
+
+
+<blockquote><p>我是一名互联网求职者，过往经历主要集中在运营和数据分析，也做过一些产品方案与 AI 工具原型。我的优势是能用数据理解问题、推动执行落地，并把零散项目沉淀成结构化方法论。目前我主要在投增长产品、产品运营和数据产品相关岗位。</p></blockquote>
+
+
+<h3 id="resume-90-秒版本">90 秒版本</h3>
+
+
+<p>适合一面开场，既要讲背景，又要讲核心武器。</p>
+
+
+<blockquote><p>我目前的求职方向主要是增长产品、产品运营和数据产品相关岗位。过往经历里，我分别做过内容运营、业务数据分析和 AI 工具原型，这让我形成了一个比较稳定的能力组合：一是能看数据、拆指标、做实验分析；二是能推动项目落地，关注执行闭环；三是会把经历沉淀成结构化的方案和复盘。</p></blockquote>
+
+<blockquote><p>所以我会把自己定位成一个兼具数据分析能力和业务理解能力的候选人。相比只会讲执行，我更强调自己如何发现问题、做判断、推动方案落地。这也是我希望继续往产品和增长方向发展的原因。</p></blockquote>
+
+
+<h3 id="resume-深挖版">深挖版</h3>
+
+
+<p>适合“介绍一个你最有成就感的项目”或“展开说说你最匹配这个岗位的经历”。</p>
+
+
+<p>这类内容不会直接背，而是调用 STAR 素材库进行组合。</p>
+
+
+</div></div><!-- /section -->
+
+
+
+<div class="section collapsible">
+<h2 id="resume-STAR-素材库" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> STAR 素材库</h2>
+<div class="section-body">
+
+
+<h3 id="resume-素材-1-拉新活动优化">素材 1：拉新活动优化</h3>
+
+
+<div class="table-wrap"><table><tr><th>维度</th><th>内容</th></tr><tr><td>Situation</td><td>新用户注册后激活率偏低，活动投入产出不稳定</td></tr><tr><td>Task</td><td>需要定位转化流失点，并提出优化方案</td></tr><tr><td>Action</td><td>搭建转化漏斗、分析分群差异、提出激励和流程优化建议</td></tr><tr><td>Result</td><td>激活率提升，后续成为复用方案</td></tr></table></div>
+
+
+<h3 id="resume-素材-2-指标看板搭建">素材 2：指标看板搭建</h3>
+
+
+<div class="table-wrap"><table><tr><th>维度</th><th>内容</th></tr><tr><td>Situation</td><td>团队监控依赖人工汇总，口径不统一</td></tr><tr><td>Task</td><td>需要建立统一的指标视图支持日常监控</td></tr><tr><td>Action</td><td>梳理核心指标口径、搭建看板、定义异常追踪流程</td></tr><tr><td>Result</td><td>提升监控效率，缩短问题发现时间</td></tr></table></div>
+
+
+<h3 id="resume-素材-3-AI-工具原型">素材 3：AI 工具原型</h3>
+
+
+<div class="table-wrap"><table><tr><th>维度</th><th>内容</th></tr><tr><td>Situation</td><td>求职准备材料零散，复盘难沉淀</td></tr><tr><td>Task</td><td>需要搭建一个可持续迭代的求职系统原型</td></tr><tr><td>Action</td><td>设计模块结构，整理知识资产，搭建演示版网站</td></tr><tr><td>Result</td><td>形成可演示、可复用、可持续更新的产品原型</td></tr></table></div>
+
+
+</div></div><!-- /section -->
+
+
+
+<div class="section collapsible">
+<h2 id="resume-这个模块如何和其它模块联动" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 这个模块如何和其它模块联动</h2>
+<div class="section-body">
+
+
+<div class="table-wrap"><table><tr><th>来源模块</th><th>如何影响简历与自我介绍</th></tr><tr><td>用户画像</td><td>决定重点突出哪些能力标签</td></tr><tr><td>定制知识库</td><td>决定哪些岗位知识需要临时补强</td></tr><tr><td>岗位追踪</td><td>决定每家公司使用哪一版简历</td></tr><tr><td>面试准备</td><td>决定这场面试开场怎么讲</td></tr><tr><td>面试复盘</td><td>决定哪些表达要删、哪些亮点要强化</td></tr></table></div>
+
+
+</div></div><!-- /section -->
+<div class="section collapsible">
+<h2 id="resume-推荐使用方式" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 推荐使用方式</h2>
+<div class="section-body">
+
+<ol>
+<li>先把经历和项目整理成素材池，不急着写成最终简历</li>
+<li>按岗位生成不同版本的 bullet 和自我介绍</li>
+<li>每次面试后，把面试官认可的表达回写进素材库</li>
+<li>让“最顺口、最有记忆点”的版本成为下一轮面试默认版本</li>
+</ol>
+
+<p>这样，简历与自我介绍就不再是一次性的文档，而会成为整个求职系统里最重要的表达资产。</p>
+
+
+</div></div><!-- /section -->
+</div>
 <div class="page" id="page-project" data-raw="project">
 
 <h1 id="project-项目深度讲解-AI沟通记录摘要系统">项目深度讲解：AI沟通记录摘要系统</h1>
@@ -3108,456 +4146,6 @@ API网关（鉴权、限流、路由）
 
 
 </div>
-<div class="page" id="page-tracker" data-raw="tracker">
-
-<h1 id="tracker-岗位追踪表">岗位追踪表</h1>
-
-
-<blockquote><p>最后更新：2026年3月</p></blockquote>
-
-<blockquote class="interview-template"><p>总投递数：8 | 面试中：3 | 待投递：4 | Offer：1</p></blockquote>
-
-
-<hr>
-
-
-
-<div class="section collapsible">
-<h2 id="tracker-投递进度总览" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 投递进度总览</h2>
-<div class="section-body">
-
-
-<div class="table-wrap"><table><tr><th>#</th><th>公司</th><th>岗位</th><th>匹配度</th><th>状态</th><th>一面</th><th>二面</th><th>HR面</th><th>Offer</th></tr><tr><td>1</td><td>A公司</td><td>AI产品经理</td><td>92%</td><td>✅ Offer</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>2</td><td>B公司</td><td>大模型产品运营</td><td>88%</td><td>面试中</td><td>✅</td><td>待定</td><td>-</td><td>-</td></tr><tr><td>3</td><td>C公司</td><td>AI产品经理</td><td>85%</td><td>面试中</td><td>✅</td><td>-</td><td>-</td><td>-</td></tr><tr><td>4</td><td>D公司</td><td>数据产品经理</td><td>83%</td><td>面试中</td><td>待定</td><td>-</td><td>-</td><td>-</td></tr><tr><td>5</td><td>E公司</td><td>AI应用PM</td><td>80%</td><td>待投递</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>6</td><td>F公司</td><td>增长产品经理</td><td>78%</td><td>待投递</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>7</td><td>G公司</td><td>AI策略PM</td><td>75%</td><td>待投递</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>8</td><td>H公司</td><td>产品经理</td><td>70%</td><td>❌ 一面未通过</td><td>✅</td><td>-</td><td>-</td><td>-</td></tr></table></div>
-
-
-</div></div><!-- /section -->
-
-
-
-<div class="section collapsible">
-<h2 id="tracker-岗位梯队分布" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 岗位梯队分布</h2>
-<div class="section-body">
-
-
-<h3 id="tracker-第一梯队-匹配80---重点投递-">第一梯队（匹配80%+，重点投递）</h3>
-
-
-<div class="table-wrap"><table><tr><th>公司</th><th>岗位</th><th>匹配度</th><th>核心匹配点</th></tr><tr><td>A公司</td><td>AI产品经理</td><td>92%</td><td>AI产品实战+电商数据分析+Agent搭建经验</td></tr><tr><td>B公司</td><td>大模型产品运营</td><td>88%</td><td>LLM应用经验+Prompt迭代+数据驱动</td></tr><tr><td>C公司</td><td>AI产品经理</td><td>85%</td><td>RAG知识库+MVP方法论+跨团队协作</td></tr><tr><td>D公司</td><td>数据产品经理</td><td>83%</td><td>数据分析功底+看板设计+指标体系</td></tr></table></div>
-
-
-<h3 id="tracker-第二梯队-匹配70-80--值得投-">第二梯队（匹配70-80%，值得投）</h3>
-
-
-<div class="table-wrap"><table><tr><th>公司</th><th>岗位</th><th>匹配度</th><th>核心匹配点</th></tr><tr><td>E公司</td><td>AI应用PM</td><td>80%</td><td>AI产品全链路+Dify工作流经验</td></tr><tr><td>F公司</td><td>增长产品经理</td><td>78%</td><td>数据驱动增长+AB测试+用户分群</td></tr><tr><td>G公司</td><td>AI策略PM</td><td>75%</td><td>统计学背景+AB测试+产品思维</td></tr></table></div>
-
-
-</div></div><!-- /section -->
-
-
-
-<div class="section collapsible">
-<h2 id="tracker-投递策略" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 投递策略</h2>
-<div class="section-body">
-
-
-<pre><code>匹配程度：A(92%) &gt; B(88%) &gt; C(85%) &gt; D(83%) &gt; E(80%) &gt; F(78%) &gt; G(75%)
-当前重心：集中精力准备B公司二面和C公司一面复盘
-下一步：拿到更多面试机会，争取手上有2-3个Offer可以比较</code></pre>
-
-
-</div></div><!-- /section -->
-
-
-<p>*每次面试后更新此表，每次投递后更新状态*</p>
-
-
-
-</div>
-<div class="page" id="page-prep" data-raw="prep">
-
-<h1 id="prep-B公司---大模型产品运营---二面准备">B公司 · 大模型产品运营 — 二面准备</h1>
-
-
-<blockquote><p>岗位：大模型产品运营（ToB方向）</p></blockquote>
-
-<blockquote><p>公司：B公司（互联网大厂，AI业务线）</p></blockquote>
-
-<blockquote class="interview-template"><p>面试轮次：二面（业务负责人面）</p></blockquote>
-
-<blockquote><p>准备日期：2026年3月</p></blockquote>
-
-
-<hr>
-
-
-
-<div class="section collapsible">
-<h2 id="prep-一-公司与岗位认知" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 一、公司与岗位认知</h2>
-<div class="section-body">
-
-
-<h3 id="prep-1-1-公司画像">1.1 公司画像</h3>
-
-
-<div class="table-wrap"><table><tr><th>维度</th><th>内容</th></tr><tr><td>行业地位</td><td>互联网头部企业，AI业务为战略重点</td></tr><tr><td>AI产品线</td><td>大模型平台、AI Agent工具、企业级AI解决方案</td></tr><tr><td>核心客户</td><td>中大型企业的数字化转型需求</td></tr><tr><td>团队规模</td><td>AI事业部200+人，产品运营团队20+人</td></tr></table></div>
-
-
-<h3 id="prep-1-2-JD核心要求匹配">1.2 JD核心要求匹配</h3>
-
-
-<div class="table-wrap"><table><tr><th>JD要求</th><th>我的匹配点</th><th>匹配度</th></tr><tr><td>大模型产品运营经验</td><td>时代天使AI产品从0→1，含Prompt迭代和RAG优化</td><td>★★★★★</td></tr><tr><td>数据驱动运营决策</td><td>得物数据分析：指标监控+异动归因+AB测试</td><td>★★★★★</td></tr><tr><td>ToB客户需求理解</td><td>时代天使项目服务200+设计师，理解内部用户需求</td><td>★★★★</td></tr><tr><td>跨团队协作推动</td><td>三段实习均有跨部门协作经验</td><td>★★★★</td></tr><tr><td>AI技术基础理解</td><td>统计学硕士+LLM/RAG/Agent技术栈实践</td><td>★★★★★</td></tr></table></div>
-
-
-<p><strong>总体匹配度：88%</strong></p>
-
-
-</div></div><!-- /section -->
-
-
-
-<div class="section collapsible">
-<h2 id="prep-二-二面高概率问题" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 二、二面高概率问题</h2>
-<div class="section-body">
-
-
-<h3 id="prep-Q1-你做的AI产品-最核心的产品决策是什么-">Q1：你做的AI产品，最核心的产品决策是什么？</h3>
-
-
-<blockquote><p>最核心的决策是<strong>选择ASR+LLM两步走而不是端到端多模态方案</strong>。</p></blockquote>
-
-<blockquote><p></p></blockquote>
-
-<blockquote><p>我对比了两条技术路径：一是用多模态模型直接从语音生成文本摘要（端到端），二是先用ASR转写成文字再用LLM总结（两步走）。</p></blockquote>
-
-<blockquote><p></p></blockquote>
-
-<blockquote><p>选择两步走的原因有三个：</p></blockquote>
-
-<blockquote><p>1. 我们的场景涉及大量正畸专业术语，ASR的热词库功能可以针对性纠错，而端到端模型对专业术语的处理不可控</p></blockquote>
-
-<blockquote><p>2. 两步走架构每一步都可以独立优化和调试——ASR出了问题改ASR，LLM出了问题改Prompt，而端到端是黑盒</p></blockquote>
-
-<blockquote><p>3. ASR+LLM的成本远低于多模态模型的API调用成本</p></blockquote>
-
-<blockquote><p></p></blockquote>
-
-<blockquote><p>结果证明这个决策是对的：专业术语准确率在加入热词库后提升了15个百分点，这是端到端方案很难做到的。</p></blockquote>
-
-
-<h3 id="prep-Q2-如果让你负责一个大模型ToB产品的运营-你会怎么做冷启动-">Q2：如果让你负责一个大模型ToB产品的运营，你会怎么做冷启动？</h3>
-
-
-<blockquote><p>我会分三步走：</p></blockquote>
-
-<blockquote><p></p></blockquote>
-
-<blockquote><p><strong>第一步：找到种子客户（第1-2周）</strong></p></blockquote>
-
-<blockquote><p>- 不追求数量，找3-5个&quot;痛点最强烈+配合度最高&quot;的客户</p></blockquote>
-
-<blockquote><p>- 标准：有明确的AI应用场景、有内部技术对接人、愿意给反馈</p></blockquote>
-
-<blockquote><p>- 方法：通过销售团队筛选+行业活动定向邀请</p></blockquote>
-
-<blockquote><p></p></blockquote>
-
-<blockquote><p><strong>第二步：打磨PMF（第3-8周）</strong></p></blockquote>
-
-<blockquote><p>- 和种子客户深度共创，每周至少一次沟通</p></blockquote>
-
-<blockquote><p>- 用数据追踪核心指标：接入成功率、日均调用量、用户满意度</p></blockquote>
-
-<blockquote><p>- 每两周一次产品迭代，优先解决使用率低的功能模块</p></blockquote>
-
-<blockquote><p></p></blockquote>
-
-<blockquote><p><strong>第三步：建立标杆案例（第9-12周）</strong></p></blockquote>
-
-<blockquote><p>- 从种子客户中选1-2个效果最好的，包装成行业案例</p></blockquote>
-
-<blockquote><p>- 量化ROI：&quot;接入后效率提升X%，成本降低Y%&quot;</p></blockquote>
-
-<blockquote><p>- 用案例驱动下一批客户转化</p></blockquote>
-
-
-<h3 id="prep-Q3-你怎么评估一个AI产品的效果-">Q3：你怎么评估一个AI产品的效果？</h3>
-
-
-<blockquote><p>我有一套在实习中验证过的三层评估方法论：</p></blockquote>
-
-<blockquote><p></p></blockquote>
-
-<blockquote><p><strong>第一层：定量指标</strong> — 告诉我&quot;好不好&quot;</p></blockquote>
-
-<blockquote><p>- 核心指标（如准确率、效率提升比）</p></blockquote>
-
-<blockquote><p>- 使用指标（DAU、调用频次、功能渗透率）</p></blockquote>
-
-<blockquote><p>- 成本指标（单次调用成本、ROI）</p></blockquote>
-
-<blockquote><p></p></blockquote>
-
-<blockquote><p><strong>第二层：达标线</strong> — 告诉我&quot;能不能上线&quot;</p></blockquote>
-
-<blockquote><p>- 在时代天使项目中，我设计了100分制5维度评分表</p></blockquote>
-
-<blockquote><p>- A级(≥85)可上线、B级(70-84)微调后上线、C级(&lt;55)重做</p></blockquote>
-
-<blockquote><p></p></blockquote>
-
-<blockquote><p><strong>第三层：归因分析</strong> — 告诉我&quot;怎么改&quot;</p></blockquote>
-
-<blockquote><p>- 每个bad case归因到四类：Prompt缺陷/知识库缺失/模型能力/输入质量</p></blockquote>
-
-<blockquote><p>- 按频次排序，优先解决占比最高的问题</p></blockquote>
-
-
-<h3 id="prep-Q4-你对AI-Agent的理解是什么-">Q4：你对AI Agent的理解是什么？</h3>
-
-
-<blockquote><p>AI Agent的核心是从&quot;对话&quot;到&quot;行动&quot;的跨越。</p></blockquote>
-
-<blockquote><p></p></blockquote>
-
-<blockquote><p>传统的LLM应用是&quot;一问一答&quot;——用户提问，模型回答。而Agent是&quot;给目标，自主完成&quot;——用户说&quot;帮我分析这个月的销售数据并生成报告&quot;，Agent会自主规划步骤、调用工具（连接数据库、生成图表、写报告），最终交付结果。</p></blockquote>
-
-<blockquote><p></p></blockquote>
-
-<blockquote><p>从技术架构看，Agent = LLM（大脑）+ 工具调用（手脚）+ 记忆（上下文）+ 规划（思考链）</p></blockquote>
-
-<blockquote><p></p></blockquote>
-
-<blockquote><p>从产品角度看，Agent的关键挑战不是&quot;能不能做到&quot;，而是&quot;做到的可靠性够不够&quot;。目前Agent最大的问题是长链路任务的错误累积——每一步95%的准确率，10步下来只剩60%。</p></blockquote>
-
-
-<h3 id="prep-Q5-你有什么问题想问我-">Q5：你有什么问题想问我？</h3>
-
-
-<blockquote><p>1. 我们团队目前在大模型产品运营中，最大的挑战是什么？</p></blockquote>
-
-<blockquote><p>2. 这个岗位入职后前3个月，您期望我能产出什么样的成果？</p></blockquote>
-
-
-</div></div><!-- /section -->
-
-
-
-<div class="section collapsible">
-<h2 id="prep-三-面试前检查清单" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 三、面试前检查清单</h2>
-<div class="section-body">
-
-<ul class="checklist">
-<li><input type="checkbox"  disabled> 深度体验该公司的AI产品，准备2-3个改进建议</li>
-<li><input type="checkbox"  disabled> 准备好&quot;为什么选择这家公司&quot;的回答</li>
-<li><input type="checkbox"  disabled> 减少填充词，每分钟&quot;呃/嗯&quot;不超过2次</li>
-<li><input type="checkbox"  disabled> 自我介绍控制在1.5分钟内</li>
-</ul>
-
-</div></div><!-- /section -->
-</div>
-<div class="page" id="page-review" data-raw="review">
-
-<h1 id="review-C公司---AI产品经理---一面复盘">C公司 · AI产品经理 — 一面复盘</h1>
-
-
-<blockquote class="interview-template"><p>面试时间：2026年3月</p></blockquote>
-
-<blockquote class="interview-template"><p>面试轮次：一面（业务面）</p></blockquote>
-
-<blockquote class="interview-template"><p>面试官角色：AI产品团队负责人</p></blockquote>
-
-<blockquote class="interview-template"><p>面试时长：约40分钟</p></blockquote>
-
-<blockquote><p>整体评价：⭐⭐⭐⭐（4/5）— 项目深挖回答扎实，但AI行业认知部分有提升空间</p></blockquote>
-
-
-<hr>
-
-
-
-<div class="section collapsible">
-<h2 id="review-一-面试流程还原" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 一、面试流程还原</h2>
-<div class="section-body">
-
-
-<div class="table-wrap"><table><tr><th>阶段</th><th>时间占比</th><th>内容</th></tr><tr><td>自我介绍</td><td>10%</td><td>1.5分钟精炼版</td></tr><tr><td>项目深挖</td><td>40%</td><td>AI沟通记录产品的完整链路+技术选型+评估体系</td></tr><tr><td>数据分析能力</td><td>20%</td><td>得物实习中的指标监控和归因分析</td></tr><tr><td>AI行业认知</td><td>20%</td><td>Agent趋势、RAG vs Fine-tune、产品商业化</td></tr><tr><td>尾声</td><td>10%</td><td>求职意愿、到岗时间</td></tr></table></div>
-
-
-</div></div><!-- /section -->
-
-
-
-<div class="section collapsible">
-<h2 id="review-二-逐题复盘" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 二、逐题复盘</h2>
-<div class="section-body">
-
-
-<h3 id="review-Q1-自我介绍">Q1：自我介绍</h3>
-
-
-<p><strong>评分</strong>：⭐⭐⭐⭐（4/5）</p>
-
-
-<p><strong>优点</strong>：</p>
-<ul>
-<li>控制在1.5分钟内，结构清晰</li>
-<li>两个核心匹配点（AI产品实战+数据分析能力）讲得明确</li>
-</ul>
-
-<p><strong>改进</strong>：</p>
-<ul>
-<li>开头可以更有记忆点，目前偏模板化</li>
-</ul>
-
-</div></div><!-- /section -->
-
-
-<h3 id="review-Q2-AI产品项目的技术选型过程">Q2：AI产品项目的技术选型过程</h3>
-
-
-<p><strong>评分</strong>：⭐⭐⭐⭐⭐（5/5）</p>
-
-
-<p><strong>优点</strong>：</p>
-<ul>
-<li>讲清楚了两条技术路径（ASR+LLM vs 端到端多模态）的对比</li>
-<li>选择理由有三个维度（专业术语、可调试性、成本）</li>
-<li>面试官追问&quot;为什么不用Fine-tune&quot;也回答得很好</li>
-</ul>
-
-<hr>
-
-
-<h3 id="review-Q3-评估体系是怎么设计的-">Q3：评估体系是怎么设计的？</h3>
-
-
-<p><strong>评分</strong>：⭐⭐⭐⭐⭐（5/5）</p>
-
-
-<p><strong>优点</strong>：</p>
-<ul>
-<li>三层评估体系（定量指标→达标线→归因分析）逻辑清晰</li>
-<li>有具体的数据支撑（100分制、5维度、4类归因）</li>
-</ul>
-
-<p><strong>面试官反应</strong>：</p>
-<ul>
-<li>主动说&quot;这个评估方法论很系统&quot;——明确的正向信号</li>
-</ul>
-
-<hr>
-
-
-<h3 id="review-Q4-得物实习中遇到过什么数据质量问题-">Q4：得物实习中遇到过什么数据质量问题？</h3>
-
-
-<p><strong>评分</strong>：⭐⭐⭐⭐（4/5）</p>
-
-
-<p><strong>优点</strong>：</p>
-<ul>
-<li>讲了一个具体的数据口径不一致问题</li>
-<li>说明了发现→排查→修复→预防的完整闭环</li>
-</ul>
-
-<p><strong>改进</strong>：</p>
-<ul>
-<li>可以更具体地说SQL层面的排查过程，展示技术深度</li>
-</ul>
-
-<hr>
-
-
-<h3 id="review-Q5-你怎么看Agent的发展趋势-">Q5：你怎么看Agent的发展趋势？</h3>
-
-
-<p><strong>评分</strong>：⭐⭐⭐（3/5）</p>
-
-
-<p><strong>问题</strong>：</p>
-<ul>
-<li>回答偏泛——只说了&quot;从对话到行动&quot;的大框架</li>
-<li>缺少对具体技术方案的了解（如MCP、Function Calling的区别）</li>
-<li>没有提到自己的实践经验</li>
-</ul>
-
-<p><strong>改进</strong>：</p>
-<ul>
-<li>应该结合自己使用OpenClaw等Agent工具的经验来回答</li>
-<li>需要补充MCP协议的具体知识</li>
-</ul>
-
-<hr>
-
-
-
-<div class="section collapsible">
-<h2 id="review-三-面试官释放的信号" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 三、面试官释放的信号</h2>
-<div class="section-body">
-
-
-<h3 id="review-积极信号">积极信号</h3>
-
-
-<div class="table-wrap"><table><tr><th>信号</th><th>原话/行为</th></tr><tr><td>评估体系获得肯定</td><td>&quot;这个方法论很系统&quot;</td></tr><tr><td>追问细节意味着感兴趣</td><td>在项目部分追问了5个以上细节问题</td></tr><tr><td>介绍了团队情况</td><td>主动说了团队规模和当前在做的事情</td></tr></table></div>
-
-
-<h3 id="review-需要注意的信号">需要注意的信号</h3>
-
-
-<div class="table-wrap"><table><tr><th>信号</th><th>解读</th></tr><tr><td>Agent问题没有追问</td><td>可能对这部分回答不满意</td></tr><tr><td>时长40分钟偏标准</td><td>没有明显延长，说明没有特别惊喜</td></tr></table></div>
-
-
-</div></div><!-- /section -->
-
-
-
-<div class="section collapsible">
-<h2 id="review-四-整体评估" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 四、整体评估</h2>
-<div class="section-body">
-
-
-<h3 id="review-表现好的地方">表现好的地方</h3>
-<ol>
-<li>项目经历扎实，经得住追问</li>
-<li>评估体系获得面试官明确肯定</li>
-<li>自我介绍精炼、结构化</li>
-</ol>
-
-<h3 id="review-需要改进的地方">需要改进的地方</h3>
-<ol>
-<li>AI行业认知需要加深——特别是Agent/MCP相关</li>
-<li>数据分析经历可以讲得更有技术深度</li>
-<li>表达中填充词仍然偏多</li>
-</ol>
-
-<h3 id="review-通过概率评估">通过概率评估</h3>
-
-
-<p><strong>通过概率：70-80%</strong></p>
-
-
-<p>有利因素：项目扎实、评估方法论获肯定、求职意愿强</p>
-
-<p>不利因素：Agent认知偏浅、表达精炼度有提升空间</p>
-
-
-</div></div><!-- /section -->
-
-
-
-<div class="section collapsible">
-<h2 id="review-五-行动计划" class="section-toggle" onclick="toggleSection(this)"><span class="toggle-icon">▾</span> 五、行动计划</h2>
-<div class="section-body">
-
-<ol>
-<li><strong>补强Agent知识</strong>：深度了解MCP协议、Function Calling、主流Agent框架</li>
-<li><strong>准备数据分析技术细节</strong>：用SQL级别的例子展示排查过程</li>
-<li><strong>减少填充词</strong>：面试前录音练习，目标每分钟&quot;呃/嗯&quot;不超过2次</li>
-</ol>
-
-</div></div><!-- /section -->
-</div>
 </main>
 
 <aside class="toc" id="tocPanel">
@@ -3728,7 +4316,7 @@ window.addEventListener('scroll', function() {
 
 <script>
 // ── Search (separate script to isolate potential data errors) ──
-var searchData = [{"id": "readme", "title": "系统介绍", "raw": "# AI产品经理 · 知识库和求职管理系统\n\n> 基于Cursor + Vibe Coding搭建 | 全程零手写代码 | 部署在GitHub Pages\n\n---\n\n## 关于这个系统\n\n这是我用Cursor（AI编程IDE）通过纯自然语言对话搭建的个人知识库和求职管理系统。\n\n> **说明**：本系统\"求职管理\"板块中的公司名称、岗位信息及面试内容均为**虚拟数据**，用于展示系统的功能结构和使用方式。因个人真实求职信息涉及隐私，不便在展示版中公开，敬请理解。\n\n### 系统架构\n\n```\n┌──────────────────────────────────────────────────────────────┐\n│                       知识管理系统                              │\n│                                                              │\n│  ┌──────────┐     ┌──────────────┐     ┌──────────────────┐  │\n│  │ Markdown  │ ──→ │ Python脚本   │ ──→ │ 单页HTML网站     │  │\n│  │ 知识文件  │     │ (build_page) │     │ (GitHub Pages)   │  │\n│  └──────────┘     └──────────────┘     └──────────────────┘  │\n│       ↑                                       ↓              │\n│  日常学习/复盘                          随时随地访问           │\n│  持续沉淀更新                          搜索/导航/暗色模式     │\n└──────────────────────────────────────────────────────────────┘\n```\n\n### 核心功能\n\n| 功能 | 实现方式 |\n|------|---------|\n| **AI智能问答** | 右下角对话框，基于知识库内容的RAG问答（支持DeepSeek/OpenAI） |\n| 知识库管理 | 20+ Markdown文件自动编译为结构化HTML |\n| 侧边栏导航 | 按分类分组，可折叠，记忆上次浏览位置 |\n| 全文搜索 | 实时检索所有页面内容，高亮匹配 |\n| 右侧目录 | 自动生成当前页面的目录锚点，滚动高亮 |\n| 暗色模式 | 一键切换，自动记忆偏好 |\n| 高亮标注 | 选中文本可做彩色高亮和加粗标记 |\n| 可折叠章节 | 长文档按章节折叠/展开，提高浏览效率 |\n| 一键部署 | Python脚本生成 → GitHub Pages自动托管 |\n\n### AI助手工作原理\n\n```\n用户提问 → 知识库全文检索（关键词匹配+相关性排序）\n         → 提取Top3相关段落作为上下文\n         → 构造 System Prompt + Context + Question\n         → 调用LLM API（流式输出）\n         → 实时渲染回答\n```\n\n这是一个轻量级的**客户端RAG方案**——无需后端服务器，所有检索和API调用都在浏览器中完成，API Key安全存储在用户本地。\n\n### 技术实现\n\n- **前端**：纯HTML/CSS/JavaScript，无框架依赖，单文件部署\n- **构建**：Python脚本解析Markdown → 生成完整HTML（含导航/搜索/交互）\n- **部署**：GitHub Pages静态托管\n- **开发方式**：100% Vibe Coding — 通过与Cursor中的AI模型对话完成所有开发\n\n### 为什么不用飞书/Notion\n\n| 维度 | 飞书/Notion | 本系统 |\n|------|------------|--------|\n| 定制化 | 受限于平台功能 | 完全按需定制 |\n| 数据所有权 | 存储在平台 | 自有GitHub仓库 |\n| 分享方式 | 需要账号/权限 | 公开URL直接访问 |\n| AI集成深度 | 平台提供的AI功能 | 与AI对话直接修改系统本身 |\n| 离线访问 | 依赖网络 | HTML文件可本地打开 |\n\n---\n\n## 知识体系概览\n\n本系统目前沉淀了8大AI产品经理核心知识模块，覆盖从技术基础到产品能力到商业化的完整体系：\n\n```\n模块1：LLM与AI技术基础    — Transformer/训练范式/评估指标\n模块2：RAG与Agent框架     — 检索增强生成/Agent架构/工具调用\n模块3：统计学与AB测试      — 假设检验/实验设计/样本量计算\n模块4：Python与SQL         — 数据处理/查询优化/手撕代码\n模块5：PM产品能力           — 需求管理/竞品分析/数据驱动\n模块6：行业与产品分析       — 产品拆解/行业全景/分析模板\n模块7：Prompt与工作流       — 提示工程/MCP协议/工作流编排\n模块8：AI产品设计与商业化   — PRD/成本分析/伦理/技术选型\n```\n\n点击左侧导航栏即可查看各模块的详细内容。\n\n---\n\n## 求职管理系统\n\n除了知识库之外，本系统的另一个核心模块是**求职全流程管理**——覆盖从岗位投递、面试准备到面试复盘的完整闭环。\n\n### 求职管理工作流\n\n```\n发现岗位 → 岗位追踪表（录入+匹配度评估+梯队分类）\n    ↓\n收到面试 → 面试准备（AI辅助生成：公司分析+JD匹配+高频题+定制答案）\n    ↓\n面试结束 → 面试复盘（AI辅助分析：逐题评分+信号解读+通过概率+改进计划）\n    ↓\n持续迭代 → 知识库更新（将面试中暴露的短板补充到知识库对应模块）\n```\n\n### 三大功能模块\n\n#### 1. 岗位追踪表\n\n集中管理所有投递岗位的状态和进度：\n\n| 功能 | 说明 |\n|------|------|\n| 投递进度总览 | 一张表看清所有岗位的一面/二面/HR面/Offer状态 |\n| 匹配度评估 | 根据JD和个人经历计算匹配度百分比 |\n| 梯队分类 | 按匹配度分为第一梯队（80%+）、第二梯队（70-80%）等，确定投递优先级 |\n| 投递策略 | 基于匹配度和紧急程度制定行动计划 |\n\n**使用方式**：每次投递后更新状态，每次面试后更新进度，保持全局视角。\n\n#### 2. 面试准备（AI辅助生成）\n\n每收到一个面试邀请，系统会辅助生成一份完整的面试准备文档：\n\n| 板块 | 内容 | AI如何辅助 |\n|------|------|----------|\n| 公司深度认知 | 公司画像、产品矩阵、融资阶段、核心客户 | AI联网搜索公司信息并结构化整理 |\n| JD匹配分析 | 逐条匹配JD要求与个人经历，量化匹配度 | AI基于简历和JD自动匹配，识别短板 |\n| 高频面试题 | 10+道针对该岗位的高概率面试题 | AI结合JD、公司背景和个人经历定制答案 |\n| 定制自我介绍 | 针对该公司/岗位优化的自我介绍版本 | AI根据匹配点自动调整重点 |\n| 面试前检查清单 | 需要准备的事项清单 | 标准模板+岗位定制项 |\n\n**核心价值**：每道面试题的答案都不是泛泛的模板，而是**结合我的三段实习经历（时代天使AI产品+得物数据分析+蔚来AB测试）量身定制**的。\n\n#### 3. 面试复盘（AI辅助分析）\n\n每次面试结束后，将面试录音转写文本输入系统，AI会生成结构化的复盘报告：\n\n| 板块 | 内容 | 价值 |\n|------|------|------|\n| 面试流程还原 | 按阶段拆分面试流程，标注时间占比 | 了解面试官的考察重点分布 |\n| 逐题评分 | 每道题1-5星评分，分析优缺点 | 精确定位哪些回答好、哪些需要改进 |\n| 面试官信号分析 | 解读积极/消极信号（语言、行为、追问深度） | 判断面试官的态度和关注点 |\n| 通过概率评估 | 基于表现综合评估通过概率 | 理性预期，合理安排精力 |\n| 行动计划 | 具体的改进措施和后续准备 | 每次面试都是成长机会 |\n\n**核心价值**：面试不再是\"面完就忘\"，而是形成**\"面试→复盘→知识库更新→下次面试表现更好\"的正向循环**。\n\n### 数据驱动的求职决策\n\n通过系统性地记录和分析，可以发现一些规律性的洞察：\n\n```\n示例洞察：\n- 项目经历回答的评分普遍4-5星 → 核心武器，继续深化\n- AI行业认知类问题评分偏低 → 短板，优先补强知识库模块2和模块7\n- 填充词（\"呃/嗯/就是\"）在多场面试复盘中被反复提到 → 需要刻意练习\n- 自我介绍控制在1.5分钟最佳 → 固化为标准版本\n```\n\n> **说明**：本展示版中\"求职管理\"板块使用虚拟数据（A/B/C公司），用于展示系统的功能结构和使用方式。实际使用中，每个公司都有真实的深度分析和定制化的面试准备。\n"}, {"id": "m1", "title": "01 LLM与AI技术基础", "raw": "# 模块1：LLM与AI技术基础\n\n> 面试高频指数：★★★★★\n> 你的掌握程度：★★★（需重点加强）\n\n---\n\n## Q1：Transformer架构（必考）\n\nTransformer = Encoder + Decoder，核心创新是**自注意力机制（Self-Attention）**。\n\n**Self-Attention计算过程**：\n- 输入向量通过三个线性变换分别得到 **Q（Query）、K（Key）、V（Value）** 矩阵\n- 公式：Attention(Q,K,V) = softmax(QK^T / √d_k) × V\n- 直觉：Q是\"我在找什么\"，K是\"我能提供什么\"，V是\"我的实际内容\"\n- QK点积 → softmax归一化 → 得到注意力权重 → 对V加权求和\n- √d_k作用：防止点积过大导致softmax梯度消失\n- **多头注意力**：多个注意力头关注不同子空间的信息\n\n**解决的问题**：RNN不能并行计算 + 长距离依赖问题\n\n---\n\n## Q2：大模型如何生成答案（自回归生成）\n\nLLM采用**自回归方式（Autoregressive）**逐token生成：\n1. 输入经过 分词→Embedding→多层Transformer\n2. 最后一层输出一个概率分布（vocabulary size维度）\n3. 通过**采样策略**选出下一个token\n4. 拼到输入末尾，再次输入模型预测下一个\n5. 循环直到生成结束符（EOS）或达最大长度\n\n**核心：一个token一个token往外\"蹦\"的，不是一次性输出整句话**\n\n---\n\n## Q3：Tokenization（分词过程）\n\n- 文本 → **Tokenization（分词）** → token序列\n- 主流算法：**BPE（Byte Pair Encoding）**，将文本切为子词单元\n- 每个token映射为整数ID → **Embedding层**转为高维向量\n- 加上**位置编码（Positional Encoding）** → 输入Transformer\n\n示例：\"running\" → \"run\" + \"ning\"（两个子词token）\n\n---\n\n## Q4：Embedding模型\n\n将文本映射为**固定维度的高维向量**，使语义相似的文本距离更近。\n\n- 常见模型：OpenAI text-embedding-ada-002、BGE、M3E、Jina\n- 核心用途：语义检索（RAG核心）、文本相似度、聚类、分类\n- 和LLM区别：Embedding只负责\"理解\"输出向量，不负责\"生成\"\n\n---\n\n## Q5：xxB参数含义\n\n- B = Billion（十亿），7B = 70亿参数\n- 参数包括所有权重矩阵中的可学习数值\n- 参数越大 → 容量越大，理论上能力上限越高\n- 但推理成本更高、延迟更大\n- **PM选型视角**：需要平衡性能、延迟和成本\n\n---\n\n## Q6：LLM训练过程（三阶段）\n\n| 阶段 | 方法 | 输出 |\n|------|------|------|\n| **预训练** | 海量无标注文本，next token prediction | 基座模型（只会续写，不会对话） |\n| **SFT（监督微调）** | 人工标注的指令-回答对 | 能遵循指令、进行对话的模型 |\n| **RLHF（人类偏好对齐）** | 奖励模型(RM) + PPO算法 | 输出更安全、符合人类偏好的回答 |\n\n**⚠️ 易错点**：预训练后只能续写不能对话，SFT后已经能对话了（你一面答反了）\n\n---\n\n## Q7：Encoder-only vs Decoder-only\n\n| | Encoder-only | Decoder-only |\n|---|---|---|\n| 代表 | BERT | GPT、LLaMA、DeepSeek |\n| 注意力 | 双向（看左右上下文） | 单向/因果（只看左边） |\n| 适用 | 理解型：分类、NER、相似度 | 生成型：对话、写作、代码 |\n\n---\n\n## Q8：Temperature / Top-K / Top-P\n\n| 参数 | 作用 | 建议值 |\n|------|------|--------|\n| Temperature | 控制概率分布平滑度，越低越确定 | 事实问答0.1-0.3，创意0.7-0.9 |\n| Top-K | 只从概率最高的K个token中采样 | 常见50 |\n| Top-P | 从累积概率达到P的最小集合中采样 | 常见0.9 |\n\n---\n\n## Q9：幻觉（Hallucination）及缓解\n\n**定义**：模型生成看似合理但事实错误的内容\n\n**缓解手段**：RAG锚定真实文档 → Prompt约束\"不确定就说不知道\" → 降Temperature → 结构化输出校验 → 产品层标注\"AI生成，仅供参考\"\n\n---\n\n## Q10：上下文窗口对产品设计的影响\n\n- 长文档需分块处理或RAG\n- 多轮对话需做记忆管理（摘要压缩历史）\n- Token越多成本越高\n- RAG检索chunk数量受限\n\n---\n\n## Q11：除对话外使用大模型的方式\n\n代码生成、结构化信息提取、Text2SQL、多模态理解、Agent工具调用、RAG、内容生成\n\n---\n\n---\n\n## 补充知识点（JD审查后新增）\n\n### Q12：机器学习常见算法分类\n\n| 类型 | 算法 | 适用场景 |\n|------|------|---------|\n| 分类 | 逻辑回归、SVM、随机森林、XGBoost | 用户流失预测、意图分类 |\n| 回归 | 线性回归、Ridge、Lasso | 价格预测、评分预估 |\n| 聚类 | K-Means、DBSCAN | 用户分群、异常检测 |\n| 降维 | PCA、t-SNE | 数据可视化、特征压缩 |\n| 推荐 | 协同过滤、矩阵分解 | 课程推荐、内容推荐 |\n\n### Q13：过拟合与欠拟合\n\n- **过拟合**：模型在训练集上表现好但测试集上差。解决：正则化、Dropout、增加数据、早停\n- **欠拟合**：训练集和测试集都差。解决：增加特征、增加模型复杂度、减少正则化\n\n### Q14：模型评估指标\n\n| 指标 | 含义 | 公式 |\n|------|------|------|\n| 准确率(Accuracy) | 预测正确的比例 | (TP+TN)/(TP+TN+FP+FN) |\n| 精确率(Precision) | 预测为正中真正为正的比例 | TP/(TP+FP) |\n| 召回率(Recall) | 真正为正中被预测为正的比例 | TP/(TP+FN) |\n| F1 | 精确率和召回率的调和平均 | 2×P×R/(P+R) |\n\n**何时看哪个**：\n- 宁可漏判不可误判（如垃圾邮件）→ 重视Precision\n- 宁可误判不可漏判（如疾病筛查）→ 重视Recall\n\n### Q15：梯度下降\n\n- 通过计算损失函数对参数的梯度，沿梯度反方向更新参数，逐步最小化损失\n- **学习率**：步长大小。太大→震荡不收敛，太小→收敛慢\n- **变体**：SGD（单样本）、Mini-batch SGD（小批量）、Adam（自适应学习率，最常用）\n\n---\n\n*Keep一面考到：Q1(未深挖)、Q3、Q6(答反了) | 面经高频：全部*\n"}, {"id": "m2", "title": "02 RAG与Agent框架", "raw": "# 模块2：RAG与Agent框架\n\n> 面试高频指数：★★★★★\n> 你的掌握程度：★★★（Keep一面暴露短板，必须补齐）\n\n---\n\n## 一、RAG全流程\n\n### 离线阶段（建库）\n\n```\n原始文档 → 清洗 → 分块(Chunking) → Embedding → 向量数据库\n```\n\n**1. 分块（Chunking）三个核心参数**：\n\n| 参数 | 含义 | 典型值 | 你的项目 |\n|------|------|--------|---------|\n| chunk_size | 每块大小 | 256-1024 tokens | 按标题/段落切分 |\n| overlap | 相邻块重叠量 | chunk_size的10-20% | ⚠️ 一面不知道，已补齐 |\n| 分块策略 | 固定长度/按分隔符/语义/递归 | 按文档类型选 | 按Markdown标题分隔 |\n\n**Overlap为什么重要**：防止关键信息被切断在两个chunk的边界上。例如\"内收5mm\"被切在两个chunk中，单独看都不完整。\n\n**2. Embedding向量化**：每个chunk通过Embedding模型转为高维向量，存入向量数据库（FAISS/Milvus/Chroma）\n\n### 在线阶段（检索+生成）\n\n```\n用户query → [可选]Query改写 → 检索 → [可选]Rerank → Top-K → 拼Prompt → LLM生成\n```\n\n### 四种检索方式对比\n\n| | 向量检索 | 关键词/全文检索 | 混合检索 | Rerank |\n|---|---|---|---|---|\n| 核心 | 语义理解 | 精确匹配 | 两者结合 | 二次精排 |\n| 速度 | 快 | 快 | 快 | 慢（逐条） |\n| 位置 | 召回 | 召回 | 召回 | 排序（召回后） |\n| 你的项目 | ✅ 使用 | ✅ 使用 | ✅ 混合检索 | ❌ MVP未加 |\n\n**⚠️ 一面易错点**：RAG检索的TopK（召回K个chunk）≠ LLM生成的Top-K（从K个概率最高token中采样），两个完全不同！\n\n### 你的项目中的RAG配置\n\n| 参数 | 设置 | 原因 |\n|------|------|------|\n| 检索模式 | 混合检索（向量+全文） | 正畸术语需精确匹配+语义理解 |\n| TopK | 4（v1是6） | v1过多召回导致LLM保守 |\n| Score阈值 | 0.5 | 过滤低相关chunk |\n| 权重分配 | 向量0.7 + 关键词0.3 | 语义为主，术语精确匹配为辅 |\n\n---\n\n## 二、RAG优化排查框架\n\n效果不好时按此顺序排查：\n\n```\n第1层：输入质量 → ASR/OCR是否准确？\n第2层：检索质量（最常出问题）\n  ├ 召回不相关 → 调分块策略、换Embedding模型\n  ├ 噪音太多 → 降TopK、提高Score阈值、加Rerank\n  ├ 漏召回 → 升TopK、混合检索、Query改写\n  └ 排序不合理 → 加Rerank、调权重\n第3层：生成质量\n  ├ 格式不对 → 强化Prompt结构约束\n  ├ 幻觉 → 降Temperature、Prompt约束\n  └ 模型能力不足 → 换模型\n第4层：端到端体验\n  ├ 延迟高 → 减检索量、用更快模型\n  └ 成本高 → 降TopK、用小模型\n```\n\n---\n\n## 补充：RAG回答不准怎么解决（面试高频题）\n\n> 面试官问法：\"你的RAG系统回答不准，你怎么排查和解决？\"\n\n### 第一步：定位\"不准\"属于哪种类型\n\n| 不准的类型 | 典型表现 | 根因方向 |\n|-----------|---------|---------|\n| **检索不到** | 明明知识库有相关内容，但没被召回 | 检索层问题 |\n| **检索到但不相关** | 召回的chunk和问题无关或关联度低 | 分块/Embedding/检索策略问题 |\n| **检索对了但回答错** | 召回了正确内容，LLM回答仍然有误 | 生成层问题（Prompt/模型） |\n| **回答有幻觉** | LLM编造了知识库中不存在的内容 | 生成层问题 + 约束不够 |\n| **回答不完整** | 只回答了部分信息，遗漏关键内容 | 检索量不够 / Prompt引导不足 |\n\n### 第二步：按层逐一排查+解决\n\n#### 1. 数据层（知识库质量）\n\n| 问题 | 解决方案 |\n|------|---------|\n| 原始文档质量差（OCR/ASR错误多） | 前置清洗流程，纠错后再入库 |\n| 文档格式混乱（表格、图片、代码混排） | 按类型预处理，保留结构化信息 |\n| 知识库覆盖不全 | 定期补充新文档，建立知识缺口反馈机制 |\n| 重复/矛盾内容 | 去重 + 版本管理，保留最新版本 |\n\n#### 2. 分块层（Chunking）\n\n| 问题 | 解决方案 |\n|------|---------|\n| chunk太大 → 噪音多，关键信息被稀释 | 减小chunk_size（如1024→512） |\n| chunk太小 → 上下文断裂，语义不完整 | 增大chunk_size，或增加overlap |\n| 关键信息被切断在两个chunk边界 | 增加overlap（10-20%），或用语义分块 |\n| 不同类型文档用同一分块策略 | 按文档类型定制策略（Markdown按标题、PDF按段落、代码按函数） |\n\n**你的项目实战**：正畸知识库按Markdown标题分块，每个术语/场景独立成chunk，避免信息混杂。\n\n#### 3. 检索层（Retrieval）\n\n| 问题 | 解决方案 |\n|------|---------|\n| 语义相似但词汇不同导致漏召回 | 加入Query改写/扩展（把\"牙套\"扩展为\"矫治器、隐适美\"） |\n| 专业术语/缩写匹配不到 | 混合检索（向量+关键词），关键词保证精确匹配 |\n| 召回太多噪音 | 降低TopK、提高Score阈值、加Rerank模型二次精排 |\n| 重要chunk排序靠后 | 加Rerank（如Cohere Rerank、bge-reranker），按语义相关度重排 |\n| 用户query太模糊 | Query改写：用LLM先把模糊问题改写为精确检索query |\n\n**检索优化组合拳（推荐顺序）**：\n```\n混合检索（向量+全文） → Query改写 → 调TopK和阈值 → 加Rerank → 换更好的Embedding模型\n```\n\n#### 4. 生成层（Generation）\n\n| 问题 | 解决方案 |\n|------|---------|\n| LLM忽略检索到的上下文 | Prompt中强调\"必须基于以下参考内容回答\" |\n| LLM产生幻觉（编造内容） | 降低Temperature（0.1-0.3）、Prompt加\"如果参考内容中没有答案，请明确说明\" |\n| 回答格式不对 | Prompt中用模板强约束输出结构 |\n| 回答过于笼统 | Prompt要求引用原文、给出具体数据 |\n| 上下文窗口不够（chunk太多塞不下） | 减少TopK、或用Map-Reduce策略（先分chunk总结，再汇总） |\n\n#### 5. 端到端优化\n\n| 策略 | 说明 |\n|------|------|\n| **评估闭环** | 建立评估指标（准确率、召回率、相关度），定期跑评估集 |\n| **Bad Case驱动** | 每个bad case归因到具体层级，针对性修复 |\n| **AB测试** | 每次改动用同一批query对比前后效果 |\n| **用户反馈** | 上线后收集\"回答有用/没用\"反馈，持续发现新bad case |\n\n### 面试回答模板\n\n> \"RAG回答不准时，我会按**数据层→分块层→检索层→生成层**四层逐步排查。先看知识库数据质量有没有问题；再看分块策略是否合理、有没有关键信息被切断；然后重点看检索环节——是漏召回还是噪音多，对症选择调TopK、混合检索、加Rerank、Query改写等手段；最后看生成层的Prompt约束和模型参数。\n> \n> 在我的通话摘要项目中，v1版本出现过因TopK设为6导致召回噪音过多、LLM分析过于保守的问题，归因后将TopK降为4，效果显著改善。我们还建立了bad case归因机制，每个case归因到四类之一（Prompt缺陷/知识库缺失/模型能力/输入质量），驱动持续优化。\"\n\n---\n\n## 三、你的项目v1→v2优化实例\n\n| 问题 | 归因 | 环节 | 措施 |\n|------|------|------|------|\n| 术语识别错 | ASR能力不足 | ASR层 | 上传热词库 |\n| 性格判定保守 | Prompt允许回避 | Prompt层 | 禁止\"无法判定\" |\n| 输出结构偏离 | LLM自由发挥 | Prompt层 | 填空式模板+限定选项 |\n| 缺少评级 | Prompt未强制 | Prompt层 | S/A/B/C/D作为必填 |\n| 分析过于保守 | RAG召回噪音多 | 检索层 | TopK 6→4 |\n\n---\n\n## 四、Agent框架\n\n### Agent四大核心组件\n\n| 组件 | 说明 | 举例 |\n|------|------|------|\n| 规划（Planning） | 将复杂任务分解为子步骤 | ReAct、CoT |\n| 记忆（Memory） | 短期（对话上下文）+ 长期（持久化） | 用户画像 |\n| 工具（Tools） | 调用外部API/数据库 | Function Call |\n| 感知（Perception） | 接收多种输入 | 文本、图像、语音 |\n\n### Agent vs 单纯LLM\n\n- LLM：一问一答，无状态，不能操作外部世界\n- Agent：自主规划 → 调用工具 → 记住历史 → 迭代调整，形成闭环\n\n---\n\n## 补充：多Agent系统与协作模式（面试高频题）\n\n### 什么是多Agent系统\n\n单个Agent能力有限（上下文窗口、单一角色），当任务足够复杂时，需要**多个专业化Agent协作**完成。类比公司组织：CEO不可能一个人完成所有工作，需要产品、研发、销售等角色分工配合。\n\n### 五种核心协作模式\n\n#### 1. 串行（Sequential / Pipeline）\n\n```\nAgent A（意图识别）→ Agent B（信息检索）→ Agent C（生成回答）→ Agent D（质检审核）\n```\n\n- **特点**：上游输出是下游输入，按顺序执行\n- **优点**：逻辑清晰、易调试、每个Agent职责单一\n- **缺点**：总延迟 = 各环节之和，任一环节出错会阻塞后续\n- **适用场景**：流水线式任务（文档处理、数据ETL、内容审核）\n- **你的项目类比**：ASR转写 → 文本清洗 → RAG检索 → LLM生成，就是串行流水线\n\n#### 2. 并行（Parallel）\n\n```\n                ┌→ Agent A（分析维度1）→┐\n用户query → 路由 ├→ Agent B（分析维度2）→├→ 结果合并\n                └→ Agent C（分析维度3）→┘\n```\n\n- **特点**：多个Agent同时执行独立子任务，最后汇总\n- **优点**：大幅降低总延迟（取决于最慢的Agent）\n- **缺点**：需要合并策略，Agent之间不能有依赖\n- **适用场景**：多维度分析、多源检索、批量处理\n- **举例**：同时用3个Agent分别分析用户的运动数据、饮食数据、睡眠数据，最后合并成健康报告\n\n#### 3. 路由 / 分发（Router / Dispatcher）\n\n```\n                    ┌→ 售前Agent（产品咨询）\n用户query → 路由Agent ├→ 售后Agent（问题处理）\n                    ├→ 技术Agent（技术支持）\n                    └→ 闲聊Agent（兜底）\n```\n\n- **特点**：一个\"调度员\"Agent根据意图分发给不同专业Agent\n- **优点**：每个Agent可深度专业化，互不干扰\n- **缺点**：路由准确性是瓶颈，误分发会导致体验差\n- **适用场景**：智能客服、多业务入口、意图分类后分流\n- **关键设计点**：路由Agent的Prompt要覆盖所有分支的判断规则，且需要兜底策略\n\n#### 4. 层级 / 主从（Hierarchical / Manager-Worker）\n\n```\nManager Agent（任务拆解+调度+质检）\n    ├→ Worker Agent 1（执行子任务1）\n    ├→ Worker Agent 2（执行子任务2）\n    └→ Worker Agent 3（执行子任务3）\nManager Agent（汇总+决策+输出）\n```\n\n- **特点**：有一个\"经理\"Agent负责拆解任务、分配给\"工人\"Agent、审核结果\n- **优点**：处理复杂开放式任务、可动态调整策略\n- **缺点**：Manager质量决定天花板，多次LLM调用成本高\n- **适用场景**：复杂项目管理、多步骤研究任务、代码生成+review\n- **举例**：用户说\"帮我做一个竞品分析报告\"，Manager拆为\"收集数据→分析功能→比较定价→写报告\"，分别派给不同Worker\n\n#### 5. 辩论 / 协商（Debate / Negotiation）\n\n```\nAgent A（正方观点）⇄ Agent B（反方观点）⇄ Agent C（裁判/综合）\n```\n\n- **特点**：多个Agent提出不同观点，互相质疑和完善，最终由裁判Agent综合\n- **优点**：适合需要多角度思考的问题，输出质量高\n- **缺点**：多轮交互延迟大、token消耗高\n- **适用场景**：方案评审、风险评估、内容审核\n- **举例**：投资决策Agent系统——乐观Agent和悲观Agent分别分析，风控Agent最终裁决\n\n### 多Agent vs 单Agent的选择\n\n| 维度 | 单Agent | 多Agent |\n|------|---------|---------|\n| 适用任务 | 职责单一、流程固定 | 复杂、多步骤、需要多视角 |\n| 开发成本 | 低 | 高（需设计通信+协调） |\n| 延迟 | 低 | 较高（多次LLM调用） |\n| 可维护性 | 简单 | 每个Agent独立迭代 |\n| 容错性 | 单点故障 | 可部分降级 |\n\n**AI PM决策原则**：先用单Agent验证核心价值，当单Agent的Prompt超过3000 tokens或任务需要3种以上不同能力时，考虑拆分为多Agent。\n\n### 主流多Agent框架\n\n| 框架 | 特点 | 适用场景 |\n|------|------|---------|\n| **CrewAI** | 角色扮演式，定义Agent角色+目标+工具 | 团队协作类任务 |\n| **AutoGen**（微软） | 支持对话式多Agent交互 | 代码生成、研究分析 |\n| **LangGraph** | LangChain生态，基于图结构编排 | 复杂条件分支工作流 |\n| **MetaGPT** | 模拟软件公司组织架构 | 软件开发全流程 |\n| **Dify** | 低代码，支持简单多Agent编排 | MVP验证 |\n\n#### AutoGen 深入理解\n\nAutoGen是微软开源的多Agent对话框架，核心思想是**让多个Agent通过自然语言对话来协作完成任务**。\n\n**核心概念**：\n\n```\n┌──────────────┐    对话     ┌──────────────┐\n│ AssistantAgent│ ←────────→ │  UserProxy    │\n│ （AI助手）    │            │ （代理人类）   │\n│ - 生成代码    │            │ - 执行代码    │\n│ - 分析问题    │            │ - 反馈结果    │\n│ - 提出方案    │            │ - 人工介入    │\n└──────────────┘            └──────────────┘\n```\n\n**三种核心Agent类型**：\n\n| Agent类型 | 作用 | 特点 |\n|-----------|------|------|\n| **AssistantAgent** | AI助手，接收任务并生成方案/代码 | 由LLM驱动 |\n| **UserProxyAgent** | 代理人类，执行代码、反馈结果 | 可自动执行或请求人工确认 |\n| **GroupChatManager** | 群聊管理者，协调多个Agent轮流发言 | 管理发言顺序和终止条件 |\n\n**AutoGen的独特设计**：\n1. **对话即协作**：Agent之间通过多轮对话完成任务，而非预定义流程\n2. **人机协作**：UserProxy可以设置为自动模式或人工确认模式\n3. **代码执行闭环**：AssistantAgent生成代码 → UserProxy在沙箱中执行 → 结果反馈 → 修正\n4. **灵活终止**：可设置最大轮数、终止关键词、人工终止\n\n**AutoGen vs LangGraph vs CrewAI**：\n\n| 维度 | AutoGen | LangGraph | CrewAI |\n|------|---------|-----------|--------|\n| 协作方式 | 自然语言对话 | 有向图流转 | 角色分工+任务委派 |\n| 灵活性 | 高（动态对话） | 高（图结构） | 中（预定义角色） |\n| 适合场景 | 代码生成、研究 | 复杂条件分支 | 团队模拟 |\n| 人机协作 | 原生支持 | 需自行实现 | 有限支持 |\n| 学习曲线 | 中 | 高 | 低 |\n\n### LlamaIndex 深入理解\n\nLlamaIndex（原GPT Index）是一个专注于**数据连接和检索**的LLM框架，核心定位是让LLM能高效地访问和利用私有数据。\n\n**LlamaIndex vs LangChain的核心区别**：\n- **LangChain**：通用LLM应用框架，\"什么都能做\"\n- **LlamaIndex**：专注于**数据索引和检索**，\"把RAG做到极致\"\n\n**核心架构**：\n\n```\n┌─────────────────────────────────────────────────────────┐\n│                   LlamaIndex 架构                        │\n│                                                         │\n│  ┌────────────────┐  ┌────────────────┐                │\n│  │  Data Connectors│  │    Indices     │                │\n│  │  数据连接器      │  │    索引结构    │                │\n│  │  (100+数据源)   │  │  (向量/树/KG)  │                │\n│  └────────────────┘  └────────────────┘                │\n│  ┌────────────────┐  ┌────────────────┐                │\n│  │  Query Engine  │  │    Retrievers  │                │\n│  │  查询引擎      │  │    检索器      │                │\n│  └────────────────┘  └────────────────┘                │\n│  ┌────────────────┐  ┌────────────────┐                │\n│  │  Node Parser   │  │  Response      │                │\n│  │  分块器        │  │  Synthesizer   │                │\n│  │               │  │  回答合成器     │                │\n│  └────────────────┘  └────────────────┘                │\n└─────────────────────────────────────────────────────────┘\n```\n\n**六大核心组件**：\n\n| 组件 | 作用 | 核心能力 |\n|------|------|---------|\n| **Data Connectors** | 连接100+数据源 | PDF/网页/数据库/Notion/Slack/API等 |\n| **Node Parser** | 智能分块 | 句子级/段落级/语义级分块，保留元数据 |\n| **Indices** | 构建索引结构 | VectorStoreIndex / TreeIndex / KnowledgeGraphIndex |\n| **Retrievers** | 检索策略 | 向量/关键词/混合/递归检索 |\n| **Query Engine** | 查询引擎 | 将检索结果+用户问题组合，调用LLM |\n| **Response Synthesizer** | 回答合成 | Refine / Compact / TreeSummarize / SimpleSummarize |\n\n**LlamaIndex的独特优势**：\n\n1. **索引类型丰富**：\n   - `VectorStoreIndex`：标准向量检索（最常用）\n   - `TreeIndex`：树结构，适合层级化文档\n   - `KnowledgeGraphIndex`：知识图谱索引，适合实体关系提取\n   - `KeywordTableIndex`：关键词表索引\n\n2. **回答合成策略**：\n   - `Refine`：逐chunk递进式精炼回答（最准确，速度慢）\n   - `Compact`：合并chunk后一次生成（平衡方案）\n   - `TreeSummarize`：树状汇总（适合大量chunk）\n   - `SimpleSummarize`：直接拼接生成（最快，精度低）\n\n3. **内置评估框架**：\n   - Faithfulness（忠实度）：回答是否基于检索内容\n   - Relevancy（相关度）：检索内容是否与问题相关\n   - Correctness（正确性）：回答是否正确\n\n**LlamaIndex vs LangChain 深度对比**：\n\n| 维度 | LlamaIndex | LangChain |\n|------|-----------|-----------|\n| **核心定位** | 数据索引和RAG | 通用LLM应用框架 |\n| **RAG能力** | 极强（核心竞争力） | 强（模块之一） |\n| **索引类型** | 丰富（向量/树/KG/关键词） | 主要是向量 |\n| **数据连接** | 100+内置连接器 | 需自行集成 |\n| **回答合成** | 多种策略可选 | 较基础 |\n| **Agent能力** | 有但不是重点 | 强（核心模块） |\n| **多Agent** | 有限 | LangGraph强大 |\n| **适合场景** | 知识库问答、文档分析 | 通用AI应用 |\n| **搭配使用** | 可作为LangChain的Retriever | 可调用LlamaIndex索引 |\n\n**AI PM选型建议**：\n- 纯RAG/知识库场景 → 优先LlamaIndex（索引和检索能力更强）\n- Agent/工具调用/复杂流程 → 优先LangChain\n- 两者可以搭配使用：LlamaIndex负责索引和检索，LangChain负责Agent编排\n\n### 面试回答模板\n\n> \"多Agent系统的核心思想是将复杂任务拆解给多个专业化Agent协作完成。主要有五种协作模式：串行适合流水线任务、并行适合多维度分析、路由适合意图分发、层级适合复杂项目管理、辩论适合需要多视角决策的场景。\n>\n> 框架选型上，AutoGen适合需要人机协作和代码执行闭环的场景，LangGraph适合复杂条件分支工作流，CrewAI适合角色分工明确的团队模拟。LlamaIndex和LangChain定位不同——LlamaIndex专精于数据索引和RAG，LangChain是通用LLM应用框架，两者可以搭配使用。\n>\n> 作为PM的决策原则是：先单Agent验证核心价值，当Prompt复杂度过高或任务需要多种能力时再拆分。我的项目目前是串行流水线架构，如果后续要做'智能正畸助手'，可以用路由模式——用户咨询方案走方案Agent、查进度走数据Agent、投诉走客服Agent。\"\n\n---\n\n## 补充：高可用、高扩展性的Agent架构设计\n\n> JD关键词：\"设计高可用、高扩展性的大模型/Agent架构\"\n\n### Agent系统架构分层\n\n```\n┌─────────────────────────────────────────────────────────┐\n│                     接入层（Gateway）                     │\n│        负载均衡 / 限流 / 认证 / 协议转换                    │\n├─────────────────────────────────────────────────────────┤\n│                    编排层（Orchestration）                 │\n│     Agent调度 / 任务拆解 / 状态管理 / 路由分发              │\n├────────────┬────────────┬────────────┬──────────────────┤\n│  Agent A   │  Agent B   │  Agent C   │   Agent N        │\n│  意图理解   │  知识检索   │  内容生成   │   工具调用        │\n├────────────┴────────────┴────────────┴──────────────────┤\n│                    基础设施层（Infrastructure）             │\n│  模型服务(LLM API) / 向量库 / 缓存 / 消息队列 / 日志监控   │\n└─────────────────────────────────────────────────────────┘\n```\n\n### 高可用设计要点\n\n| 设计要点 | 措施 | 为什么重要 |\n|---------|------|-----------|\n| **模型层容错** | 多模型Provider failover（如DeepSeek挂了自动切Qwen） | LLM API不稳定是常见问题 |\n| **限流降级** | 令牌桶限流 + 高峰期降级（用小模型兜底） | 防止API费用暴涨+保护系统 |\n| **缓存策略** | 相似Query缓存（语义缓存）+ 热点结果缓存 | 降低延迟和成本 |\n| **异步解耦** | 用消息队列解耦Agent之间的通信 | 一个Agent故障不影响其他 |\n| **超时重试** | 每个Agent设置超时 + 指数退避重试 | LLM响应时间不稳定 |\n| **优雅降级** | Rerank超时→跳过Rerank直出；Agent故障→降级为规则引擎 | 保证核心功能可用 |\n| **监控告警** | 延迟/成功率/token用量/成本实时监控 | 及时发现异常 |\n\n### 高扩展性设计要点\n\n| 设计要点 | 措施 | 为什么重要 |\n|---------|------|-----------|\n| **Agent插件化** | 每个Agent独立部署、独立配置、通过标准接口通信 | 新增Agent不影响现有系统 |\n| **工具热插拔** | 工具通过MCP/OpenAPI标准注册，无需改代码即可新增 | 业务侧自助扩展 |\n| **Prompt配置化** | Prompt存在配置中心而非代码中，支持热更新 | 产品经理可独立迭代Prompt |\n| **知识库插件化** | 每个业务域独立知识库，共享检索基础设施 | 新业务线快速接入 |\n| **水平扩展** | Agent无状态设计，支持横向加机器 | 应对流量增长 |\n| **多租户** | 不同业务线共享架构，数据和配置隔离 | 一套系统服务多条业务线 |\n\n### 面试中怎么答\"你怎么设计一个高可用的Agent架构\"？\n\n> \"我会从四层来设计：接入层做负载均衡和限流，编排层负责Agent调度和状态管理，Agent层每个Agent独立部署、插件化注册，基础设施层提供模型服务、向量库、缓存和监控。\n>\n> 高可用方面：关键是模型层多Provider容错（主用DeepSeek、备用Qwen）、每个Agent设超时和重试、用消息队列解耦Agent通信、建立完善的监控告警。\n>\n> 高扩展方面：Agent插件化设计、工具通过MCP/OpenAPI标准注册实现热插拔、Prompt配置化支持热更新、知识库按业务域隔离。这样新增Agent或接入新业务线时，不需要改核心代码。\"\n\n---\n\n## 五、Function Call\n\n**工作流程**：\n1. 开发者预定义可用函数（名称、描述、参数Schema）\n2. 用户提问 → LLM判断是否需要调用函数\n3. 需要 → 输出函数名+参数JSON\n4. 应用层执行函数，拿到结果\n5. 结果返回LLM → 生成最终回答\n\n**Keep场景举例**：\n用户问\"我今天热量够了吗\" → LLM调用calculate_calories() → 再调用get_daily_target() → 综合回答\n\n---\n\n## 六、Fine-tuning vs RAG选择\n\n| | RAG | Fine-tuning |\n|---|---|---|\n| 知识更新 | 实时（改文档） | 需重新训练 |\n| 成本 | 低 | 高（GPU） |\n| 可解释性 | 高（可追溯） | 低 |\n| 适合 | 知识密集问答 | 风格/格式统一 |\n\n你的项目选RAG的原因：知识频繁更新、成本低、可追溯便于bad case归因\n\n---\n\n## 七、让LLM输出JSON\n\n1. Prompt明确要求 + 完整JSON示例\n2. response_format: {\"type\": \"json_object\"}\n3. 代码层try-except兜底\n4. 解析失败自动重试或LLM二次修复\n5. 多次失败降级为文本输出\n\n---\n\n## 八、Dify的缺点\n\n1. 调试效率低（逐节点看日志）\n2. 复杂逻辑不如直接写代码\n3. 版本管理和团队协作弱\n4. 知识库能力有上限（分块策略有限、Rerank弱）\n5. 高并发性能瓶颈\n6. 生态锁定，迁移成本高\n\n**但**：对快速验证MVP和非技术团队仍有价值\n\n---\n\n## 九、Dify Workflow实战经验（企微聊天版）\n\n### 架构设计\n\n```\n开始（chat_record 段落输入）→ 知识检索（正畸知识库，混合检索）→ LLM（结构化分析）→ 结束（输出result）\n```\n\n3个节点，搭建时间约20分钟。\n\n### 关键配置决策\n\n| 配置项 | 选择 | 原因 |\n|--------|------|------|\n| 输入类型 | 段落（Paragraph） | 聊天记录较长，短文本有字数限制 |\n| 检索模式 | 混合检索（向量+全文） | 术语需要精确匹配（全文），语义需要模糊匹配（向量） |\n| TopK | 4 | 知识库较小（5份文档），4条足够覆盖 |\n| Score阈值 | 0.5 | 低阈值保证术语表等关键文档不被过滤 |\n| 模型Temperature | 0.15 | 低随机性保证输出一致性 |\n| Max Tokens | 4096 | 多病例拆分时需要足够输出空间 |\n\n### 通话版（Python）vs 企微版（Dify）选型对比\n\n| 维度 | Python脚本 | Dify Workflow |\n|------|-----------|---------------|\n| 适用场景 | 需要集成ASR等外部API | 输入直接是文本 |\n| 开发速度 | 需要写代码 | 拖拽搭建 |\n| 维护 | 需要开发者 | 业务人员可调参 |\n| 知识库 | 自行管理 | 内置（支持混合检索） |\n\n### 知识库复用策略\n\n通话版和企微版共享同一套正畸知识库（术语纠错表、术语解释库、场景识别规则），只有Prompt层面做差异化适配——这是AI PM的架构思维：**底层知识资产复用，表层交互按场景定制**。\n\n---\n\n*Keep一面重点考了：RAG流程、分块策略、Overlap(不会)、检索策略、权重分配*\n"}, {"id": "m3", "title": "03 统计学与AB测试", "raw": "# 模块3：统计学与A/B测试\n\n> 面试高频指数：★★★★\n> 你的掌握程度：★★★★★（你的专业强项，务必拿满分）\n\n---\n\n## Q1：假设检验\n\n**流程**：提出H₀/H₁ → 选统计量 → 定α(通常0.05) → 算p值 → 决策\n\n**举例**：H₀:新版AI教练留存率=老版 → p=0.03<0.05 → 拒绝H₀ → 新版显著提升\n\n---\n\n## Q2：p值\n\n**严谨定义**：在H₀为真的前提下，观察到当前结果或更极端结果的概率\n\n**常见误区**：p值不是H₀为真的概率；p值小≠效果大（统计显著≠实际显著）\n\n**产品补充**：大样本中微小差异也能p<0.05，所以还要看效果量和置信区间\n\n---\n\n## Q3：判断A/B实验策略效果（四步法）\n\n1. **实验设计**：定核心指标+护栏指标，算最小样本量，随机分流\n2. **数据收集**：跑够时间/样本量，不要中途偷看决策\n3. **统计判断**：p<0.05 + 效果量有业务意义 + 护栏指标无恶化\n4. **决策**：全量/调整/下线\n\n---\n\n## Q4：累计CTR vs 去重CTR\n\n- 累计CTR：总点击/总曝光，同一用户贡献多次，**违反独立性假设**\n- 去重CTR：点击用户数/曝光用户数，每个用户只计一次，**满足i.i.d.**\n- A/B测试中应用**去重CTR（用户粒度）**\n\n---\n\n## Q5：常见分布\n\n| 分布 | 场景 | Keep举例 |\n|------|------|---------|\n| 正态 | 大量独立因素叠加 | 用户每日运动时长 |\n| 二项 | n次是/否试验 | 10个用户几个点击AI教练 |\n| 泊松 | 稀有事件次数 | 每分钟错误请求数 |\n| 指数 | 事件间隔时间 | 两次打开App的间隔 |\n| t分布 | 小样本均值检验 | 小规模A/B测试 |\n\n泊松公式：P(X=k) = (λ^k × e^(-λ)) / k!\n\n---\n\n## Q6：指标异动阈值\n\n1. **历史统计法**：μ ± 2σ（95%）或 ± 3σ（99.7%）\n2. **环比/同比法**：日环比下降>10%告警\n3. **业务经验法**：和业务定义底线（如响应延迟>5秒告警）\n\n结合你得物经验：通过统计方法设阈值，异动后多维下钻归因\n\n---\n\n## Q7：第一类/第二类错误\n\n- α错误（假阳性）：没效果但认为有效果\n- β错误（假阴性）：有效果但没检测到\n- Power = 1-β ≥ 0.8\n- 互联网更怕α错误（上线无用功能浪费资源）\n\n---\n\n## Q8：样本量确定\n\n取决于：α(0.05) × Power(0.8) × MDE(最小有意义提升) × 基线方差\n\n简化公式：n ≈ 16 × p(1-p) / MDE²\n\nKeep例：留存率40%，检测2%提升 → 每组约9600人\n\n---\n\n## Q9：统计学中印象最深的知识点\n\n推荐答**中心极限定理(CLT)**：不管总体什么分布，样本量够大时样本均值趋近正态。这是A/B测试能用z检验的理论基石。\n\n---\n\n## Q10：没有历史数据怎么评估AI功能ROI\n\n**收益估算**：Top-down从大盘倒推 + 竞品/相似功能类比 + 用户意向调研（打5-7折）\n\n**成本估算**：研发人力+API调用+运营维护\n\n**关键策略**：用最小成本快速验证——MVP验证 / 灰度实验 / 假门测试\n\n**阶梯式框架**：10%预算做MVP → 30%做灰度 → 全量上线A/B测试\n\n---\n\n*你的专业优势，面试时结合实习经验讲会很加分*\n"}, {"id": "m4", "title": "04 Python与SQL", "raw": "# 模块4：Python与SQL手撕\n\n> 面试高频指数：★★★★★（Keep明确说老板要求高）\n> 你的掌握程度：★★★（一面自认不足，必须每日练习）\n\n---\n\n## Python必会题型\n\n### 1. 字符串逆序+索引（面经原题）\n```python\ns = \"transformer\"\nfor i, char in reversed(list(enumerate(s))):\n    print(char, i)\n```\n\n### 2. 字符计数\n```python\ndef char_count(s):\n    result = {}\n    for c in s:\n        result[c] = result.get(c, 0) + 1\n    return result\n```\n\n### 3. 列表最大值/第二大\n```python\ndef second_largest(lst):\n    first = second = float('-inf')\n    for n in lst:\n        if n > first:\n            second = first\n            first = n\n        elif n > second and n != first:\n            second = n\n    return second\n```\n\n### 4. 股票最大利润\n```python\ndef max_profit(prices):\n    min_price = float('inf')\n    max_profit = 0\n    for price in prices:\n        min_price = min(min_price, price)\n        max_profit = max(max_profit, price - min_price)\n    return max_profit\n```\n\n### 5. 运动数据分类统计（Keep场景）\n```python\ndef classify_training(logs):\n    aerobic = {\"跑步\", \"游泳\", \"跳绳\", \"骑行\"}\n    anaerobic = {\"举铁\", \"卧推\", \"深蹲\"}\n    result = {\"有氧\": 0, \"无氧\": 0, \"有氧+无氧\": 0, \"未知\": 0}\n    for item in logs.split(\"|\"):\n        name, duration = item.split(\"-\")\n        duration = int(duration)\n        is_a = name in aerobic\n        is_an = name in anaerobic\n        if is_a and is_an: result[\"有氧+无氧\"] += duration\n        elif is_a: result[\"有氧\"] += duration\n        elif is_an: result[\"无氧\"] += duration\n        else: result[\"未知\"] += duration\n    return result\n```\n\n### 6. JSON解析\n```python\nimport json\ndata = json.loads('{\"user_id\":123,\"actions\":[{\"type\":\"click\",\"page\":\"home\"}]}')\nclick_pages = [a[\"page\"] for a in data[\"actions\"] if a[\"type\"] == \"click\"]\n```\n\n### Python核心语法速查\n| 操作 | 语法 |\n|------|------|\n| 翻转 | `s[::-1]` |\n| 带索引遍历 | `enumerate(s)` |\n| 列表推导 | `[x for x in lst if x > 0]` |\n| 字典默认值 | `dict.get(key, 0)` |\n| 排序 | `sorted(lst, key=lambda x: x[1], reverse=True)` |\n| 计数 | `collections.Counter` |\n| 集合交集 | `set(a) & set(b)` |\n| 去重保序 | `list(dict.fromkeys(lst))` |\n\n---\n\n## SQL必会题型\n\n### 1. 连续打卡天数（面经原题）\n```sql\nWITH ranked AS (\n    SELECT user_id, checkin_date,\n        DATE_SUB(checkin_date, INTERVAL ROW_NUMBER() OVER (\n            PARTITION BY user_id ORDER BY checkin_date) DAY) AS grp\n    FROM checkin\n),\nstreaks AS (\n    SELECT user_id, grp, COUNT(*) AS days\n    FROM ranked GROUP BY user_id, grp HAVING COUNT(*) >= 3\n)\nSELECT user_id, MAX(days) AS max_days\nFROM streaks GROUP BY user_id ORDER BY user_id;\n```\n**原理**：连续日期减行号得到相同值 → 分组 → 计数\n\n### 2. 次日留存率\n```sql\nSELECT a.login_date,\n    COUNT(DISTINCT b.user_id) * 1.0 / COUNT(DISTINCT a.user_id) AS retention\nFROM user_login a\nLEFT JOIN user_login b\n    ON a.user_id = b.user_id\n    AND b.login_date = DATE_ADD(a.login_date, INTERVAL 1 DAY)\nGROUP BY a.login_date;\n```\n\n### 3. 环比增长率（LAG）\n```sql\nSELECT dt, dau,\n    ROUND((dau - LAG(dau,1) OVER (ORDER BY dt)) * 1.0\n        / LAG(dau,1) OVER (ORDER BY dt), 4) AS growth_rate\nFROM daily_metrics;\n```\n\n### 4. 转化漏斗\n```sql\nSELECT\n    COUNT(DISTINCT CASE WHEN event='view' THEN user_id END) AS step1,\n    COUNT(DISTINCT CASE WHEN event='click' THEN user_id END) AS step2,\n    ROUND(step2*1.0/step1, 4) AS conversion\nFROM events;\n```\n\n### 5. TopN（每组排名）\n```sql\nSELECT * FROM (\n    SELECT *, ROW_NUMBER() OVER (PARTITION BY group_col ORDER BY val DESC) AS rn\n    FROM table) t\nWHERE rn <= N;\n```\n\n### SQL执行顺序（面经原题）\n```\nFROM → WHERE → GROUP BY → HAVING → SELECT → DISTINCT → ORDER BY → LIMIT\n```\nWHERE不能用SELECT别名（WHERE先执行），ORDER BY可以用（后执行）\n\n### SQL核心语法速查\n| 操作 | 语法 |\n|------|------|\n| 窗口函数 | ROW_NUMBER/RANK/LAG/LEAD OVER(PARTITION BY...ORDER BY...) |\n| 连续N天 | 日期 - ROW_NUMBER() |\n| 留存率 | LEFT JOIN + 日期偏移 |\n| 条件聚合 | SUM(CASE WHEN...THEN 1 ELSE 0 END) |\n| 日期函数 | DATE_ADD, DATE_SUB, DATEDIFF |\n\n---\n\n## 每日练习计划\n\n**每天15分钟Python + 15分钟SQL，坚持到面试前**\n\n- Python：从上面题库中随机挑1题，不看答案手写\n- SQL：重点练连续打卡、留存率、窗口函数\n- 手写！不用IDE不用AI！\n\n---\n\n*Keep一面：代码部分自认不足，面试官明确\"老板要求高\"*\n"}, {"id": "m5", "title": "05 PM产品能力", "raw": "# 模块5：PM产品能力\n\n> 面试高频指数：★★★★\n> 你的掌握程度：★★★★（有实战经验，需要方法论化表达）\n\n---\n\n## Q1：需求推进五步法\n\n1. **需求理解与定义**：解决谁的什么问题？成功标准是什么？\n2. **需求评估与优先级**：用户价值×业务价值 vs 开发成本+机会成本（ICE模型）\n3. **方案设计**：用户故事→交互→技术方案→MVP边界→PRD评审\n4. **跟进落地**：排期→日站会→验收→灰度上线\n5. **效果验证与迭代**：埋点→A/B测试→用户反馈→bad case分析→决策\n\n你的项目完整走过这5步，面试时讲故事而不是背框架。\n\n---\n\n## Q2：需求ROI评估\n\n**ROI = 预期收益 / 投入成本**\n\n收益侧：指标提升×商业价值 + 效率提升 + 战略价值\n成本侧（⚠️容易忽略）：\n- 开发人力×工时\n- 持续运营成本（API调用费）\n- 机会成本（不能做其他需求）\n- 维护成本（后续迭代、技术债）\n\n---\n\n## Q3：AI产品效果指标体系（三层）\n\n| 层级 | 指标 |\n|------|------|\n| 功能可用性 | 响应延迟P50/P95、回答准确率、任务完成率、幻觉率 |\n| 用户体验 | 使用率、使用频次/深度、留存率、满意度、点赞/踩比 |\n| 业务价值 | 训练完成率、付费转化、课程参与率、LTV提升 |\n\n---\n\n## Q4：Bad Case归因流程（你的王牌素材）\n\n1. **发现**：人工抽检，AI输出 vs 原始内容对比\n2. **分类**：ASR错误 / Prompt理解偏差 / 知识缺失 / 模型能力不足\n3. **归因决策**：改Prompt还是热词库还是知识库\n4. **验证**：同批bad case回测 + 新数据抽检（回归测试）\n5. **闭环**：建立bad case库，持续改进\n\n### 项目升级：企微聊天记录版的Bad Case实例\n\n扩展到微信聊天记录后，发现了新的bad case类型：\n\n| Bad Case | 归因 | 优化措施 |\n|----------|------|---------|\n| 一段群聊讨论了2个患者，AI只输出了1个 | Prompt缺少多病例拆分逻辑 | 加入\"第一步：扫描并列出所有患者\"的强制步骤 |\n| 医生意见通过客服转述，AI漏掉了医生的判断 | 未考虑\"转述\"场景 | 新增转述识别规则 |\n| 群聊噪音太多（表情/系统消息/寒暄），干扰核心信息提取 | Prompt过滤规则不够 | 明确列出忽略项清单 |\n| 碎片化短消息理解错误 | 多条短消息未被聚合理解 | 加入消息聚合指令 |\n| 同一输入跑3次结果不一致（v1漏掉\"易伟杨\"病例） | Prompt约束力不够+Temperature | 加入强制扫描步骤，确保0遗漏 |\n\n**一致性测试**：同一段聊天记录跑3次，v1有一次漏掉了一个患者（2/3一致），优化Prompt后v2实现3/3一致且正确识别所有3位患者。\n\n---\n\n## Q5：准确率怎么计算的（Keep一面未问但必须准备）\n\n- 定义：人工评审通过率（非传统precision/recall）\n- 方法：随机抽样50-100条 × 按四个模块分别评估 × 全部合格才算通过\n- 分层分析：按场景类型、难度、数据源分别看\n- v1→v2：70% → 90%+\n- 局限性：评估人主观性、样本量有限、场景覆盖不均\n\n---\n\n## Q6：算法给95%准确率怎么核验\n\n1. 搞清楚定义：测试集是什么？口径是什么？\n2. 真实数据独立抽检：200-500条，人工标注对比\n3. 分层分析：按难度/类别/场景拆开看\n4. Bad case归因：错误的严重程度和规律\n5. 定义产品侧验收标准：不只看算法指标\n\n---\n\n## Q7：职业规划\n\n**为什么AI PM**：专业契合（统计学）+ 实践验证（时代天使AI项目成就感）+ 行业判断（垂直场景AI早期阶段）\n\n**规划**：短期扎根一线积累经验 → 中长期成为领域专家型PM\n\n---\n\n## Q8：研发说做不了怎么办\n\n1. 先理解原因（技术不可行/资源不够/方案复杂）\n2. 分情况处理：替代方案/需求拆解/简化方案\n3. 用数据说话：拿预期收益帮研发理解重要性\n4. 必要时升级给leader协调\n\n---\n\n## Q9：MVP与迭代平衡\n\n你的做法：2周MVP→灰度1周收集反馈→每周一轮迭代→每次只改一个变量\n\n好处：业务方第一周就能用，每周感受到产品在变好，信任感强\n\n---\n\n---\n\n## 补充知识点（JD审查后新增）\n\n### Q10：如何做竞品分析？\n\n框架：**产品定位 → 核心功能对比 → 用户评价 → 商业模式 → 技术路径 → SWOT → 差异化机会**\n\n输出模板：\n```\n1. 竞品概况（一句话定位）\n2. 核心功能对比表（功能×竞品矩阵）\n3. 用户评价分析（App Store评分、社区反馈）\n4. 商业模式对比\n5. 我们的差异化机会\n```\n\n### Q11：如何做用户调研？\n\n| 方法 | 适用阶段 | 样本量 | 输出 |\n|------|---------|--------|------|\n| 深度访谈 | 探索期 | 5-15人 | 用户痛点、需求洞察 |\n| 问卷调查 | 验证期 | 100+ | 量化数据、优先级排序 |\n| 可用性测试 | 设计期 | 5-8人 | 交互问题、体验优化 |\n| 数据分析 | 上线后 | 全量 | 行为模式、转化漏斗 |\n| A/B测试 | 优化期 | 按样本量计算 | 方案效果验证 |\n\n### Q12：如何设计AI产品的北极星指标？\n\n**原则**：一个核心指标 + 若干辅助指标\n\n**Keep AI教练示例**：\n- 北极星：AI教练用户的**月训练完成次数**\n- 辅助指标：AI教练使用率、方案采纳率、留存率、满意度\n\n**设计方法**：\n1. 指标要能反映**用户价值**（用户用了AI教练后运动更多了）\n2. 指标要能**被产品改进驱动**（优化AI教练能提升这个指标）\n3. 指标要有**先导性**（能预测长期商业价值如付费转化）\n\n---\n\n*Keep一面重点考了：项目讲述(好)、难点(好)、产品流程(好)*\n"}, {"id": "m6", "title": "06 行业与产品分析", "raw": "# 模块6：行业与产品分析\n\n> 面试高频指数：★★★★\n> 核心原则：每投一家公司，就必须深度体验和分析其AI产品\n\n---\n\n## 一、Keep AI产品分析（已面试）\n\n### 产品概况\n- AI教练\"卡卡(Kaka)\"，基于自研模型Kinetic.ai\n- 2026年战略：All in AI → Agent化 → App 9.0 AI版 → 海外出海\n\n### 核心功能\n| 功能 | 说明 | 技术推测 |\n|------|------|---------|\n| 个性化运动方案 | 根据目标/场地/器械/身体数据生成 | LLM + 用户画像 + 课程库检索 |\n| 语音训练指导 | 实时语音陪伴和动作指导 | TTS + 实时数据分析 |\n| 食物图片识别 | 拍照识别卡路里 | 多模态模型 |\n| 课程推荐 | 个性化课程匹配 | 推荐系统 + LLM |\n\n### 优缺点分析（面试必备）\n**优点**：垂类数据壁垒、内容壁垒、全链条场景闭环、品牌心智\n**不足**：被动对话缺主动性、方案个性化不够深、实时反馈闭环缺失、社交激励弱\n\n### LUI分发模式理解\n- 从\"人找内容\"→\"内容找人\"\n- 供给：由用户需求驱动实时生成（无限供给）\n- 效率：自然语言去结构化，一句话直达服务\n- 冷启动：在核心场景（运动/搜索）主动嵌入AI教练\n\n### Keep AI Agent三大关键能力\n1. 用户状态感知（穿戴设备+行为数据+环境数据）\n2. 长期记忆与个性化建模（运动偏好/伤病/进步轨迹）\n3. 多工具编排与行动执行（排课/提醒/记录/周报）\n\n### 面试官透露的关键信息\n- PM自己会在Dify上搭工作流\n- 算法更多做线上部署和性能优化\n- 主动型AI教练是探索方向\n\n---\n\n## 二、产品分析模板（投其他公司前填写）\n\n### [公司名] [产品名] 分析\n\n**产品定位**：（一句话）\n**核心用户**：（谁在什么场景下用）\n**AI功能清单**：\n1. 功能A：... → 技术推测：...\n2. 功能B：... → 技术推测：...\n\n**体验记录**：\n- 好的体验：...\n- 不好的体验：...\n- 我的改进建议：...\n\n**如果我来做下一版**：\n- 优先做什么功能？为什么？\n- 核心指标是什么？\n- 技术方案大致是什么？\n\n---\n\n## 三、AI PM行业全景认知\n\n### AI产品经理分类\n| 类型 | 做什么 | 典型公司 |\n|------|--------|---------|\n| 应用型toC | AI驱动用户产品 | Keep、字节、小红书 |\n| 应用型toB | AI赋能企业服务 | 钉钉、飞书、百融 |\n| 平台型 | AI开发平台/中间件 | 火山引擎、阿里云 |\n| 模型型 | 基座模型产品化 | 豆包、通义、文心 |\n\n### AI PM的核心能力模型\n```\n        技术理解力\n       /          \\\n      /            \\\n 产品设计力 ——— 数据决策力\n      \\            /\n       \\          /\n        商业洞察力\n```\n\n- **技术理解力**：不需要写模型，但要理解能力边界和选型逻辑\n- **产品设计力**：把AI能力翻译成用户价值\n- **数据决策力**：用数据验证AI效果，驱动迭代\n- **商业洞察力**：判断AI在哪个场景能创造最大商业价值\n\n### 2026年AI PM趋势\n- 大厂AI岗位占比60-90%（字节90%、百度90%、阿里60%+）\n- Agent是今年最大主题（从被动应答到主动服务）\n- 多模态是下一个爆发点（图像/语音/视频理解）\n- 垂直场景深耕比通用助手更有价值\n\n---\n\n*每投一家公司，在此文件中新增该公司的产品分析*\n"}, {"id": "m7", "title": "07 Prompt与工作流", "raw": "# 模块7：Prompt Engineering与工作流设计（新增）\n\n> 面试高频指数：★★★★★\n> 缺失原因：之前散落在各模块中，未系统化整理。这是AI PM的日常核心工作技能。\n\n---\n\n## 一、Prompt Engineering系统方法论\n\n### 1. Prompt的五要素结构\n\n一个高质量的Prompt应包含：\n\n| 要素 | 说明 | 示例 |\n|------|------|------|\n| **角色定义** | 告诉模型它是谁 | \"你是口腔正畸行业的通话记录分析专家\" |\n| **核心任务** | 明确要做什么 | \"请根据通话转写文本生成结构化总结\" |\n| **约束条件** | 边界和限制 | \"不得跳过任何字段，禁止'无法判定'\" |\n| **输出格式** | 期望的输出结构 | \"必须包含四个模块：问题描述、处理描述...\" |\n| **示例（Few-shot）** | 输入→输出的参考样例 | 提供1-2个优质分析样例 |\n\n### 2. 核心Prompt技巧\n\n| 技巧 | 原理 | 适用场景 |\n|------|------|---------|\n| **Zero-shot** | 不给示例，直接描述任务 | 简单、通用任务 |\n| **Few-shot** | 给1-3个示例 | 格式要求严格、领域特殊 |\n| **CoT（Chain of Thought）** | 要求模型\"一步步思考\" | 复杂推理、数学、逻辑判断 |\n| **ReAct** | 思考(Reason)+行动(Act)交替 | Agent任务编排 |\n| **ToT（Tree of Thought）** | 探索多个推理路径 | 需要创造性/多方案比较 |\n| **Self-Consistency** | 多次生成取多数投票 | 提高答案可靠性 |\n\n### 3. Prompt调试方法论（面经原题）\n\n**\"怎么确定是Prompt问题还是模型问题\"**：\n\n```\nStep1: 换模型测试（同一Prompt跑多模型）\n  → 所有模型都不行 = Prompt问题\n  → 只有某个模型不行 = 模型能力问题\n\nStep2: 简化任务（复杂任务拆成小步骤测试）\n  → 定位具体哪一步失败\n\nStep3: 检查Prompt本身\n  → 指令是否有歧义？是否矛盾？上下文是否过长？\n\nStep4: 看错误模式\n  → \"有时对有时错\" = Prompt边界不清 / Temperature太高\n  → \"稳定地错\" = 模型能力上限 / Prompt逻辑有误\n\nStep5: 用COT让模型输出推理过程\n  → 看它在哪一步出了问题\n```\n\n### 4. 你的项目中的Prompt优化实例\n\n| v1问题 | 归因 | v2优化 |\n|--------|------|--------|\n| LLM写\"无法判定\" | 允许回避 | 增加强制规则禁止回避 |\n| 自创分析维度 | 格式约束不够 | 填空式模板+限定选项 |\n| 缺少评级 | 未强制要求 | S/A/B/C/D作为必填字段 |\n| 纠错不稳定 | 依赖RAG召回 | Prompt中直接内置高频纠错映射 |\n\n**核心经验**：Prompt是代码，改一行Prompt就能快速迭代，比改模型成本低几个数量级。\n\n---\n\n## 二、MCP协议（2026年最热概念）\n\n### 什么是MCP\n\n**MCP（Model Context Protocol）**= AI世界的USB-C接口\n\n- 由Anthropic开源，2025年底捐赠给Linux基金会\n- OpenAI、Google、Microsoft、AWS为联合创始成员\n- 统一了大模型与外部工具/数据源的连接标准\n- 2026年初月下载量突破9700万次\n\n### 解决什么问题\n\n**之前**：每集成一个新工具都要写自定义代码（N个模型 × M个工具 = N×M种适配）\n**现在**：MCP统一接口，一次适配到处可用（N+M种适配）\n\n### 三层架构\n\n```\nHost（应用层，如Cursor/Claude Desktop）\n  ↓\nClient（协议桥梁，管理连接）\n  ↓\nServer（业务逻辑封装，如数据库/API/文件系统）\n```\n\n### 三大核心原语\n\n| 原语 | 说明 | 类比 |\n|------|------|------|\n| **Prompts** | 可复用的提示模板 | 函数模板 |\n| **Resources** | 结构化只读数据源 | GET接口 |\n| **Tools** | 可执行函数 | POST接口 |\n\n### 面试中怎么答\"你了解MCP吗？\"\n\n> \"MCP是Anthropic开源的标准协议，本质是统一了大模型和外部工具的连接方式，类似USB-C之于硬件。之前每个模型对接每个工具都要写定制代码，现在通过MCP标准化后，工具只需实现一次MCP Server，就能被任何支持MCP的模型调用。它的三层架构是Host→Client→Server，三大原语是Prompts、Resources和Tools。2026年它已经成为行业标准，OpenAI、Google等都加入了。对于AI PM来说，MCP的意义是大幅降低了Agent的工具集成成本，让我们可以更专注于产品逻辑而非底层适配。\"\n\n---\n\n## 补充：Context Engineering（上下文工程）\n\n> 2025年由Shopify CEO Tobi Lütke提出，迅速成为AI工程核心概念。JD中\"Context Engineering\"指的就是这个。\n\n### 什么是Context Engineering\n\n**一句话定义**：Context Engineering是为LLM构建最优上下文的系统工程——决定在每次LLM调用时，传入哪些信息、以什么结构传入、顺序如何安排。\n\n**与Prompt Engineering的关系**：\n\n| | Prompt Engineering | Context Engineering |\n|---|---|---|\n| **范围** | 单条Prompt的措辞和结构 | 整个上下文窗口的信息架构 |\n| **关注点** | \"怎么问\" | \"给模型看什么\" |\n| **层次** | 微观（一个Prompt） | 宏观（系统级） |\n| **类比** | 写好一个问题 | 为学生准备考前复习资料包 |\n\nPrompt Engineering是Context Engineering的子集。Context Engineering更全面——它涵盖了系统级的信息供给策略。\n\n### 上下文窗口的构成\n\nLLM的上下文窗口（Context Window）中通常包含以下信息：\n\n```\n┌─────────────────────────────────────────────────┐\n│                Context Window                    │\n│                                                  │\n│  ┌────────────────────────────────────────────┐ │\n│  │ 1. System Prompt（角色+规则+约束）          │ │\n│  ├────────────────────────────────────────────┤ │\n│  │ 2. Few-shot Examples（示例）               │ │\n│  ├────────────────────────────────────────────┤ │\n│  │ 3. Retrieved Context（RAG检索结果）        │ │\n│  ├────────────────────────────────────────────┤ │\n│  │ 4. Tool Results（工具调用返回结果）         │ │\n│  ├────────────────────────────────────────────┤ │\n│  │ 5. Conversation History（对话历史）        │ │\n│  ├────────────────────────────────────────────┤ │\n│  │ 6. User Query（当前用户输入）              │ │\n│  └────────────────────────────────────────────┘ │\n└─────────────────────────────────────────────────┘\n```\n\n**Context Engineering就是优化这6个部分的内容、比例和排列顺序。**\n\n### 核心技术手段\n\n| 手段 | 解决什么问题 | 具体做法 |\n|------|------------|---------|\n| **Write（写入）** | 重要信息持久化 | 将关键信息存入长期记忆/数据库，而非丢在对话流中 |\n| **Select（选择）** | 上下文窗口有限，不能什么都塞 | RAG检索、记忆过滤、对话历史压缩——只选最相关的信息 |\n| **Compress（压缩）** | 信息太多塞不下 | 对话历史摘要化、长文档提取关键信息、去除冗余 |\n| **Isolate（隔离）** | 不同任务需要不同上下文 | 多Agent架构中，每个Agent只看到自己需要的上下文 |\n| **Order（排序）** | LLM对信息位置敏感 | 最重要的信息放在开头和结尾（\"Lost in the Middle\"问题） |\n| **Format（格式化）** | 结构影响理解效果 | Markdown/XML/JSON等结构化格式 > 纯文本 |\n\n### \"Lost in the Middle\" 问题\n\n研究发现LLM对上下文中**开头和结尾**的信息关注度最高，**中间部分容易被忽略**。\n\n```\n注意力分布：\n高 ████████░░░░░░░░░░░░░░░░░░░░░░████████  高\n   ↑开头                    中间↑         ↑结尾\n```\n\n**应对策略**：\n- 最关键的规则放在System Prompt开头\n- RAG检索结果按相关度排序，最相关的放最前\n- 用户query放在最后（靠近生成位置）\n- 长上下文中插入\"提醒\"标记，防止遗忘\n\n### Context Engineering在你的项目中的体现\n\n| 技术手段 | 你的项目实践 |\n|---------|------------|\n| **Select** | RAG混合检索+TopK=4+Score阈值0.5，只选最相关的知识库内容 |\n| **Format** | 用Markdown模板强约束输出结构，用`##`分隔不同分析模块 |\n| **Order** | 角色定义放最前，强制规则放System Prompt末尾（靠近User Prompt） |\n| **Compress** | 企微版v2加入噪音过滤规则，只保留医生+设计师的病例对话 |\n| **Write** | 知识库存储术语表和优质样例，作为持久化的上下文来源 |\n| **Isolate** | 通话版和企微版用不同的System Prompt，但共享同一套知识库 |\n\n### 面试回答模板\n\n> \"Context Engineering是比Prompt Engineering更高一层的概念。Prompt Engineering关注的是'怎么问'，Context Engineering关注的是'给模型看什么'——在有限的上下文窗口中，如何选择、组织、排列信息，让LLM获得最优的理解和生成效果。\n>\n> 核心手段包括：Write（持久化关键信息）、Select（RAG检索最相关内容）、Compress（压缩冗余信息）、Order（利用Lost in the Middle效应合理排序）、Format（结构化格式提升理解）、Isolate（多Agent场景下隔离上下文）。\n>\n> 在我的项目中，我通过RAG的TopK和Score阈值控制Select，通过噪音过滤规则实现Compress，通过Markdown模板实现Format，通过知识库实现Write。这些本质上都是Context Engineering的实践。\"\n\n---\n\n## 补充：工具集成技术（OpenAPI、RPC）\n\n> JD关键词：\"熟悉工具集成技术，掌握OpenAPI、RPC、MCP等协议\"\n\n### 工具集成的三种协议对比总览\n\n| | OpenAPI | RPC/gRPC | MCP |\n|---|---|---|---|\n| **定位** | RESTful API描述标准 | 高性能远程调用协议 | AI模型与工具的连接标准 |\n| **通信方式** | HTTP + JSON | HTTP/2 + Protobuf（二进制） | JSON-RPC over stdio/SSE |\n| **设计哲学** | 面向资源（URL=资源） | 面向方法（像调用本地函数） | 面向AI（模型驱动工具调用） |\n| **主要用户** | Web开发者 | 后端/微服务开发者 | AI应用开发者 |\n| **在Agent中的角色** | 工具的接口描述 | 工具的高性能调用 | 工具的标准注册和发现 |\n\n### OpenAPI（Swagger）\n\n#### 是什么\n\nOpenAPI是一种**RESTful API的标准描述格式**（YAML/JSON），告诉调用者：这个API有哪些接口、每个接口需要什么参数、返回什么数据。\n\n类比：OpenAPI是API的\"说明书\"，就像餐厅菜单——列出所有菜品、价格、配料，顾客看菜单点菜。\n\n#### 核心结构\n\n```yaml\nopenapi: 3.0.0\ninfo:\n  title: 正畸病例管理API\n  version: 1.0.0\npaths:\n  /patients/{id}:\n    get:\n      summary: 获取患者信息\n      parameters:\n        - name: id\n          in: path\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: 成功\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  name: { type: string }\n                  diagnosis: { type: string }\n                  stage: { type: string }\n```\n\n#### 在Agent系统中的作用\n\n1. **工具注册**：Agent通过读取OpenAPI文档，自动了解可用工具的功能和参数\n2. **Function Call的基础**：LLM的Function Calling本质上就是根据类似OpenAPI的Schema来生成调用参数\n3. **自动化集成**：有了OpenAPI文档，可以自动生成SDK、测试用例、文档\n4. **MCP Server的底层**：很多MCP Server的Tools实际上是对OpenAPI接口的封装\n\n#### RESTful核心概念速查\n\n| 概念 | 说明 | 举例 |\n|------|------|------|\n| **Resource** | URL代表一个资源 | `/patients/123` 代表ID为123的患者 |\n| **HTTP Method** | 操作类型 | GET（查）POST（增）PUT（改）DELETE（删） |\n| **Status Code** | 返回状态 | 200成功、400参数错、401未授权、404不存在、500服务器错 |\n| **JSON** | 数据格式 | 请求和响应都用JSON |\n\n### RPC / gRPC\n\n#### 是什么\n\nRPC（Remote Procedure Call）= 远程过程调用，让调用远程服务**像调用本地函数一样简单**。gRPC是Google开源的高性能RPC框架。\n\n类比：OpenAPI像发邮件（写清楚格式、等回复），RPC像打电话（直接说，实时响应）。\n\n#### gRPC的核心特点\n\n| 特点 | 说明 | 为什么重要 |\n|------|------|-----------|\n| **Protocol Buffers** | 二进制序列化格式（比JSON小3-10倍） | 高性能，低带宽 |\n| **HTTP/2** | 多路复用、服务端推送 | 支持双向流式通信 |\n| **强类型** | 用.proto文件定义接口和数据类型 | 编译时校验，减少运行时错误 |\n| **多语言** | 自动生成10+种语言的客户端代码 | 异构系统集成 |\n| **流式通信** | 支持单向流和双向流 | 适合实时数据传输 |\n\n#### Proto文件示例\n\n```protobuf\nservice PatientService {\n  rpc GetPatient (PatientRequest) returns (PatientResponse);\n  rpc StreamUpdates (PatientRequest) returns (stream UpdateEvent);\n}\n\nmessage PatientRequest {\n  string patient_id = 1;\n}\n\nmessage PatientResponse {\n  string name = 1;\n  string diagnosis = 2;\n  string stage = 3;\n}\n```\n\n#### gRPC的四种通信模式\n\n| 模式 | 说明 | 适用场景 |\n|------|------|---------|\n| **Unary** | 一请求一响应 | 查询患者信息 |\n| **Server Streaming** | 一请求多响应（服务端持续推送） | LLM流式输出 |\n| **Client Streaming** | 多请求一响应（客户端持续发送） | 批量上传数据 |\n| **Bidirectional Streaming** | 双向持续通信 | 实时对话、语音交互 |\n\n#### 在Agent系统中的作用\n\n| 场景 | 为什么用gRPC |\n|------|-------------|\n| 模型推理服务 | 大量并发调用，需要高性能（Triton等推理服务都用gRPC） |\n| Agent间通信 | 多Agent系统中Agent之间需要低延迟通信 |\n| 流式输出 | LLM逐token生成时，用Server Streaming实时推送 |\n| 微服务架构 | 后端各服务间高性能调用 |\n\n### OpenAPI vs RPC vs MCP：选型指南\n\n| 场景 | 推荐协议 | 原因 |\n|------|---------|------|\n| 对外提供API给第三方 | OpenAPI | 标准化、易理解、生态好 |\n| 内部微服务通信 | gRPC | 高性能、强类型 |\n| AI模型调用外部工具 | MCP | AI原生、自动发现、标准化 |\n| LLM流式输出 | gRPC (Server Streaming) 或 SSE | 支持逐token推送 |\n| Agent注册新工具 | MCP + OpenAPI | MCP注册，底层可能调用OpenAPI接口 |\n\n### 三者的协作关系\n\n```\n用户 → Agent（MCP Client）→ MCP Server → OpenAPI接口 / gRPC服务 → 后端系统\n                                ↑\n                          MCP统一了\"注册和发现\"\n                     OpenAPI/gRPC负责\"实际调用\"\n```\n\n实际工程中三者经常搭配使用：\n- **MCP** 负责工具的**注册、发现和权限管理**\n- **OpenAPI** 描述HTTP接口的**参数和返回格式**\n- **gRPC** 负责高性能场景下的**实际数据传输**\n\n### 面试回答模板\n\n> \"这三种协议在Agent系统中各有分工：OpenAPI是API的标准描述格式，定义了接口有哪些、参数是什么、返回什么，它让Agent能'读懂'一个工具的说明书；gRPC是高性能的远程调用协议，用二进制+HTTP/2实现低延迟通信，适合模型推理和Agent间通信；MCP是AI原生的连接标准，统一了模型与工具的注册和发现。\n>\n> 三者的协作关系是：MCP负责工具的注册和发现，OpenAPI描述接口格式，gRPC负责高性能调用。在我的项目中，Dify的知识检索节点本质上就是通过类似OpenAPI的方式调用向量检索服务，LLM的Function Call也是基于类似OpenAPI Schema来生成调用参数的。\"\n\n---\n\n## 三、工作流编排\n\n### Dify工作流设计\n\n**节点类型**：\n- 开始节点 → 代码节点（数据处理） → 知识检索节点（RAG） → LLM节点（生成） → 结束节点\n- 条件分支节点（if/else） → 循环节点 → HTTP请求节点\n\n**你的项目工作流**：\n```\n录音链接输入 → ASR转写节点 → 文本格式化（代码节点）→ 知识检索节点（RAG）→ LLM节点（DeepSeek）→ 输出结构化摘要\n```\n\n### LangChain 深入理解\n\n#### LangChain是什么\n\nLangChain是一个开源的LLM应用开发框架（Python/JS），提供了构建LLM应用所需的各种模块化组件。它不是一个模型，而是**连接模型、数据源、工具的\"胶水框架\"**。\n\n类比：如果LLM是发动机，LangChain就是汽车的底盘和传动系统——把发动机的动力转化为可驱动的产品。\n\n#### 核心架构（六大模块）\n\n```\n┌─────────────────────────────────────────────────────────┐\n│                    LangChain 架构                        │\n│                                                         │\n│  ┌──────────┐  ┌──────────┐  ┌──────────┐              │\n│  │  Models   │  │ Prompts  │  │  Chains  │              │\n│  │ 模型接口  │  │ 提示词管理│  │ 链式调用  │              │\n│  └──────────┘  └──────────┘  └──────────┘              │\n│  ┌──────────┐  ┌──────────┐  ┌──────────┐              │\n│  │  Memory   │  │  Agents  │  │Retrieval │              │\n│  │ 对话记忆  │  │ 智能代理  │  │ 检索增强  │              │\n│  └──────────┘  └──────────┘  └──────────┘              │\n│                                                         │\n│  ┌─────────────────────────────────────────────────┐    │\n│  │         LangSmith（可观测性平台）                  │    │\n│  │         LangGraph（多Agent编排）                   │    │\n│  │         LangServe（API部署）                       │    │\n│  └─────────────────────────────────────────────────┘    │\n└─────────────────────────────────────────────────────────┘\n```\n\n| 模块 | 作用 | 核心概念 |\n|------|------|---------|\n| **Models** | 统一接口调用各种LLM | ChatOpenAI、ChatAnthropic等，切换模型只需改一行 |\n| **Prompts** | 管理和复用Prompt模板 | PromptTemplate、FewShotPromptTemplate、变量填充 |\n| **Chains** | 将多个步骤串联成处理链 | LLMChain、SequentialChain、MapReduceChain |\n| **Memory** | 管理对话历史和上下文 | ConversationBufferMemory、ConversationSummaryMemory |\n| **Agents** | 让LLM自主决定调用哪些工具 | 工具定义 + ReAct推理 + 自主规划 |\n| **Retrieval** | RAG相关功能 | 文档加载 → 分块 → 向量化 → 检索 → QA链 |\n\n#### LCEL（LangChain Expression Language）\n\nLangChain的核心编程范式，用管道符 `|` 串联组件：\n\n```python\nchain = prompt | llm | output_parser\n\n# 等价于：先填充Prompt → 调用LLM → 解析输出\nresult = chain.invoke({\"question\": \"什么是正畸？\"})\n```\n\n优点：代码简洁、支持流式、支持异步、支持批量、易于调试\n\n#### LangGraph：多Agent编排引擎\n\nLangGraph是LangChain生态中专门用于**多Agent编排**的库，基于**有向图**（Graph）来定义Agent之间的流转：\n\n```python\nfrom langgraph.graph import StateGraph\n\ngraph = StateGraph(AgentState)\ngraph.add_node(\"classifier\", classify_intent)\ngraph.add_node(\"retriever\", search_knowledge)\ngraph.add_node(\"generator\", generate_answer)\ngraph.add_node(\"reviewer\", review_quality)\n\ngraph.add_edge(\"classifier\", \"retriever\")\ngraph.add_conditional_edges(\"reviewer\", should_retry, {\n    \"pass\": END,\n    \"retry\": \"generator\"  # 质量不过关则重新生成\n})\n```\n\nLangGraph vs 普通Chain：\n- Chain是线性的（A→B→C）\n- Graph支持**条件分支、循环、并行**，可以表达复杂的Agent协作逻辑\n\n#### LangSmith：可观测性平台\n\n解决LLM应用\"黑盒\"问题——追踪每次调用的输入/输出/延迟/token消耗：\n- 每个Chain的中间步骤可视化\n- 自动记录Prompt版本和效果\n- 内置评估功能（人工标注 + 自动化评分）\n- 生产环境的监控和报警\n\n#### LangChain vs Dify 深度对比\n\n| 维度 | Dify | LangChain |\n|------|------|-----------|\n| **定位** | 低代码工作流平台 | 代码框架 |\n| **使用者** | 产品经理、业务人员 | 开发者 |\n| **上手速度** | 分钟级（拖拽搭建） | 小时/天级（写代码） |\n| **灵活性** | 有限（受限于内置节点） | 极高（任意定制） |\n| **多Agent** | 简单支持（串行/并行） | LangGraph支持复杂编排 |\n| **可观测性** | 内置日志 | LangSmith专业级追踪 |\n| **部署** | 自带Web界面和API | 需自行部署（LangServe） |\n| **RAG** | 内置知识库管理 | 需自行集成向量库 |\n| **版本管理** | 弱 | 代码天然支持Git |\n| **生态** | 封闭 | 开源生态丰富 |\n\n**AI PM的选型原则**：\n- MVP/概念验证阶段 → **Dify**（快速验证想法，降低沟通成本）\n- 生产环境/复杂需求 → **LangChain**（定制化、可维护、可扩展）\n- 你的项目：MVP阶段用Dify验证，如果产品化落地会考虑迁移到LangChain\n\n#### 主流多Agent框架（速查表）\n\n| 框架 | 特点 | 适用场景 |\n|------|------|---------|\n| **CrewAI** | 角色扮演式，定义Agent角色+目标+工具 | 团队协作类任务 |\n| **AutoGen**（微软） | 支持对话式多Agent交互 | 代码生成、研究分析 |\n| **LangGraph** | LangChain生态，基于图结构编排 | 复杂条件分支工作流 |\n| **MetaGPT** | 模拟软件公司组织架构 | 软件开发全流程 |\n| **Dify** | 低代码，支持简单多Agent编排 | MVP验证 |\n\n#### 面试回答模板\n\n> \"LangChain是一个LLM应用开发框架，核心价值是提供了模型接口、Prompt管理、链式调用、记忆管理、Agent、检索增强六大模块，让开发者可以模块化地构建LLM应用。它的LCEL语法用管道符串联组件，代码非常简洁。\n>\n> 生态上，LangGraph负责多Agent编排（基于有向图，支持条件分支和循环），LangSmith负责可观测性（追踪每次调用）。\n>\n> 和Dify相比，LangChain更适合工程化落地——灵活性高、支持Git版本管理、LangGraph可以编排复杂的多Agent协作。在我的项目中，MVP阶段用Dify快速验证（20分钟搭建），但如果这个产品要大规模上线，我会建议用LangChain重构，因为Dify在复杂逻辑和版本管理上有瓶颈。\"\n\n### Multi-Agent编排模式（速查表）\n\n> 详见 `02-RAG与Agent框架.md` 中的「多Agent系统与协作模式」章节\n\n| 模式 | 说明 | 适用场景 |\n|------|------|---------|\n| 串行 | Agent A完成后交给Agent B | 流水线式任务 |\n| 并行 | 多个Agent同时执行 | 独立子任务 |\n| 路由 | 一个Agent分发任务给不同Agent | 意图分类后分流 |\n| 层级 | Manager拆解分配+审核Worker结果 | 复杂项目管理 |\n| 辩论 | 多个Agent互相质疑，裁判综合 | 需要多视角决策 |\n\n---\n\n## 四、Prompt Engineering面试高频题补充\n\n### Q1：CoT和ReAct的区别？\n\n> - **CoT**：让模型在回答前先\"思考\"，输出推理链。适合数学、逻辑推理\n> - **ReAct**：思考和行动交替进行——思考(需要查天气) → 行动(调用天气API) → 观察(结果是晴天) → 思考(可以推荐户外跑步) → 行动(生成方案)。适合需要调用工具的Agent场景\n\n### Q2：如何设计一个好的System Prompt？\n\n> 1. 明确角色和专业领域\n> 2. 定义任务边界（做什么、不做什么）\n> 3. 输出格式强约束（用模板而非自然语言描述）\n> 4. 加入关键的负面指令（\"不要...\"、\"禁止...\"）\n> 5. 提供1-2个优质示例（Few-shot）\n> 6. 设定兜底策略（不确定时的默认行为）\n\n### Q3：Prompt版本管理怎么做？\n\n> 1. 每个版本的Prompt存档（你的项目有v1/v2）\n> 2. 记录每次改动的原因和效果\n> 3. 用同一批测试数据做AB对比\n> 4. 建立Prompt变更日志：改了什么 → 解决了什么问题 → 指标变化\n\n---\n\n## 五、你的Prompt迭代实战案例（企微聊天版）\n\n> 面试时用自己的真实案例讲Prompt迭代，比背方法论有说服力100倍\n\n### 背景\n\n将AI摘要系统从通话场景扩展到企微群聊场景，用真实聊天记录测试后发现多个问题。\n\n### v1→v2迭代过程\n\n#### 问题1：多病例遗漏\n\n**现象**：一段群聊讨论了3个患者（易伟杨、袁茹、辛晓煌），v1 Prompt跑3次，有1次只输出了2个患者的分析\n\n**归因**：LLM倾向于关注信息密度高的病例，\"易伟杨\"只有一问一答2条消息，容易被跳过\n\n**优化**：在Prompt中新增强制的\"预扫描\"步骤：\n```\n## 第一步：扫描并列出所有患者\n在开始分析之前，你必须先完整扫描全部聊天记录，找出所有被提及的患者姓名。\n扫描规则：\n- 即使某个患者只被提到一次、只有一问一答，也必须列出\n```\n\n**效果**：一致性从66%（2/3）→ 100%（3/3）\n\n**Prompt设计原理**：利用LLM的\"先规划后执行\"特性，强制做全局扫描再逐个分析，避免遗漏\n\n#### 问题2：转述场景丢失\n\n**现象**：客服转述医生意见（\"临床说：这个患者...\"），v1没有提取到医生的判断\n\n**优化**：新增角色识别规则：\n```\n- **客服/中间人**：名称中含\"客服\"、转述他人意见（如\"临床说...\"、\"麻烦告知X医生...\"）\n特殊规则：如果医生意见是通过他人转述的，仍然基于转述内容分析医生的性格特征，但标注\"（通过XX转述）\"\n```\n\n#### 问题3：噪音干扰\n\n**现象**：群聊中大量的系统消息、表情、寒暄影响分析质量\n\n**优化**：明确过滤规则（白名单思维 > 黑名单思维）：\n```\n忽略以下内容：\n- 群创建信息、系统消息\n- 客服的流程性消息（如\"收到\"、\"已转达\"）\n- 质量管理、产品管理等非病例讨论内容\n- 纯表情、纯寒暄\n```\n\n#### 问题4：术语纠错扩展\n\n**现象**：真实聊天中出现通话版未覆盖的错别字\n\n**优化**：基于真实数据补充纠错规则：\n```\n- \"桥治\" → \"矫治\"\n- \"丢抗\" → \"丢失支抗/失抗\"\n```\n\n### 一致性测试方法论\n\n同一输入跑3次，对比输出的：\n1. **信息覆盖一致性**：是否每次都识别到相同的患者/问题\n2. **判断一致性**：性格判定、风格评级是否基本一致\n3. **结构一致性**：输出格式是否每次都符合模板\n\n### 关键认知\n\n1. **Prompt迭代必须由数据驱动**：不是\"我觉得该改什么\"，而是\"真实数据告诉我哪里有问题\"\n2. **白名单优于黑名单**：与其列出所有不要的内容，不如明确只提取什么\n3. **强制步骤>建议步骤**：LLM会偷懒，\"必须先...\"比\"请尝试...\"有效\n4. **一致性测试是AI产品的基本功**：单次结果好不代表稳定好\n\n---\n\n*这是AI PM的日常核心工作技能，面试官会通过你的项目经验来判断你的Prompt能力*\n"}, {"id": "m8", "title": "08 AI产品设计与商业化", "raw": "# 模块8：AI产品设计与商业化（新增）\n\n> 面试高频指数：★★★★\n> 缺失原因：之前侧重技术和方法论，忽略了AI产品特有的设计方法论、成本分析、伦理风险等维度。\n\n---\n\n## 一、AI产品PRD与传统PRD的区别\n\n### 传统PRD = 确定性产品\n\n用户点击A按钮 → 一定发生B事件 → 展示C结果\n\n### AI产品PRD = 概率性产品\n\n用户输入X → 模型推理 → **可能**输出Y1/Y2/Y3\n\n### AI PRD额外需要的4个模块\n\n| 模块 | 内容 | 示例（你的项目） |\n|------|------|----------------|\n| **模型输出定义** | AI要解决什么类型问题，输出格式是什么 | 输出四部分结构化摘要 |\n| **数据接入要求** | 数据来源、格式、规模、更新频率 | ASR转写文本+知识库文档 |\n| **性能指标** | 模型指标+业务指标+延迟要求 | 准确率≥90%，延迟≤45秒 |\n| **异常与兜底** | 模型失败/幻觉/超时时的降级方案 | 超时提示\"生成失败，请重试\" |\n\n### AI PRD的核心公式\n\n```\nAI产品PRD = 传统PRD + 模型能力边界定义 + 数据需求 + 评估标准 + 兜底方案\n```\n\n---\n\n## 二、Agent产品设计方法论\n\n### Agent Story（替代传统User Story）\n\n传统：作为[用户]，我想要[功能]，以便[价值]\nAgent：当[触发条件]时，Agent[执行动作]，通过[工具调用]，达成[业务目标]\n\n**Keep场景示例**：\n> 当用户连续3天未运动时，AI教练主动推送消息 → 调用用户数据API获取偏好 → 调用课程库匹配轻量级课程 → 生成个性化激励文案 → 推送到用户\n\n### Agent交互七步闭环\n\n```\n听（接收用户输入）→ 懂（意图理解）→ 补（信息不足时追问）→ \n做（调用工具执行）→ 想（推理和规划）→ 说（生成回答）→ 学（记录反馈迭代）\n```\n\n### Agent产品的核心设计决策\n\n| 决策点 | 选项 | 考量因素 |\n|--------|------|---------|\n| 主动 vs 被动 | 用户触发 / Agent主动 | 用户接受度、打扰感 |\n| 单轮 vs 多轮 | 一次性回答 / 持续对话 | 任务复杂度 |\n| 确认 vs 直接执行 | 先确认再执行 / 直接做 | 操作可逆性、风险等级 |\n| 记忆深度 | 仅当轮 / 跨会话记忆 | 隐私、存储成本 |\n| 兜底策略 | 重试 / 转人工 / 给默认 | 错误严重程度 |\n\n---\n\n## 三、AI产品成本分析（面试高频）\n\n### API调用成本计算\n\n以DeepSeek为例：\n- 输入：1元/百万tokens\n- 输出：2元/百万tokens\n\n**你的项目成本估算**：\n```\n每次通话摘要：\n- 输入tokens ≈ 转写文本2000 + System Prompt1500 + RAG上下文2000 = 5500 tokens\n- 输出tokens ≈ 摘要内容1500 tokens\n- 单次成本 ≈ 5500/1M×1 + 1500/1M×2 = 0.0085元\n\n每天100通电话 × 0.0085元 = 0.85元/天\n每月 ≈ 25.5元\n```\n\n**面试回答要点**：AI产品的边际成本极低，核心成本是前期的开发人力和知识库建设。\n\n### AI产品成本结构全景\n\n| 成本类型 | 内容 | 占比 |\n|----------|------|------|\n| 模型API调用 | token费用、并发费用 | 变动成本 |\n| 基础设施 | 向量数据库、服务器 | 固定成本 |\n| 开发人力 | PM + 研发 + 算法 | 前期大、后期小 |\n| 数据标注 | 知识库建设、评估标注 | 前期大 |\n| 运营维护 | Prompt优化、知识库更新 | 持续投入 |\n\n---\n\n## 四、AI产品商业模式\n\n| 模式 | 说明 | 案例 |\n|------|------|------|\n| **免费增值（Freemium）** | 基础免费，高级功能付费 | Keep AI教练（基础免费，会员解锁） |\n| **按量计费** | 按API调用次数收费 | OpenAI API |\n| **订阅制** | 按月/年收费 | ChatGPT Plus |\n| **效果付费** | 按实际效果收费 | 广告/推荐系统 |\n| **嵌入式增值** | AI作为产品增值手段提升留存/付费 | Keep通过AI教练提升会员转化 |\n\n---\n\n## 五、AI伦理与风险管理\n\n### 必须了解的风险类型\n\n| 风险 | 说明 | 应对 |\n|------|------|------|\n| **幻觉风险** | 模型生成错误信息 | RAG锚定、Prompt约束、置信度阈值 |\n| **隐私风险** | 用户数据泄露/滥用 | 数据脱敏、最小必要原则、合规审查 |\n| **偏见风险** | 模型对某群体不公平 | 多样性测试、偏见审计 |\n| **安全风险** | 生成有害/违法内容 | 内容安全过滤、敏感词检测 |\n| **依赖风险** | 用户过度信任AI | 标注\"AI生成仅供参考\"、保留人工兜底 |\n\n### 法律法规认知\n\n- **《个人信息保护法》**：收集个人信息需明示目的、方式和范围，获得同意\n- **《生成式人工智能服务管理暂行办法》**：生成内容不得违法，需标明AI生成\n- **GDPR**（出海需要）：数据最小化原则、被遗忘权、数据可携权\n\n### 面试回答模板\n\n> \"AI产品的风险管理我关注三个层面：一是**技术层**——通过RAG降低幻觉、设置温度参数控制输出稳定性；二是**产品层**——标注AI生成标识、保留人工编辑入口、设置严重场景的兜底提示（如Keep的运动伤痛建议必须加'建议咨询专业医生'）；三是**合规层**——遵循个人信息保护法的最小必要原则，用户数据脱敏处理。\"\n\n---\n\n## 六、微调方法概览（面试可能被问）\n\n| 方法 | 原理 | 成本 | 适用场景 |\n|------|------|------|---------|\n| **Full Fine-tuning** | 更新所有参数 | 极高（需大量GPU） | 数据充足、有专属需求 |\n| **LoRA** | 冻结原参数，只训练低秩矩阵 | 低 | 最常用的轻量微调 |\n| **QLoRA** | LoRA + 4bit量化 | 更低 | 资源极有限时 |\n| **P-Tuning** | 冻结模型，只训练可学习的前缀embedding | 低 | 特定任务适配 |\n\n**PM视角的选型判断**：\n- 先RAG不够再考虑微调\n- 微调首选LoRA（成本低、效果好）\n- 需要大量高质量标注数据（通常1000+条）\n\n---\n\n## 七、AI产品技术栈全景\n\n```\n用户端\n  ↓\nAPI网关（鉴权、限流、路由）\n  ↓\n应用服务层（业务逻辑、工作流编排）\n  ↓\n┌──────────┬──────────┬──────────┐\n│ LLM推理  │ 向量数据库 │  缓存层   │\n│(DeepSeek)│ (Milvus) │ (Redis)  │\n└──────────┴──────────┴──────────┘\n  ↓\n数据层（用户数据、知识库、日志）\n  ↓\n监控与评估（延迟监控、准确率追踪、成本统计）\n```\n\n**面试中被问\"你了解AI产品的技术栈吗\"**：\n> \"从上到下大致是：用户端 → API网关做鉴权和限流 → 应用服务层做业务逻辑和工作流编排 → 核心能力层包括LLM推理引擎、向量数据库做检索、Redis做缓存 → 底层是数据存储和监控系统。作为PM我不需要自己搭建这些，但需要理解每一层的作用和瓶颈点，才能在产品设计中做出合理的性能和成本权衡。\"\n\n---\n\n## 八、数据标注与评估体系\n\n### 标注流程设计（PM职责）\n\n1. **定义标注规范**：明确每个字段的标注标准和边界case\n2. **标注工具选型**：Label Studio、Doccano、自建工具\n3. **质量控制**：\n   - 多人交叉标注 → 计算**Cohen's Kappa**一致性系数（>0.8为优秀）\n   - 设置金标数据（预先标注的标准答案）做质检\n4. **迭代优化**：定期回顾标注规范，根据实际case更新\n\n### 评估指标体系\n\n| 场景 | 自动评估指标 | 人工评估指标 |\n|------|------------|------------|\n| 分类任务 | 准确率、精确率、召回率、F1 | 抽检通过率 |\n| 生成任务 | BLEU、ROUGE（字面匹配） | 人工评审（语义层面） |\n| 检索任务 | Recall@K、MRR、NDCG | 相关性人工打分 |\n| 对话任务 | 任务完成率、平均轮次 | 满意度评分、NPS |\n\n**你的项目用人工评审而非BLEU/ROUGE的原因**：\n> 通话摘要是结构化分析任务，同一段通话可以有多种合格的表述方式。BLEU/ROUGE衡量字面相似度，不适合评价语义层面的准确性。\n\n---\n\n*这个模块补齐了AI PM在产品设计、商业化和技术栈方面的认知框架*\n"}, {"id": "project", "title": "AI沟通摘要系统 · 深度讲解", "raw": "# 项目深度讲解：AI沟通记录摘要系统\n\n> 面试时如何讲好这个项目——从背景到技术到产品思维的完整叙事\n\n---\n\n## 一、一句话介绍（30秒版）\n\n\"我在时代天使实习期间，主导设计了一套AI沟通记录摘要系统，覆盖通话录音和企微聊天两个场景，通过ASR+LLM+RAG+Dify构建全链路MVP，准确率超过90%，帮助设计师团队从每天手动整理2小时的沟通记录，缩减到5分钟自动生成结构化总结。\"\n\n---\n\n## 二、STAR完整叙事（3-5分钟版）\n\n### Situation（背景）\n\n时代天使是国内领先的隐形正畸公司，设计师团队每天需要与全国数百家诊所的医生沟通病例方案。沟通渠道有两种：\n\n- **电话**：设计师与医生一对一讨论具体病例\n- **企微群聊**：一个群里可能讨论多个患者，且有客服、管理人员等多角色参与\n\n**痛点**：每位设计师每天要花约2小时手动整理沟通记录，产出结构化总结（问题描述、方案、结论），不仅耗时，还容易遗漏关键信息。\n\n### Task（任务）\n\n作为AI产品经理实习生，我需要：\n1. 设计一套AI自动生成结构化摘要的产品方案\n2. 从0到1完成MVP搭建、测试、迭代\n3. 建立可量化的评估体系，验证产品质量\n\n### Action（行动）\n\n#### 第一阶段：通话版MVP（Python脚本）\n\n技术方案：\n- **ASR**：阿里云语音转写API（支持热词库纠错正畸术语）\n- **LLM**：DeepSeek-V3，Temperature=0.1（低随机性保证一致性）\n- **RAG**：正畸知识库（术语纠错表、术语解释库、场景识别规则、优质分析样例）\n- **输出结构**：四模块（问题描述→处理描述→性格判定→风格判定）\n\n我的产品决策：\n- 选择四模块输出结构而非自由文本，因为下游使用场景（CRM录入、质检）需要标准化格式\n- 热词库先覆盖高频术语50个，观察bad case后迭代补充\n- Temperature设置为0.1而非0，保留极少创造性但确保稳定\n\n#### 第二阶段：企微聊天版（Dify Workflow）\n\n发现通话版成功后，业务方提出企微聊天场景需求更大。但微信聊天与电话有本质差异：\n\n| 差异维度 | 电话 | 企微聊天 |\n|---------|------|---------|\n| 参与人数 | 1v1 | 多人群聊（3-8人） |\n| 话题数量 | 通常1个病例 | 可能讨论多个病例 |\n| 噪音 | 几乎没有 | 大量（表情、系统消息、寒暄） |\n| 角色识别 | 通过说话人ID | 通过群昵称（如\"高级设计师一华南\"） |\n| 信息转述 | 无 | 存在（客服转述医生意见） |\n| 消息形态 | 连续语句 | 碎片化短消息 |\n\n我的产品决策：\n1. **技术选型**：从Python脚本升级到Dify Workflow，降低运维成本、支持非技术人员使用\n2. **Prompt架构重构**：\n   - 新增\"第一步：扫描并列出所有患者\"的强制步骤（解决多病例遗漏）\n   - 新增转述识别规则（支持\"临床说...\"等间接表达）\n   - 新增角色识别规则（适配企微群昵称格式）\n   - 新增过滤规则（明确列出忽略项清单）\n3. **评估体系设计**：\n   - 100分制评分表（5维度：问题描述15 + 处理描述25 + 性格判定30 + 风格判定20 + 通用质量10）\n   - MVP通过标准：3个以上样本≥70分，且无<55分样本\n   - Bad Case归因模板（Prompt缺陷 / 知识库缺失 / 模型能力 / 输入质量）\n4. **MVP测试方法论**：3天结构化测试\n   - Day1：准备3-5段典型样本 + 第一轮测试\n   - Day2：Bad Case归因分析 + Prompt v1→v2迭代\n   - Day3：新样本验证 + 输出结论\n\n#### Prompt迭代实战：v1→v2的5项改动\n\n| 改动项 | v1 | v2 | 驱动因素 |\n|--------|----|----|---------|\n| 病例拆分 | 无，假设一段聊天=一个话题 | 强制按病例拆分，每个病例独立分析 | 真实数据：一段群聊讨论2个患者 |\n| 转述识别 | 无 | 支持\"临床说...\"等转述场景 | 真实数据：医生不一定直接在群里发言 |\n| 角色识别 | 通用规则 | 适配真实命名（\"高级设计师一华南\"等） | 企微群名格式特殊 |\n| 过滤逻辑 | 过滤表情/系统消息 | 明确只提取医生+设计师的病例对话 | 用户核心需求是过滤 |\n| 术语纠错 | 通用错别字 | 基于真实数据新增\"桥治→矫治\"等 | 真实聊天中发现的实际错误 |\n\n#### 一致性测试\n\n同一段聊天记录（含3位患者）跑3次：\n- **v1 Prompt**：2次识别出2位患者，1次识别出3位（遗漏\"易伟杨\"）→ 一致性 66%\n- **v2 Prompt**（加入强制扫描步骤后）：3次均正确识别出3位患者 → 一致性 100%\n\n### Result（结果）\n\n- 通话版准确率 >90%（基于人工抽检100条）\n- 企微版MVP在3天内完成验证，达到B级以上标准\n- 设计师每日整理时间从2小时降至5分钟\n- 沉淀了一套可复用的AI产品MVP测试方法论\n\n---\n\n## 三、高频追问及回答要点\n\n### Q1：\"准确率90%是怎么算的？\"\n\n通话版：从100条分析结果中随机抽取50条，人工对照原始录音/聊天记录进行逐项核验——\n- 核心信息覆盖率（是否遗漏关键问题和方案）\n- 术语准确性（专业术语是否正确识别和使用）\n- 角色识别准确率\n- 结论判断准确性\n\n加权计算综合准确率。每周抽检一批，持续监控，发现bad case立即归因并迭代Prompt。\n\n### Q2：\"为什么不用Fine-tune，而是用RAG+Prompt？\"\n\n四个原因：\n1. **数据量不足**：正畸领域标注数据有限，Fine-tune需要数千条高质量样本\n2. **迭代速度**：Prompt可以当天改当天验，Fine-tune需要重新训练\n3. **成本**：Fine-tune需要GPU资源和标注人力，MVP阶段投入产出比不合理\n4. **知识更新**：术语表、场景规则需要频繁更新，RAG只需更新知识库文档\n\n如果未来数据量达到5000+条、且输出质量仍有瓶颈，会考虑LoRA微调。\n\n### Q3：\"你怎么设计的评估体系？\"\n\n我设计了三层评估机制：\n- **第一层：100分制评分表**——每个样本从5个维度评分（问题描述、处理描述、性格判定、风格判定、通用质量），确保评估全面且可量化\n- **第二层：MVP达标线**——A级(≥85)可上线、B级(70-84)微调后上线、C级(55-69)大改、D级(<55)重做\n- **第三层：Bad Case归因模板**——每个bad case归因到四类之一（Prompt缺陷 / 知识库缺失 / 模型能力 / 输入质量），指导精准优化\n\n设计逻辑：评分告诉我\"好不好\"，达标线告诉我\"能不能上线\"，归因告诉我\"怎么改\"。\n\n### Q4：\"从通话版到企微版，最大的技术挑战是什么？\"\n\n**多病例拆分**。一段群聊讨论了3个患者，v1 Prompt有33%概率漏掉其中一个。分析原因：LLM倾向于关注信息密度高的病例，跳过只有1-2条对话的简短病例。\n\n解决方案：在Prompt中加入强制的\"预扫描\"步骤——先列出所有患者名单，再逐个分析。这利用了LLM的\"先规划后执行\"特性，效果显著（一致性从66%→100%）。\n\n### Q5：\"Dify vs Python脚本，你为什么选Dify做企微版？\"\n\n| 维度 | Python脚本 | Dify Workflow |\n|------|-----------|---------------|\n| 开发速度 | 需要写代码 | 拖拽搭建20分钟 |\n| 维护成本 | 需要开发者 | 业务人员可自行调参 |\n| 知识库管理 | 自建向量库 | 内置知识库（支持混合检索） |\n| 可复用性 | 需要改代码 | 改Prompt即可适配新场景 |\n\n通话版用Python是因为需要集成ASR API（Dify不直接支持阿里云ASR）；企微版输入就是文本，Dify是更优选择。\n\n### Q6：\"如果让你继续优化，下一步做什么？\"\n\n短期：\n1. 增加自动触发机制（@机器人即可生成总结，无需手动粘贴）\n2. 增加多模态支持（聊天中的图片、文件识别）\n3. 扩大测试样本量，验证更多边界场景（超长聊天、纯闲聊、混合中英文术语）\n\n中期：\n1. 接入CRM系统，生成的总结自动填充到对应病例记录中\n2. 基于历史数据做设计师能力画像，辅助管理者识别培训需求\n3. 探索LoRA微调，进一步提升术语识别和分析深度\n\n---\n\n## 四、面试节奏建议\n\n- **30秒版**：背景+方案+结果（用于自我介绍中穿插）\n- **2分钟版**：STAR结构精简版（用于\"介绍你最有成就感的项目\"）\n- **5分钟版**：完整STAR + 技术决策 + 迭代故事（用于深入追问）\n- **应对追问**：准备好Q1-Q6的回答，这些是面试官最可能追问的方向\n\n---\n\n*最后更新：2026年3月1日*\n"}, {"id": "tracker", "title": "岗位追踪表", "raw": "# 岗位追踪表\n\n> 最后更新：2026年3月\n> 总投递数：8 | 面试中：3 | 待投递：4 | Offer：1\n\n---\n\n## 投递进度总览\n\n| # | 公司 | 岗位 | 匹配度 | 状态 | 一面 | 二面 | HR面 | Offer |\n|---|------|------|--------|------|------|------|------|-------|\n| 1 | A公司 | AI产品经理 | 92% | ✅ Offer | ✅ | ✅ | ✅ | ✅ |\n| 2 | B公司 | 大模型产品运营 | 88% | 面试中 | ✅ | 待定 | - | - |\n| 3 | C公司 | AI产品经理 | 85% | 面试中 | ✅ | - | - | - |\n| 4 | D公司 | 数据产品经理 | 83% | 面试中 | 待定 | - | - | - |\n| 5 | E公司 | AI应用PM | 80% | 待投递 | - | - | - | - |\n| 6 | F公司 | 增长产品经理 | 78% | 待投递 | - | - | - | - |\n| 7 | G公司 | AI策略PM | 75% | 待投递 | - | - | - | - |\n| 8 | H公司 | 产品经理 | 70% | ❌ 一面未通过 | ✅ | - | - | - |\n\n---\n\n## 岗位梯队分布\n\n### 第一梯队（匹配80%+，重点投递）\n\n| 公司 | 岗位 | 匹配度 | 核心匹配点 |\n|------|------|--------|-----------|\n| A公司 | AI产品经理 | 92% | AI产品实战+电商数据分析+Agent搭建经验 |\n| B公司 | 大模型产品运营 | 88% | LLM应用经验+Prompt迭代+数据驱动 |\n| C公司 | AI产品经理 | 85% | RAG知识库+MVP方法论+跨团队协作 |\n| D公司 | 数据产品经理 | 83% | 数据分析功底+看板设计+指标体系 |\n\n### 第二梯队（匹配70-80%，值得投）\n\n| 公司 | 岗位 | 匹配度 | 核心匹配点 |\n|------|------|--------|-----------|\n| E公司 | AI应用PM | 80% | AI产品全链路+Dify工作流经验 |\n| F公司 | 增长产品经理 | 78% | 数据驱动增长+AB测试+用户分群 |\n| G公司 | AI策略PM | 75% | 统计学背景+AB测试+产品思维 |\n\n---\n\n## 投递策略\n\n```\n匹配程度：A(92%) > B(88%) > C(85%) > D(83%) > E(80%) > F(78%) > G(75%)\n当前重心：集中精力准备B公司二面和C公司一面复盘\n下一步：拿到更多面试机会，争取手上有2-3个Offer可以比较\n```\n\n---\n\n*每次面试后更新此表，每次投递后更新状态*\n"}, {"id": "prep", "title": "B公司·二面准备", "raw": "# B公司 · 大模型产品运营 — 二面准备\n\n> 岗位：大模型产品运营（ToB方向）\n> 公司：B公司（互联网大厂，AI业务线）\n> 面试轮次：二面（业务负责人面）\n> 准备日期：2026年3月\n\n---\n\n## 一、公司与岗位认知\n\n### 1.1 公司画像\n\n| 维度 | 内容 |\n|------|------|\n| 行业地位 | 互联网头部企业，AI业务为战略重点 |\n| AI产品线 | 大模型平台、AI Agent工具、企业级AI解决方案 |\n| 核心客户 | 中大型企业的数字化转型需求 |\n| 团队规模 | AI事业部200+人，产品运营团队20+人 |\n\n### 1.2 JD核心要求匹配\n\n| JD要求 | 我的匹配点 | 匹配度 |\n|--------|-----------|--------|\n| 大模型产品运营经验 | 时代天使AI产品从0→1，含Prompt迭代和RAG优化 | ★★★★★ |\n| 数据驱动运营决策 | 得物数据分析：指标监控+异动归因+AB测试 | ★★★★★ |\n| ToB客户需求理解 | 时代天使项目服务200+设计师，理解内部用户需求 | ★★★★ |\n| 跨团队协作推动 | 三段实习均有跨部门协作经验 | ★★★★ |\n| AI技术基础理解 | 统计学硕士+LLM/RAG/Agent技术栈实践 | ★★★★★ |\n\n**总体匹配度：88%**\n\n---\n\n## 二、二面高概率问题\n\n### Q1：你做的AI产品，最核心的产品决策是什么？\n\n> 最核心的决策是**选择ASR+LLM两步走而不是端到端多模态方案**。\n>\n> 我对比了两条技术路径：一是用多模态模型直接从语音生成文本摘要（端到端），二是先用ASR转写成文字再用LLM总结（两步走）。\n>\n> 选择两步走的原因有三个：\n> 1. 我们的场景涉及大量正畸专业术语，ASR的热词库功能可以针对性纠错，而端到端模型对专业术语的处理不可控\n> 2. 两步走架构每一步都可以独立优化和调试——ASR出了问题改ASR，LLM出了问题改Prompt，而端到端是黑盒\n> 3. ASR+LLM的成本远低于多模态模型的API调用成本\n>\n> 结果证明这个决策是对的：专业术语准确率在加入热词库后提升了15个百分点，这是端到端方案很难做到的。\n\n### Q2：如果让你负责一个大模型ToB产品的运营，你会怎么做冷启动？\n\n> 我会分三步走：\n>\n> **第一步：找到种子客户（第1-2周）**\n> - 不追求数量，找3-5个\"痛点最强烈+配合度最高\"的客户\n> - 标准：有明确的AI应用场景、有内部技术对接人、愿意给反馈\n> - 方法：通过销售团队筛选+行业活动定向邀请\n>\n> **第二步：打磨PMF（第3-8周）**\n> - 和种子客户深度共创，每周至少一次沟通\n> - 用数据追踪核心指标：接入成功率、日均调用量、用户满意度\n> - 每两周一次产品迭代，优先解决使用率低的功能模块\n>\n> **第三步：建立标杆案例（第9-12周）**\n> - 从种子客户中选1-2个效果最好的，包装成行业案例\n> - 量化ROI：\"接入后效率提升X%，成本降低Y%\"\n> - 用案例驱动下一批客户转化\n\n### Q3：你怎么评估一个AI产品的效果？\n\n> 我有一套在实习中验证过的三层评估方法论：\n>\n> **第一层：定量指标** — 告诉我\"好不好\"\n> - 核心指标（如准确率、效率提升比）\n> - 使用指标（DAU、调用频次、功能渗透率）\n> - 成本指标（单次调用成本、ROI）\n>\n> **第二层：达标线** — 告诉我\"能不能上线\"\n> - 在时代天使项目中，我设计了100分制5维度评分表\n> - A级(≥85)可上线、B级(70-84)微调后上线、C级(<55)重做\n>\n> **第三层：归因分析** — 告诉我\"怎么改\"\n> - 每个bad case归因到四类：Prompt缺陷/知识库缺失/模型能力/输入质量\n> - 按频次排序，优先解决占比最高的问题\n\n### Q4：你对AI Agent的理解是什么？\n\n> AI Agent的核心是从\"对话\"到\"行动\"的跨越。\n>\n> 传统的LLM应用是\"一问一答\"——用户提问，模型回答。而Agent是\"给目标，自主完成\"——用户说\"帮我分析这个月的销售数据并生成报告\"，Agent会自主规划步骤、调用工具（连接数据库、生成图表、写报告），最终交付结果。\n>\n> 从技术架构看，Agent = LLM（大脑）+ 工具调用（手脚）+ 记忆（上下文）+ 规划（思考链）\n>\n> 从产品角度看，Agent的关键挑战不是\"能不能做到\"，而是\"做到的可靠性够不够\"。目前Agent最大的问题是长链路任务的错误累积——每一步95%的准确率，10步下来只剩60%。\n\n### Q5：你有什么问题想问我？\n\n> 1. 我们团队目前在大模型产品运营中，最大的挑战是什么？\n> 2. 这个岗位入职后前3个月，您期望我能产出什么样的成果？\n\n---\n\n## 三、面试前检查清单\n\n- [ ] 深度体验该公司的AI产品，准备2-3个改进建议\n- [ ] 准备好\"为什么选择这家公司\"的回答\n- [ ] 减少填充词，每分钟\"呃/嗯\"不超过2次\n- [ ] 自我介绍控制在1.5分钟内\n"}, {"id": "review", "title": "C公司·一面复盘", "raw": "# C公司 · AI产品经理 — 一面复盘\n\n> 面试时间：2026年3月\n> 面试轮次：一面（业务面）\n> 面试官角色：AI产品团队负责人\n> 面试时长：约40分钟\n> 整体评价：⭐⭐⭐⭐（4/5）— 项目深挖回答扎实，但AI行业认知部分有提升空间\n\n---\n\n## 一、面试流程还原\n\n| 阶段 | 时间占比 | 内容 |\n|------|---------|------|\n| 自我介绍 | 10% | 1.5分钟精炼版 |\n| 项目深挖 | 40% | AI沟通记录产品的完整链路+技术选型+评估体系 |\n| 数据分析能力 | 20% | 得物实习中的指标监控和归因分析 |\n| AI行业认知 | 20% | Agent趋势、RAG vs Fine-tune、产品商业化 |\n| 尾声 | 10% | 求职意愿、到岗时间 |\n\n---\n\n## 二、逐题复盘\n\n### Q1：自我介绍\n\n**评分**：⭐⭐⭐⭐（4/5）\n\n**优点**：\n- 控制在1.5分钟内，结构清晰\n- 两个核心匹配点（AI产品实战+数据分析能力）讲得明确\n\n**改进**：\n- 开头可以更有记忆点，目前偏模板化\n\n---\n\n### Q2：AI产品项目的技术选型过程\n\n**评分**：⭐⭐⭐⭐⭐（5/5）\n\n**优点**：\n- 讲清楚了两条技术路径（ASR+LLM vs 端到端多模态）的对比\n- 选择理由有三个维度（专业术语、可调试性、成本）\n- 面试官追问\"为什么不用Fine-tune\"也回答得很好\n\n---\n\n### Q3：评估体系是怎么设计的？\n\n**评分**：⭐⭐⭐⭐⭐（5/5）\n\n**优点**：\n- 三层评估体系（定量指标→达标线→归因分析）逻辑清晰\n- 有具体的数据支撑（100分制、5维度、4类归因）\n\n**面试官反应**：\n- 主动说\"这个评估方法论很系统\"——明确的正向信号\n\n---\n\n### Q4：得物实习中遇到过什么数据质量问题？\n\n**评分**：⭐⭐⭐⭐（4/5）\n\n**优点**：\n- 讲了一个具体的数据口径不一致问题\n- 说明了发现→排查→修复→预防的完整闭环\n\n**改进**：\n- 可以更具体地说SQL层面的排查过程，展示技术深度\n\n---\n\n### Q5：你怎么看Agent的发展趋势？\n\n**评分**：⭐⭐⭐（3/5）\n\n**问题**：\n- 回答偏泛——只说了\"从对话到行动\"的大框架\n- 缺少对具体技术方案的了解（如MCP、Function Calling的区别）\n- 没有提到自己的实践经验\n\n**改进**：\n- 应该结合自己使用OpenClaw等Agent工具的经验来回答\n- 需要补充MCP协议的具体知识\n\n---\n\n## 三、面试官释放的信号\n\n### 积极信号\n\n| 信号 | 原话/行为 |\n|------|---------|\n| 评估体系获得肯定 | \"这个方法论很系统\" |\n| 追问细节意味着感兴趣 | 在项目部分追问了5个以上细节问题 |\n| 介绍了团队情况 | 主动说了团队规模和当前在做的事情 |\n\n### 需要注意的信号\n\n| 信号 | 解读 |\n|------|------|\n| Agent问题没有追问 | 可能对这部分回答不满意 |\n| 时长40分钟偏标准 | 没有明显延长，说明没有特别惊喜 |\n\n---\n\n## 四、整体评估\n\n### 表现好的地方\n1. 项目经历扎实，经得住追问\n2. 评估体系获得面试官明确肯定\n3. 自我介绍精炼、结构化\n\n### 需要改进的地方\n1. AI行业认知需要加深——特别是Agent/MCP相关\n2. 数据分析经历可以讲得更有技术深度\n3. 表达中填充词仍然偏多\n\n### 通过概率评估\n\n**通过概率：70-80%**\n\n有利因素：项目扎实、评估方法论获肯定、求职意愿强\n不利因素：Agent认知偏浅、表达精炼度有提升空间\n\n---\n\n## 五、行动计划\n\n1. **补强Agent知识**：深度了解MCP协议、Function Calling、主流Agent框架\n2. **准备数据分析技术细节**：用SQL级别的例子展示排查过程\n3. **减少填充词**：面试前录音练习，目标每分钟\"呃/嗯\"不超过2次\n"}];
+var searchData = [{"id": "readme", "title": "产品总览", "raw": "# AI 求职战略局\n\n> 输入目标岗位、经历与项目，生成你的专属求职作战系统\n\n---\n\n## 产品定位\n\nAI 求职战略局是一款面向互联网求职者的 AI 求职产品，首批核心用户聚焦**产品、运营、数据**三类岗位。\n\n它解决的不是“缺一份模板”的问题，而是“求职链路里每一环都零散、重复、难以沉淀”的问题。\n\n用户只需要输入三类信息：\n\n- **目标岗位**：想投什么岗，优先级如何\n- **过往经历**：实习、校园经历、做过什么业务\n- **项目资产**：有哪些项目、亮点、数据结果、可讲故事的素材\n\n系统会围绕这些输入，生成一整套可持续迭代的求职资产。\n\n> **说明**：本展示版中的用户信息、公司名称、岗位信息和面试内容均为**虚拟案例**，仅用于展示产品结构与使用方式，不对应任何真实求职者。\n\n## 适合谁用\n\n### 核心用户\n\n- 目标岗位明确，但不知道该如何系统准备的求职者\n- 有经历和项目，但不会按不同岗位重组表达的人\n- 已经在投递和面试，但缺少复盘与沉淀机制的人\n\n### 典型场景\n\n- 想从“海投”转为“有优先级的定向投递”\n- 想把一份经历改写成产品岗、运营岗、数据岗不同版本\n- 想把每一次面试失败都转化成下一次面试的优势\n\n## 产品工作流\n\n```\n输入目标岗位 + 输入过往经历 + 输入项目资产\n                ↓\n         生成用户画像与能力地图\n                ↓\n       生成与目标岗位匹配的定制知识库\n                ↓\n岗位追踪 → 面试准备 → 面试复盘 → 简历与自我介绍优化\n                ↓\n     反哺知识库与表达体系，形成持续迭代闭环\n```\n\n这意味着它不是单次问答工具，而是一个覆盖**投递前、面试前、面试后**的完整求职作战系统。\n\n## 六大核心模块\n\n| 模块 | 解决什么问题 | 输出结果 |\n|------|--------------|----------|\n| **用户画像** | 我适合投什么岗位？优势和短板是什么？ | 岗位方向、能力标签、短板清单 |\n| **定制知识库** | 不同岗位该补哪些知识？ | 按岗位组织的学习优先级与知识模块 |\n| **目标岗位追踪** | 哪些岗位值得优先投？进度如何？ | 岗位池、优先级、投递状态、阶段推进 |\n| **面试准备** | 面试前到底该准备什么？ | 公司画像、JD匹配、高频题、定制答案 |\n| **面试复盘** | 面完之后如何快速进化？ | 逐题评分、信号分析、改进动作 |\n| **简历与自我介绍** | 如何把同一份经历改写成不同岗位版本？ | 简历版本、自我介绍版本、STAR素材库 |\n\n## 一个完整示例\n\n### 虚拟用户：林然\n\n- 目标岗位：增长产品经理 / 产品运营 / 数据产品经理\n- 背景经历：内容平台运营实习 + 电商数据分析实习\n- 项目资产：做过拉新活动、指标看板、A/B测试、AI工具小项目\n\n### 系统会为她生成什么\n\n| 输入 | 系统判断 | 输出 |\n|------|----------|------|\n| 目标岗位偏增长和策略 | 需要补强实验设计、指标体系、行业分析 | 推荐重点学习 AB 测试、SQL、增长分析模块 |\n| 运营经历强，产品经历弱 | 表达优势在执行与数据闭环，短板在产品方法论 | 在面试准备中强化需求分析、方案设计、优先级表达 |\n| 项目分散，亮点不聚焦 | 需要统一整理成可复用的 STAR 资产 | 自动沉淀为简历 bullet、自我介绍亮点和面试故事 |\n\n最终，用户看到的不再是一堆零碎文档，而是一套围绕目标岗位持续更新的求职系统。\n\n## 当前知识库如何使用\n\n展示版当前沉淀了 8 组高频知识模块，覆盖 AI、产品、数据三类互联网岗位中最常见的能力要求：\n\n```\n模块1：LLM与AI技术基础    — 技术理解、模型认知、AI岗位通识\n模块2：RAG与Agent框架     — AI应用、Agent、工作流与工具调用\n模块3：统计学与AB测试      — 实验设计、效果验证、增长分析\n模块4：Python与SQL         — 数据处理、查询能力、基础代码题\n模块5：PM产品能力           — 需求分析、优先级、竞品、指标体系\n模块6：行业与产品分析       — 产品拆解、行业视角、案例分析\n模块7：Prompt与工作流       — Prompt、MCP、工作流设计\n模块8：AI产品设计与商业化   — PRD、成本、风险、商业化\n```\n\n### 不同岗位的推荐使用方式\n\n- **产品岗**：优先看模块 5、6、8，再补模块 3 和 4\n- **运营岗**：优先看模块 3、6，再补模块 5 和 4\n- **数据岗**：优先看模块 3、4，再补模块 5 和 6\n\n左侧导航中的知识模块，本质上就是系统生成“定制知识库”的公开展示版。\n\n## 为什么不是普通模板库\n\n| 维度 | 普通求职模板库 | AI 求职战略局 |\n|------|----------------|---------------|\n| 起点 | 给所有人同一套模板 | 先理解你的岗位与经历 |\n| 内容组织 | 文档堆砌 | 以求职流程组织 |\n| 更新机制 | 看完即结束 | 每次面试后持续反哺 |\n| 个性化程度 | 弱 | 强，围绕个人资产生成 |\n| 输出形式 | 单篇文档 | 一整套作战系统 |\n\n## AI 求职教练如何工作\n\n右下角的 AI 助手在当前版本中扮演的是**求职教练 / 知识助手**的角色。\n\n```\n用户提问 → 检索知识库与求职模板\n         → 提取最相关内容作为上下文\n         → 结合问题生成回答\n         → 输出结构化建议\n```\n\n它可以回答的不是泛泛的“面试怎么办”，而是更具体的问题，例如：\n\n- 如何把同一个项目改写成增长产品和数据产品两个版本？\n- 运营岗面试前应该优先准备哪些知识模块？\n- 一场复盘里哪些信号最值得追踪？\n\n## 当前版本实现\n\n本展示版是一个轻量级产品原型，重点验证的是**产品结构与用户价值**，而不是复杂后端能力。\n\n- **前端**：纯 HTML/CSS/JavaScript，单文件可部署\n- **内容组织**：Markdown 资产化管理\n- **构建方式**：Python 脚本自动编译为结构化网站\n- **部署方式**：GitHub Pages 静态托管\n- **AI能力**：客户端知识检索 + LLM API 问答\n\n这让产品可以低成本快速迭代，也方便持续增加新的岗位模板和知识模块。\n\n## 隐私与展示说明\n\n- 展示版中的公司、岗位、面试内容均为虚拟案例\n- 原始个人求职数据不会出现在公开展示页中\n- 本站重点展示的是产品结构、功能逻辑和使用方式\n\n如果这个产品继续往下做，下一步会进入更强的“输入表单化、输出自动生成化、资产持续沉淀化”阶段。\n"}, {"id": "profile", "title": "用户画像", "raw": "# 用户画像\n\n> 这是 AI 求职战略局的起点页：先理解用户，再生成后续所有求职资产。\n\n---\n\n## 这个模块解决什么问题\n\n很多求职者的问题不是“没有资料”，而是：\n\n- 不知道自己到底更适合投什么岗位\n- 有很多经历，但不会提炼成统一的能力标签\n- 知道自己有短板，却不知道该优先补什么\n\n用户画像模块的作用，就是把零散信息整理成可被系统持续复用的结构化输入。\n\n## 系统采集哪些输入\n\n### 1. 目标岗位\n\n| 输入项 | 示例 |\n|--------|------|\n| 目标岗位 | 增长产品经理 / 产品运营 / 数据产品经理 |\n| 目标行业 | 内容平台 / 电商 / 本地生活 |\n| 优先级 | 第一志愿、第二志愿、保底方向 |\n| 目标城市 | 北京 / 上海 / 杭州 |\n\n### 2. 过往经历\n\n| 输入项 | 示例 |\n|--------|------|\n| 实习经历 | 内容平台运营、电商数据分析 |\n| 校园经历 | 社团项目、竞赛、课程研究 |\n| 技能栈 | SQL、Excel、A/B测试、用户研究、PRD |\n| 产出结果 | 拉新提升、转化优化、看板搭建、流程优化 |\n\n### 3. 项目资产\n\n| 输入项 | 示例 |\n|--------|------|\n| 项目名称 | 新用户拉新活动、商家数据看板、AI 面试助手 |\n| 项目角色 | 方案设计、执行推进、数据分析、复盘总结 |\n| 核心亮点 | 指标提升、流程优化、跨团队协作、MVP验证 |\n| 可讲故事素材 | 冲突、决策、难点、结果、复盘 |\n\n---\n\n## 虚拟用户示例\n\n### 用户：林然\n\n| 维度 | 内容 |\n|------|------|\n| 当前身份 | 26届互联网求职者 |\n| 目标岗位 | 增长产品经理、产品运营、数据产品经理 |\n| 优势经历 | 做过内容活动运营、搭过业务看板、参与过 A/B 测试 |\n| 核心项目 | 拉新活动复盘、指标监控体系、AI 工具原型 |\n| 主要短板 | 产品方法论表达偏弱，项目亮点分散，行业分析不成体系 |\n\n## 系统如何生成结构化画像\n\n### 1. 能力标签\n\n系统会把经历拆成可以直接用于求职表达的标签：\n\n| 能力维度 | 识别结果 |\n|----------|----------|\n| 数据能力 | 强：会做指标拆解、看板、SQL 和实验分析 |\n| 运营能力 | 强：有活动推进、内容增长、执行闭环经验 |\n| 产品能力 | 中：有一定方案设计意识，但缺少系统表达 |\n| AI认知 | 中：了解 AI 工具和基础应用，但需要补强深度 |\n\n### 2. 岗位匹配判断\n\n| 岗位方向 | 匹配度 | 理由 |\n|----------|--------|------|\n| 增长产品经理 | 88% | 数据和增长能力强，适合补强产品表达后冲刺 |\n| 产品运营 | 90% | 执行与数据闭环优势明显，转化门槛低 |\n| 数据产品经理 | 82% | 数据分析和指标意识较好，但需增强产品化叙事 |\n\n### 3. 短板识别\n\n系统不会只说“你还不错”，而是输出具体短板：\n\n- 项目表述偏执行，缺少“为什么这么做”的产品判断\n- 自我介绍亮点分散，没有形成一个统一的记忆点\n- 行业分析与岗位认知储备不足，容易在追问中失分\n- 同一项目没有形成产品岗、运营岗、数据岗三个版本\n\n---\n\n## 画像如何驱动后续模块\n\n```\n用户画像\n  ↓\n定制知识库：决定先学什么、补什么\n  ↓\n岗位追踪：决定先投什么、不投什么\n  ↓\n面试准备：决定每场面试强调哪些优势\n  ↓\n简历与自我介绍：决定同一经历如何改写\n  ↓\n面试复盘：把暴露出的新短板反哺回画像\n```\n\n## 生成结果示例\n\n### 系统给林然的建议\n\n#### 岗位策略\n\n- 主投：增长产品经理、产品运营\n- 次投：数据产品经理\n- 暂缓：纯算法、纯研发、高门槛商业分析岗\n\n#### 知识补强优先级\n\n1. 需求分析、优先级、竞品与方案设计\n2. 行业分析与岗位认知\n3. 自我介绍和 STAR 故事结构\n4. SQL 与 A/B 测试保持手感\n\n#### 表达策略\n\n- 把“执行了什么”升级成“发现了什么问题、怎么判断、为什么这样做”\n- 每个项目都要补齐目标、方案、指标、结果、复盘五要素\n- 增长岗强调数据闭环，产品岗强调方案判断，数据岗强调指标与分析深度\n\n---\n\n## 这个模块的产品价值\n\n用户画像不是“做一张档案卡”这么简单，它是整个系统的**路由层**。\n\n它决定：\n\n- 知识库该怎么定制\n- 岗位追踪该怎么排序\n- 面试准备该突出哪些经历\n- 简历与自我介绍该怎么改写\n\n没有用户画像，后续模块只能输出通用模板；有了用户画像，后续模块才会真正个性化。\n"}, {"id": "m1", "title": "01 LLM与AI技术基础", "raw": "# 模块1：LLM与AI技术基础\n\n> 面试高频指数：★★★★★\n> 你的掌握程度：★★★（需重点加强）\n\n---\n\n## Q1：Transformer架构（必考）\n\nTransformer = Encoder + Decoder，核心创新是**自注意力机制（Self-Attention）**。\n\n**Self-Attention计算过程**：\n- 输入向量通过三个线性变换分别得到 **Q（Query）、K（Key）、V（Value）** 矩阵\n- 公式：Attention(Q,K,V) = softmax(QK^T / √d_k) × V\n- 直觉：Q是\"我在找什么\"，K是\"我能提供什么\"，V是\"我的实际内容\"\n- QK点积 → softmax归一化 → 得到注意力权重 → 对V加权求和\n- √d_k作用：防止点积过大导致softmax梯度消失\n- **多头注意力**：多个注意力头关注不同子空间的信息\n\n**解决的问题**：RNN不能并行计算 + 长距离依赖问题\n\n---\n\n## Q2：大模型如何生成答案（自回归生成）\n\nLLM采用**自回归方式（Autoregressive）**逐token生成：\n1. 输入经过 分词→Embedding→多层Transformer\n2. 最后一层输出一个概率分布（vocabulary size维度）\n3. 通过**采样策略**选出下一个token\n4. 拼到输入末尾，再次输入模型预测下一个\n5. 循环直到生成结束符（EOS）或达最大长度\n\n**核心：一个token一个token往外\"蹦\"的，不是一次性输出整句话**\n\n---\n\n## Q3：Tokenization（分词过程）\n\n- 文本 → **Tokenization（分词）** → token序列\n- 主流算法：**BPE（Byte Pair Encoding）**，将文本切为子词单元\n- 每个token映射为整数ID → **Embedding层**转为高维向量\n- 加上**位置编码（Positional Encoding）** → 输入Transformer\n\n示例：\"running\" → \"run\" + \"ning\"（两个子词token）\n\n---\n\n## Q4：Embedding模型\n\n将文本映射为**固定维度的高维向量**，使语义相似的文本距离更近。\n\n- 常见模型：OpenAI text-embedding-ada-002、BGE、M3E、Jina\n- 核心用途：语义检索（RAG核心）、文本相似度、聚类、分类\n- 和LLM区别：Embedding只负责\"理解\"输出向量，不负责\"生成\"\n\n---\n\n## Q5：xxB参数含义\n\n- B = Billion（十亿），7B = 70亿参数\n- 参数包括所有权重矩阵中的可学习数值\n- 参数越大 → 容量越大，理论上能力上限越高\n- 但推理成本更高、延迟更大\n- **PM选型视角**：需要平衡性能、延迟和成本\n\n---\n\n## Q6：LLM训练过程（三阶段）\n\n| 阶段 | 方法 | 输出 |\n|------|------|------|\n| **预训练** | 海量无标注文本，next token prediction | 基座模型（只会续写，不会对话） |\n| **SFT（监督微调）** | 人工标注的指令-回答对 | 能遵循指令、进行对话的模型 |\n| **RLHF（人类偏好对齐）** | 奖励模型(RM) + PPO算法 | 输出更安全、符合人类偏好的回答 |\n\n**⚠️ 易错点**：预训练后只能续写不能对话，SFT后已经能对话了（你一面答反了）\n\n---\n\n## Q7：Encoder-only vs Decoder-only\n\n| | Encoder-only | Decoder-only |\n|---|---|---|\n| 代表 | BERT | GPT、LLaMA、DeepSeek |\n| 注意力 | 双向（看左右上下文） | 单向/因果（只看左边） |\n| 适用 | 理解型：分类、NER、相似度 | 生成型：对话、写作、代码 |\n\n---\n\n## Q8：Temperature / Top-K / Top-P\n\n| 参数 | 作用 | 建议值 |\n|------|------|--------|\n| Temperature | 控制概率分布平滑度，越低越确定 | 事实问答0.1-0.3，创意0.7-0.9 |\n| Top-K | 只从概率最高的K个token中采样 | 常见50 |\n| Top-P | 从累积概率达到P的最小集合中采样 | 常见0.9 |\n\n---\n\n## Q9：幻觉（Hallucination）及缓解\n\n**定义**：模型生成看似合理但事实错误的内容\n\n**缓解手段**：RAG锚定真实文档 → Prompt约束\"不确定就说不知道\" → 降Temperature → 结构化输出校验 → 产品层标注\"AI生成，仅供参考\"\n\n---\n\n## Q10：上下文窗口对产品设计的影响\n\n- 长文档需分块处理或RAG\n- 多轮对话需做记忆管理（摘要压缩历史）\n- Token越多成本越高\n- RAG检索chunk数量受限\n\n---\n\n## Q11：除对话外使用大模型的方式\n\n代码生成、结构化信息提取、Text2SQL、多模态理解、Agent工具调用、RAG、内容生成\n\n---\n\n---\n\n## 补充知识点（JD审查后新增）\n\n### Q12：机器学习常见算法分类\n\n| 类型 | 算法 | 适用场景 |\n|------|------|---------|\n| 分类 | 逻辑回归、SVM、随机森林、XGBoost | 用户流失预测、意图分类 |\n| 回归 | 线性回归、Ridge、Lasso | 价格预测、评分预估 |\n| 聚类 | K-Means、DBSCAN | 用户分群、异常检测 |\n| 降维 | PCA、t-SNE | 数据可视化、特征压缩 |\n| 推荐 | 协同过滤、矩阵分解 | 课程推荐、内容推荐 |\n\n### Q13：过拟合与欠拟合\n\n- **过拟合**：模型在训练集上表现好但测试集上差。解决：正则化、Dropout、增加数据、早停\n- **欠拟合**：训练集和测试集都差。解决：增加特征、增加模型复杂度、减少正则化\n\n### Q14：模型评估指标\n\n| 指标 | 含义 | 公式 |\n|------|------|------|\n| 准确率(Accuracy) | 预测正确的比例 | (TP+TN)/(TP+TN+FP+FN) |\n| 精确率(Precision) | 预测为正中真正为正的比例 | TP/(TP+FP) |\n| 召回率(Recall) | 真正为正中被预测为正的比例 | TP/(TP+FN) |\n| F1 | 精确率和召回率的调和平均 | 2×P×R/(P+R) |\n\n**何时看哪个**：\n- 宁可漏判不可误判（如垃圾邮件）→ 重视Precision\n- 宁可误判不可漏判（如疾病筛查）→ 重视Recall\n\n### Q15：梯度下降\n\n- 通过计算损失函数对参数的梯度，沿梯度反方向更新参数，逐步最小化损失\n- **学习率**：步长大小。太大→震荡不收敛，太小→收敛慢\n- **变体**：SGD（单样本）、Mini-batch SGD（小批量）、Adam（自适应学习率，最常用）\n\n---\n\n*Keep一面考到：Q1(未深挖)、Q3、Q6(答反了) | 面经高频：全部*\n"}, {"id": "m2", "title": "02 RAG与Agent框架", "raw": "# 模块2：RAG与Agent框架\n\n> 面试高频指数：★★★★★\n> 你的掌握程度：★★★（Keep一面暴露短板，必须补齐）\n\n---\n\n## 一、RAG全流程\n\n### 离线阶段（建库）\n\n```\n原始文档 → 清洗 → 分块(Chunking) → Embedding → 向量数据库\n```\n\n**1. 分块（Chunking）三个核心参数**：\n\n| 参数 | 含义 | 典型值 | 你的项目 |\n|------|------|--------|---------|\n| chunk_size | 每块大小 | 256-1024 tokens | 按标题/段落切分 |\n| overlap | 相邻块重叠量 | chunk_size的10-20% | ⚠️ 一面不知道，已补齐 |\n| 分块策略 | 固定长度/按分隔符/语义/递归 | 按文档类型选 | 按Markdown标题分隔 |\n\n**Overlap为什么重要**：防止关键信息被切断在两个chunk的边界上。例如\"内收5mm\"被切在两个chunk中，单独看都不完整。\n\n**2. Embedding向量化**：每个chunk通过Embedding模型转为高维向量，存入向量数据库（FAISS/Milvus/Chroma）\n\n### 在线阶段（检索+生成）\n\n```\n用户query → [可选]Query改写 → 检索 → [可选]Rerank → Top-K → 拼Prompt → LLM生成\n```\n\n### 四种检索方式对比\n\n| | 向量检索 | 关键词/全文检索 | 混合检索 | Rerank |\n|---|---|---|---|---|\n| 核心 | 语义理解 | 精确匹配 | 两者结合 | 二次精排 |\n| 速度 | 快 | 快 | 快 | 慢（逐条） |\n| 位置 | 召回 | 召回 | 召回 | 排序（召回后） |\n| 你的项目 | ✅ 使用 | ✅ 使用 | ✅ 混合检索 | ❌ MVP未加 |\n\n**⚠️ 一面易错点**：RAG检索的TopK（召回K个chunk）≠ LLM生成的Top-K（从K个概率最高token中采样），两个完全不同！\n\n### 你的项目中的RAG配置\n\n| 参数 | 设置 | 原因 |\n|------|------|------|\n| 检索模式 | 混合检索（向量+全文） | 正畸术语需精确匹配+语义理解 |\n| TopK | 4（v1是6） | v1过多召回导致LLM保守 |\n| Score阈值 | 0.5 | 过滤低相关chunk |\n| 权重分配 | 向量0.7 + 关键词0.3 | 语义为主，术语精确匹配为辅 |\n\n---\n\n## 二、RAG优化排查框架\n\n效果不好时按此顺序排查：\n\n```\n第1层：输入质量 → ASR/OCR是否准确？\n第2层：检索质量（最常出问题）\n  ├ 召回不相关 → 调分块策略、换Embedding模型\n  ├ 噪音太多 → 降TopK、提高Score阈值、加Rerank\n  ├ 漏召回 → 升TopK、混合检索、Query改写\n  └ 排序不合理 → 加Rerank、调权重\n第3层：生成质量\n  ├ 格式不对 → 强化Prompt结构约束\n  ├ 幻觉 → 降Temperature、Prompt约束\n  └ 模型能力不足 → 换模型\n第4层：端到端体验\n  ├ 延迟高 → 减检索量、用更快模型\n  └ 成本高 → 降TopK、用小模型\n```\n\n---\n\n## 补充：RAG回答不准怎么解决（面试高频题）\n\n> 面试官问法：\"你的RAG系统回答不准，你怎么排查和解决？\"\n\n### 第一步：定位\"不准\"属于哪种类型\n\n| 不准的类型 | 典型表现 | 根因方向 |\n|-----------|---------|---------|\n| **检索不到** | 明明知识库有相关内容，但没被召回 | 检索层问题 |\n| **检索到但不相关** | 召回的chunk和问题无关或关联度低 | 分块/Embedding/检索策略问题 |\n| **检索对了但回答错** | 召回了正确内容，LLM回答仍然有误 | 生成层问题（Prompt/模型） |\n| **回答有幻觉** | LLM编造了知识库中不存在的内容 | 生成层问题 + 约束不够 |\n| **回答不完整** | 只回答了部分信息，遗漏关键内容 | 检索量不够 / Prompt引导不足 |\n\n### 第二步：按层逐一排查+解决\n\n#### 1. 数据层（知识库质量）\n\n| 问题 | 解决方案 |\n|------|---------|\n| 原始文档质量差（OCR/ASR错误多） | 前置清洗流程，纠错后再入库 |\n| 文档格式混乱（表格、图片、代码混排） | 按类型预处理，保留结构化信息 |\n| 知识库覆盖不全 | 定期补充新文档，建立知识缺口反馈机制 |\n| 重复/矛盾内容 | 去重 + 版本管理，保留最新版本 |\n\n#### 2. 分块层（Chunking）\n\n| 问题 | 解决方案 |\n|------|---------|\n| chunk太大 → 噪音多，关键信息被稀释 | 减小chunk_size（如1024→512） |\n| chunk太小 → 上下文断裂，语义不完整 | 增大chunk_size，或增加overlap |\n| 关键信息被切断在两个chunk边界 | 增加overlap（10-20%），或用语义分块 |\n| 不同类型文档用同一分块策略 | 按文档类型定制策略（Markdown按标题、PDF按段落、代码按函数） |\n\n**你的项目实战**：正畸知识库按Markdown标题分块，每个术语/场景独立成chunk，避免信息混杂。\n\n#### 3. 检索层（Retrieval）\n\n| 问题 | 解决方案 |\n|------|---------|\n| 语义相似但词汇不同导致漏召回 | 加入Query改写/扩展（把\"牙套\"扩展为\"矫治器、隐适美\"） |\n| 专业术语/缩写匹配不到 | 混合检索（向量+关键词），关键词保证精确匹配 |\n| 召回太多噪音 | 降低TopK、提高Score阈值、加Rerank模型二次精排 |\n| 重要chunk排序靠后 | 加Rerank（如Cohere Rerank、bge-reranker），按语义相关度重排 |\n| 用户query太模糊 | Query改写：用LLM先把模糊问题改写为精确检索query |\n\n**检索优化组合拳（推荐顺序）**：\n```\n混合检索（向量+全文） → Query改写 → 调TopK和阈值 → 加Rerank → 换更好的Embedding模型\n```\n\n#### 4. 生成层（Generation）\n\n| 问题 | 解决方案 |\n|------|---------|\n| LLM忽略检索到的上下文 | Prompt中强调\"必须基于以下参考内容回答\" |\n| LLM产生幻觉（编造内容） | 降低Temperature（0.1-0.3）、Prompt加\"如果参考内容中没有答案，请明确说明\" |\n| 回答格式不对 | Prompt中用模板强约束输出结构 |\n| 回答过于笼统 | Prompt要求引用原文、给出具体数据 |\n| 上下文窗口不够（chunk太多塞不下） | 减少TopK、或用Map-Reduce策略（先分chunk总结，再汇总） |\n\n#### 5. 端到端优化\n\n| 策略 | 说明 |\n|------|------|\n| **评估闭环** | 建立评估指标（准确率、召回率、相关度），定期跑评估集 |\n| **Bad Case驱动** | 每个bad case归因到具体层级，针对性修复 |\n| **AB测试** | 每次改动用同一批query对比前后效果 |\n| **用户反馈** | 上线后收集\"回答有用/没用\"反馈，持续发现新bad case |\n\n### 面试回答模板\n\n> \"RAG回答不准时，我会按**数据层→分块层→检索层→生成层**四层逐步排查。先看知识库数据质量有没有问题；再看分块策略是否合理、有没有关键信息被切断；然后重点看检索环节——是漏召回还是噪音多，对症选择调TopK、混合检索、加Rerank、Query改写等手段；最后看生成层的Prompt约束和模型参数。\n> \n> 在我的通话摘要项目中，v1版本出现过因TopK设为6导致召回噪音过多、LLM分析过于保守的问题，归因后将TopK降为4，效果显著改善。我们还建立了bad case归因机制，每个case归因到四类之一（Prompt缺陷/知识库缺失/模型能力/输入质量），驱动持续优化。\"\n\n---\n\n## 三、你的项目v1→v2优化实例\n\n| 问题 | 归因 | 环节 | 措施 |\n|------|------|------|------|\n| 术语识别错 | ASR能力不足 | ASR层 | 上传热词库 |\n| 性格判定保守 | Prompt允许回避 | Prompt层 | 禁止\"无法判定\" |\n| 输出结构偏离 | LLM自由发挥 | Prompt层 | 填空式模板+限定选项 |\n| 缺少评级 | Prompt未强制 | Prompt层 | S/A/B/C/D作为必填 |\n| 分析过于保守 | RAG召回噪音多 | 检索层 | TopK 6→4 |\n\n---\n\n## 四、Agent框架\n\n### Agent四大核心组件\n\n| 组件 | 说明 | 举例 |\n|------|------|------|\n| 规划（Planning） | 将复杂任务分解为子步骤 | ReAct、CoT |\n| 记忆（Memory） | 短期（对话上下文）+ 长期（持久化） | 用户画像 |\n| 工具（Tools） | 调用外部API/数据库 | Function Call |\n| 感知（Perception） | 接收多种输入 | 文本、图像、语音 |\n\n### Agent vs 单纯LLM\n\n- LLM：一问一答，无状态，不能操作外部世界\n- Agent：自主规划 → 调用工具 → 记住历史 → 迭代调整，形成闭环\n\n---\n\n## 补充：多Agent系统与协作模式（面试高频题）\n\n### 什么是多Agent系统\n\n单个Agent能力有限（上下文窗口、单一角色），当任务足够复杂时，需要**多个专业化Agent协作**完成。类比公司组织：CEO不可能一个人完成所有工作，需要产品、研发、销售等角色分工配合。\n\n### 五种核心协作模式\n\n#### 1. 串行（Sequential / Pipeline）\n\n```\nAgent A（意图识别）→ Agent B（信息检索）→ Agent C（生成回答）→ Agent D（质检审核）\n```\n\n- **特点**：上游输出是下游输入，按顺序执行\n- **优点**：逻辑清晰、易调试、每个Agent职责单一\n- **缺点**：总延迟 = 各环节之和，任一环节出错会阻塞后续\n- **适用场景**：流水线式任务（文档处理、数据ETL、内容审核）\n- **你的项目类比**：ASR转写 → 文本清洗 → RAG检索 → LLM生成，就是串行流水线\n\n#### 2. 并行（Parallel）\n\n```\n                ┌→ Agent A（分析维度1）→┐\n用户query → 路由 ├→ Agent B（分析维度2）→├→ 结果合并\n                └→ Agent C（分析维度3）→┘\n```\n\n- **特点**：多个Agent同时执行独立子任务，最后汇总\n- **优点**：大幅降低总延迟（取决于最慢的Agent）\n- **缺点**：需要合并策略，Agent之间不能有依赖\n- **适用场景**：多维度分析、多源检索、批量处理\n- **举例**：同时用3个Agent分别分析用户的运动数据、饮食数据、睡眠数据，最后合并成健康报告\n\n#### 3. 路由 / 分发（Router / Dispatcher）\n\n```\n                    ┌→ 售前Agent（产品咨询）\n用户query → 路由Agent ├→ 售后Agent（问题处理）\n                    ├→ 技术Agent（技术支持）\n                    └→ 闲聊Agent（兜底）\n```\n\n- **特点**：一个\"调度员\"Agent根据意图分发给不同专业Agent\n- **优点**：每个Agent可深度专业化，互不干扰\n- **缺点**：路由准确性是瓶颈，误分发会导致体验差\n- **适用场景**：智能客服、多业务入口、意图分类后分流\n- **关键设计点**：路由Agent的Prompt要覆盖所有分支的判断规则，且需要兜底策略\n\n#### 4. 层级 / 主从（Hierarchical / Manager-Worker）\n\n```\nManager Agent（任务拆解+调度+质检）\n    ├→ Worker Agent 1（执行子任务1）\n    ├→ Worker Agent 2（执行子任务2）\n    └→ Worker Agent 3（执行子任务3）\nManager Agent（汇总+决策+输出）\n```\n\n- **特点**：有一个\"经理\"Agent负责拆解任务、分配给\"工人\"Agent、审核结果\n- **优点**：处理复杂开放式任务、可动态调整策略\n- **缺点**：Manager质量决定天花板，多次LLM调用成本高\n- **适用场景**：复杂项目管理、多步骤研究任务、代码生成+review\n- **举例**：用户说\"帮我做一个竞品分析报告\"，Manager拆为\"收集数据→分析功能→比较定价→写报告\"，分别派给不同Worker\n\n#### 5. 辩论 / 协商（Debate / Negotiation）\n\n```\nAgent A（正方观点）⇄ Agent B（反方观点）⇄ Agent C（裁判/综合）\n```\n\n- **特点**：多个Agent提出不同观点，互相质疑和完善，最终由裁判Agent综合\n- **优点**：适合需要多角度思考的问题，输出质量高\n- **缺点**：多轮交互延迟大、token消耗高\n- **适用场景**：方案评审、风险评估、内容审核\n- **举例**：投资决策Agent系统——乐观Agent和悲观Agent分别分析，风控Agent最终裁决\n\n### 多Agent vs 单Agent的选择\n\n| 维度 | 单Agent | 多Agent |\n|------|---------|---------|\n| 适用任务 | 职责单一、流程固定 | 复杂、多步骤、需要多视角 |\n| 开发成本 | 低 | 高（需设计通信+协调） |\n| 延迟 | 低 | 较高（多次LLM调用） |\n| 可维护性 | 简单 | 每个Agent独立迭代 |\n| 容错性 | 单点故障 | 可部分降级 |\n\n**AI PM决策原则**：先用单Agent验证核心价值，当单Agent的Prompt超过3000 tokens或任务需要3种以上不同能力时，考虑拆分为多Agent。\n\n### 主流多Agent框架\n\n| 框架 | 特点 | 适用场景 |\n|------|------|---------|\n| **CrewAI** | 角色扮演式，定义Agent角色+目标+工具 | 团队协作类任务 |\n| **AutoGen**（微软） | 支持对话式多Agent交互 | 代码生成、研究分析 |\n| **LangGraph** | LangChain生态，基于图结构编排 | 复杂条件分支工作流 |\n| **MetaGPT** | 模拟软件公司组织架构 | 软件开发全流程 |\n| **Dify** | 低代码，支持简单多Agent编排 | MVP验证 |\n\n#### AutoGen 深入理解\n\nAutoGen是微软开源的多Agent对话框架，核心思想是**让多个Agent通过自然语言对话来协作完成任务**。\n\n**核心概念**：\n\n```\n┌──────────────┐    对话     ┌──────────────┐\n│ AssistantAgent│ ←────────→ │  UserProxy    │\n│ （AI助手）    │            │ （代理人类）   │\n│ - 生成代码    │            │ - 执行代码    │\n│ - 分析问题    │            │ - 反馈结果    │\n│ - 提出方案    │            │ - 人工介入    │\n└──────────────┘            └──────────────┘\n```\n\n**三种核心Agent类型**：\n\n| Agent类型 | 作用 | 特点 |\n|-----------|------|------|\n| **AssistantAgent** | AI助手，接收任务并生成方案/代码 | 由LLM驱动 |\n| **UserProxyAgent** | 代理人类，执行代码、反馈结果 | 可自动执行或请求人工确认 |\n| **GroupChatManager** | 群聊管理者，协调多个Agent轮流发言 | 管理发言顺序和终止条件 |\n\n**AutoGen的独特设计**：\n1. **对话即协作**：Agent之间通过多轮对话完成任务，而非预定义流程\n2. **人机协作**：UserProxy可以设置为自动模式或人工确认模式\n3. **代码执行闭环**：AssistantAgent生成代码 → UserProxy在沙箱中执行 → 结果反馈 → 修正\n4. **灵活终止**：可设置最大轮数、终止关键词、人工终止\n\n**AutoGen vs LangGraph vs CrewAI**：\n\n| 维度 | AutoGen | LangGraph | CrewAI |\n|------|---------|-----------|--------|\n| 协作方式 | 自然语言对话 | 有向图流转 | 角色分工+任务委派 |\n| 灵活性 | 高（动态对话） | 高（图结构） | 中（预定义角色） |\n| 适合场景 | 代码生成、研究 | 复杂条件分支 | 团队模拟 |\n| 人机协作 | 原生支持 | 需自行实现 | 有限支持 |\n| 学习曲线 | 中 | 高 | 低 |\n\n### LlamaIndex 深入理解\n\nLlamaIndex（原GPT Index）是一个专注于**数据连接和检索**的LLM框架，核心定位是让LLM能高效地访问和利用私有数据。\n\n**LlamaIndex vs LangChain的核心区别**：\n- **LangChain**：通用LLM应用框架，\"什么都能做\"\n- **LlamaIndex**：专注于**数据索引和检索**，\"把RAG做到极致\"\n\n**核心架构**：\n\n```\n┌─────────────────────────────────────────────────────────┐\n│                   LlamaIndex 架构                        │\n│                                                         │\n│  ┌────────────────┐  ┌────────────────┐                │\n│  │  Data Connectors│  │    Indices     │                │\n│  │  数据连接器      │  │    索引结构    │                │\n│  │  (100+数据源)   │  │  (向量/树/KG)  │                │\n│  └────────────────┘  └────────────────┘                │\n│  ┌────────────────┐  ┌────────────────┐                │\n│  │  Query Engine  │  │    Retrievers  │                │\n│  │  查询引擎      │  │    检索器      │                │\n│  └────────────────┘  └────────────────┘                │\n│  ┌────────────────┐  ┌────────────────┐                │\n│  │  Node Parser   │  │  Response      │                │\n│  │  分块器        │  │  Synthesizer   │                │\n│  │               │  │  回答合成器     │                │\n│  └────────────────┘  └────────────────┘                │\n└─────────────────────────────────────────────────────────┘\n```\n\n**六大核心组件**：\n\n| 组件 | 作用 | 核心能力 |\n|------|------|---------|\n| **Data Connectors** | 连接100+数据源 | PDF/网页/数据库/Notion/Slack/API等 |\n| **Node Parser** | 智能分块 | 句子级/段落级/语义级分块，保留元数据 |\n| **Indices** | 构建索引结构 | VectorStoreIndex / TreeIndex / KnowledgeGraphIndex |\n| **Retrievers** | 检索策略 | 向量/关键词/混合/递归检索 |\n| **Query Engine** | 查询引擎 | 将检索结果+用户问题组合，调用LLM |\n| **Response Synthesizer** | 回答合成 | Refine / Compact / TreeSummarize / SimpleSummarize |\n\n**LlamaIndex的独特优势**：\n\n1. **索引类型丰富**：\n   - `VectorStoreIndex`：标准向量检索（最常用）\n   - `TreeIndex`：树结构，适合层级化文档\n   - `KnowledgeGraphIndex`：知识图谱索引，适合实体关系提取\n   - `KeywordTableIndex`：关键词表索引\n\n2. **回答合成策略**：\n   - `Refine`：逐chunk递进式精炼回答（最准确，速度慢）\n   - `Compact`：合并chunk后一次生成（平衡方案）\n   - `TreeSummarize`：树状汇总（适合大量chunk）\n   - `SimpleSummarize`：直接拼接生成（最快，精度低）\n\n3. **内置评估框架**：\n   - Faithfulness（忠实度）：回答是否基于检索内容\n   - Relevancy（相关度）：检索内容是否与问题相关\n   - Correctness（正确性）：回答是否正确\n\n**LlamaIndex vs LangChain 深度对比**：\n\n| 维度 | LlamaIndex | LangChain |\n|------|-----------|-----------|\n| **核心定位** | 数据索引和RAG | 通用LLM应用框架 |\n| **RAG能力** | 极强（核心竞争力） | 强（模块之一） |\n| **索引类型** | 丰富（向量/树/KG/关键词） | 主要是向量 |\n| **数据连接** | 100+内置连接器 | 需自行集成 |\n| **回答合成** | 多种策略可选 | 较基础 |\n| **Agent能力** | 有但不是重点 | 强（核心模块） |\n| **多Agent** | 有限 | LangGraph强大 |\n| **适合场景** | 知识库问答、文档分析 | 通用AI应用 |\n| **搭配使用** | 可作为LangChain的Retriever | 可调用LlamaIndex索引 |\n\n**AI PM选型建议**：\n- 纯RAG/知识库场景 → 优先LlamaIndex（索引和检索能力更强）\n- Agent/工具调用/复杂流程 → 优先LangChain\n- 两者可以搭配使用：LlamaIndex负责索引和检索，LangChain负责Agent编排\n\n### 面试回答模板\n\n> \"多Agent系统的核心思想是将复杂任务拆解给多个专业化Agent协作完成。主要有五种协作模式：串行适合流水线任务、并行适合多维度分析、路由适合意图分发、层级适合复杂项目管理、辩论适合需要多视角决策的场景。\n>\n> 框架选型上，AutoGen适合需要人机协作和代码执行闭环的场景，LangGraph适合复杂条件分支工作流，CrewAI适合角色分工明确的团队模拟。LlamaIndex和LangChain定位不同——LlamaIndex专精于数据索引和RAG，LangChain是通用LLM应用框架，两者可以搭配使用。\n>\n> 作为PM的决策原则是：先单Agent验证核心价值，当Prompt复杂度过高或任务需要多种能力时再拆分。我的项目目前是串行流水线架构，如果后续要做'智能正畸助手'，可以用路由模式——用户咨询方案走方案Agent、查进度走数据Agent、投诉走客服Agent。\"\n\n---\n\n## 补充：高可用、高扩展性的Agent架构设计\n\n> JD关键词：\"设计高可用、高扩展性的大模型/Agent架构\"\n\n### Agent系统架构分层\n\n```\n┌─────────────────────────────────────────────────────────┐\n│                     接入层（Gateway）                     │\n│        负载均衡 / 限流 / 认证 / 协议转换                    │\n├─────────────────────────────────────────────────────────┤\n│                    编排层（Orchestration）                 │\n│     Agent调度 / 任务拆解 / 状态管理 / 路由分发              │\n├────────────┬────────────┬────────────┬──────────────────┤\n│  Agent A   │  Agent B   │  Agent C   │   Agent N        │\n│  意图理解   │  知识检索   │  内容生成   │   工具调用        │\n├────────────┴────────────┴────────────┴──────────────────┤\n│                    基础设施层（Infrastructure）             │\n│  模型服务(LLM API) / 向量库 / 缓存 / 消息队列 / 日志监控   │\n└─────────────────────────────────────────────────────────┘\n```\n\n### 高可用设计要点\n\n| 设计要点 | 措施 | 为什么重要 |\n|---------|------|-----------|\n| **模型层容错** | 多模型Provider failover（如DeepSeek挂了自动切Qwen） | LLM API不稳定是常见问题 |\n| **限流降级** | 令牌桶限流 + 高峰期降级（用小模型兜底） | 防止API费用暴涨+保护系统 |\n| **缓存策略** | 相似Query缓存（语义缓存）+ 热点结果缓存 | 降低延迟和成本 |\n| **异步解耦** | 用消息队列解耦Agent之间的通信 | 一个Agent故障不影响其他 |\n| **超时重试** | 每个Agent设置超时 + 指数退避重试 | LLM响应时间不稳定 |\n| **优雅降级** | Rerank超时→跳过Rerank直出；Agent故障→降级为规则引擎 | 保证核心功能可用 |\n| **监控告警** | 延迟/成功率/token用量/成本实时监控 | 及时发现异常 |\n\n### 高扩展性设计要点\n\n| 设计要点 | 措施 | 为什么重要 |\n|---------|------|-----------|\n| **Agent插件化** | 每个Agent独立部署、独立配置、通过标准接口通信 | 新增Agent不影响现有系统 |\n| **工具热插拔** | 工具通过MCP/OpenAPI标准注册，无需改代码即可新增 | 业务侧自助扩展 |\n| **Prompt配置化** | Prompt存在配置中心而非代码中，支持热更新 | 产品经理可独立迭代Prompt |\n| **知识库插件化** | 每个业务域独立知识库，共享检索基础设施 | 新业务线快速接入 |\n| **水平扩展** | Agent无状态设计，支持横向加机器 | 应对流量增长 |\n| **多租户** | 不同业务线共享架构，数据和配置隔离 | 一套系统服务多条业务线 |\n\n### 面试中怎么答\"你怎么设计一个高可用的Agent架构\"？\n\n> \"我会从四层来设计：接入层做负载均衡和限流，编排层负责Agent调度和状态管理，Agent层每个Agent独立部署、插件化注册，基础设施层提供模型服务、向量库、缓存和监控。\n>\n> 高可用方面：关键是模型层多Provider容错（主用DeepSeek、备用Qwen）、每个Agent设超时和重试、用消息队列解耦Agent通信、建立完善的监控告警。\n>\n> 高扩展方面：Agent插件化设计、工具通过MCP/OpenAPI标准注册实现热插拔、Prompt配置化支持热更新、知识库按业务域隔离。这样新增Agent或接入新业务线时，不需要改核心代码。\"\n\n---\n\n## 五、Function Call\n\n**工作流程**：\n1. 开发者预定义可用函数（名称、描述、参数Schema）\n2. 用户提问 → LLM判断是否需要调用函数\n3. 需要 → 输出函数名+参数JSON\n4. 应用层执行函数，拿到结果\n5. 结果返回LLM → 生成最终回答\n\n**Keep场景举例**：\n用户问\"我今天热量够了吗\" → LLM调用calculate_calories() → 再调用get_daily_target() → 综合回答\n\n---\n\n## 六、Fine-tuning vs RAG选择\n\n| | RAG | Fine-tuning |\n|---|---|---|\n| 知识更新 | 实时（改文档） | 需重新训练 |\n| 成本 | 低 | 高（GPU） |\n| 可解释性 | 高（可追溯） | 低 |\n| 适合 | 知识密集问答 | 风格/格式统一 |\n\n你的项目选RAG的原因：知识频繁更新、成本低、可追溯便于bad case归因\n\n---\n\n## 七、让LLM输出JSON\n\n1. Prompt明确要求 + 完整JSON示例\n2. response_format: {\"type\": \"json_object\"}\n3. 代码层try-except兜底\n4. 解析失败自动重试或LLM二次修复\n5. 多次失败降级为文本输出\n\n---\n\n## 八、Dify的缺点\n\n1. 调试效率低（逐节点看日志）\n2. 复杂逻辑不如直接写代码\n3. 版本管理和团队协作弱\n4. 知识库能力有上限（分块策略有限、Rerank弱）\n5. 高并发性能瓶颈\n6. 生态锁定，迁移成本高\n\n**但**：对快速验证MVP和非技术团队仍有价值\n\n---\n\n## 九、Dify Workflow实战经验（企微聊天版）\n\n### 架构设计\n\n```\n开始（chat_record 段落输入）→ 知识检索（正畸知识库，混合检索）→ LLM（结构化分析）→ 结束（输出result）\n```\n\n3个节点，搭建时间约20分钟。\n\n### 关键配置决策\n\n| 配置项 | 选择 | 原因 |\n|--------|------|------|\n| 输入类型 | 段落（Paragraph） | 聊天记录较长，短文本有字数限制 |\n| 检索模式 | 混合检索（向量+全文） | 术语需要精确匹配（全文），语义需要模糊匹配（向量） |\n| TopK | 4 | 知识库较小（5份文档），4条足够覆盖 |\n| Score阈值 | 0.5 | 低阈值保证术语表等关键文档不被过滤 |\n| 模型Temperature | 0.15 | 低随机性保证输出一致性 |\n| Max Tokens | 4096 | 多病例拆分时需要足够输出空间 |\n\n### 通话版（Python）vs 企微版（Dify）选型对比\n\n| 维度 | Python脚本 | Dify Workflow |\n|------|-----------|---------------|\n| 适用场景 | 需要集成ASR等外部API | 输入直接是文本 |\n| 开发速度 | 需要写代码 | 拖拽搭建 |\n| 维护 | 需要开发者 | 业务人员可调参 |\n| 知识库 | 自行管理 | 内置（支持混合检索） |\n\n### 知识库复用策略\n\n通话版和企微版共享同一套正畸知识库（术语纠错表、术语解释库、场景识别规则），只有Prompt层面做差异化适配——这是AI PM的架构思维：**底层知识资产复用，表层交互按场景定制**。\n\n---\n\n*Keep一面重点考了：RAG流程、分块策略、Overlap(不会)、检索策略、权重分配*\n"}, {"id": "m3", "title": "03 统计学与AB测试", "raw": "# 模块3：统计学与A/B测试\n\n> 面试高频指数：★★★★\n> 你的掌握程度：★★★★★（你的专业强项，务必拿满分）\n\n---\n\n## Q1：假设检验\n\n**流程**：提出H₀/H₁ → 选统计量 → 定α(通常0.05) → 算p值 → 决策\n\n**举例**：H₀:新版AI教练留存率=老版 → p=0.03<0.05 → 拒绝H₀ → 新版显著提升\n\n---\n\n## Q2：p值\n\n**严谨定义**：在H₀为真的前提下，观察到当前结果或更极端结果的概率\n\n**常见误区**：p值不是H₀为真的概率；p值小≠效果大（统计显著≠实际显著）\n\n**产品补充**：大样本中微小差异也能p<0.05，所以还要看效果量和置信区间\n\n---\n\n## Q3：判断A/B实验策略效果（四步法）\n\n1. **实验设计**：定核心指标+护栏指标，算最小样本量，随机分流\n2. **数据收集**：跑够时间/样本量，不要中途偷看决策\n3. **统计判断**：p<0.05 + 效果量有业务意义 + 护栏指标无恶化\n4. **决策**：全量/调整/下线\n\n---\n\n## Q4：累计CTR vs 去重CTR\n\n- 累计CTR：总点击/总曝光，同一用户贡献多次，**违反独立性假设**\n- 去重CTR：点击用户数/曝光用户数，每个用户只计一次，**满足i.i.d.**\n- A/B测试中应用**去重CTR（用户粒度）**\n\n---\n\n## Q5：常见分布\n\n| 分布 | 场景 | Keep举例 |\n|------|------|---------|\n| 正态 | 大量独立因素叠加 | 用户每日运动时长 |\n| 二项 | n次是/否试验 | 10个用户几个点击AI教练 |\n| 泊松 | 稀有事件次数 | 每分钟错误请求数 |\n| 指数 | 事件间隔时间 | 两次打开App的间隔 |\n| t分布 | 小样本均值检验 | 小规模A/B测试 |\n\n泊松公式：P(X=k) = (λ^k × e^(-λ)) / k!\n\n---\n\n## Q6：指标异动阈值\n\n1. **历史统计法**：μ ± 2σ（95%）或 ± 3σ（99.7%）\n2. **环比/同比法**：日环比下降>10%告警\n3. **业务经验法**：和业务定义底线（如响应延迟>5秒告警）\n\n结合你得物经验：通过统计方法设阈值，异动后多维下钻归因\n\n---\n\n## Q7：第一类/第二类错误\n\n- α错误（假阳性）：没效果但认为有效果\n- β错误（假阴性）：有效果但没检测到\n- Power = 1-β ≥ 0.8\n- 互联网更怕α错误（上线无用功能浪费资源）\n\n---\n\n## Q8：样本量确定\n\n取决于：α(0.05) × Power(0.8) × MDE(最小有意义提升) × 基线方差\n\n简化公式：n ≈ 16 × p(1-p) / MDE²\n\nKeep例：留存率40%，检测2%提升 → 每组约9600人\n\n---\n\n## Q9：统计学中印象最深的知识点\n\n推荐答**中心极限定理(CLT)**：不管总体什么分布，样本量够大时样本均值趋近正态。这是A/B测试能用z检验的理论基石。\n\n---\n\n## Q10：没有历史数据怎么评估AI功能ROI\n\n**收益估算**：Top-down从大盘倒推 + 竞品/相似功能类比 + 用户意向调研（打5-7折）\n\n**成本估算**：研发人力+API调用+运营维护\n\n**关键策略**：用最小成本快速验证——MVP验证 / 灰度实验 / 假门测试\n\n**阶梯式框架**：10%预算做MVP → 30%做灰度 → 全量上线A/B测试\n\n---\n\n*你的专业优势，面试时结合实习经验讲会很加分*\n"}, {"id": "m4", "title": "04 Python与SQL", "raw": "# 模块4：Python与SQL手撕\n\n> 面试高频指数：★★★★★（Keep明确说老板要求高）\n> 你的掌握程度：★★★（一面自认不足，必须每日练习）\n\n---\n\n## Python必会题型\n\n### 1. 字符串逆序+索引（面经原题）\n```python\ns = \"transformer\"\nfor i, char in reversed(list(enumerate(s))):\n    print(char, i)\n```\n\n### 2. 字符计数\n```python\ndef char_count(s):\n    result = {}\n    for c in s:\n        result[c] = result.get(c, 0) + 1\n    return result\n```\n\n### 3. 列表最大值/第二大\n```python\ndef second_largest(lst):\n    first = second = float('-inf')\n    for n in lst:\n        if n > first:\n            second = first\n            first = n\n        elif n > second and n != first:\n            second = n\n    return second\n```\n\n### 4. 股票最大利润\n```python\ndef max_profit(prices):\n    min_price = float('inf')\n    max_profit = 0\n    for price in prices:\n        min_price = min(min_price, price)\n        max_profit = max(max_profit, price - min_price)\n    return max_profit\n```\n\n### 5. 运动数据分类统计（Keep场景）\n```python\ndef classify_training(logs):\n    aerobic = {\"跑步\", \"游泳\", \"跳绳\", \"骑行\"}\n    anaerobic = {\"举铁\", \"卧推\", \"深蹲\"}\n    result = {\"有氧\": 0, \"无氧\": 0, \"有氧+无氧\": 0, \"未知\": 0}\n    for item in logs.split(\"|\"):\n        name, duration = item.split(\"-\")\n        duration = int(duration)\n        is_a = name in aerobic\n        is_an = name in anaerobic\n        if is_a and is_an: result[\"有氧+无氧\"] += duration\n        elif is_a: result[\"有氧\"] += duration\n        elif is_an: result[\"无氧\"] += duration\n        else: result[\"未知\"] += duration\n    return result\n```\n\n### 6. JSON解析\n```python\nimport json\ndata = json.loads('{\"user_id\":123,\"actions\":[{\"type\":\"click\",\"page\":\"home\"}]}')\nclick_pages = [a[\"page\"] for a in data[\"actions\"] if a[\"type\"] == \"click\"]\n```\n\n### Python核心语法速查\n| 操作 | 语法 |\n|------|------|\n| 翻转 | `s[::-1]` |\n| 带索引遍历 | `enumerate(s)` |\n| 列表推导 | `[x for x in lst if x > 0]` |\n| 字典默认值 | `dict.get(key, 0)` |\n| 排序 | `sorted(lst, key=lambda x: x[1], reverse=True)` |\n| 计数 | `collections.Counter` |\n| 集合交集 | `set(a) & set(b)` |\n| 去重保序 | `list(dict.fromkeys(lst))` |\n\n---\n\n## SQL必会题型\n\n### 1. 连续打卡天数（面经原题）\n```sql\nWITH ranked AS (\n    SELECT user_id, checkin_date,\n        DATE_SUB(checkin_date, INTERVAL ROW_NUMBER() OVER (\n            PARTITION BY user_id ORDER BY checkin_date) DAY) AS grp\n    FROM checkin\n),\nstreaks AS (\n    SELECT user_id, grp, COUNT(*) AS days\n    FROM ranked GROUP BY user_id, grp HAVING COUNT(*) >= 3\n)\nSELECT user_id, MAX(days) AS max_days\nFROM streaks GROUP BY user_id ORDER BY user_id;\n```\n**原理**：连续日期减行号得到相同值 → 分组 → 计数\n\n### 2. 次日留存率\n```sql\nSELECT a.login_date,\n    COUNT(DISTINCT b.user_id) * 1.0 / COUNT(DISTINCT a.user_id) AS retention\nFROM user_login a\nLEFT JOIN user_login b\n    ON a.user_id = b.user_id\n    AND b.login_date = DATE_ADD(a.login_date, INTERVAL 1 DAY)\nGROUP BY a.login_date;\n```\n\n### 3. 环比增长率（LAG）\n```sql\nSELECT dt, dau,\n    ROUND((dau - LAG(dau,1) OVER (ORDER BY dt)) * 1.0\n        / LAG(dau,1) OVER (ORDER BY dt), 4) AS growth_rate\nFROM daily_metrics;\n```\n\n### 4. 转化漏斗\n```sql\nSELECT\n    COUNT(DISTINCT CASE WHEN event='view' THEN user_id END) AS step1,\n    COUNT(DISTINCT CASE WHEN event='click' THEN user_id END) AS step2,\n    ROUND(step2*1.0/step1, 4) AS conversion\nFROM events;\n```\n\n### 5. TopN（每组排名）\n```sql\nSELECT * FROM (\n    SELECT *, ROW_NUMBER() OVER (PARTITION BY group_col ORDER BY val DESC) AS rn\n    FROM table) t\nWHERE rn <= N;\n```\n\n### SQL执行顺序（面经原题）\n```\nFROM → WHERE → GROUP BY → HAVING → SELECT → DISTINCT → ORDER BY → LIMIT\n```\nWHERE不能用SELECT别名（WHERE先执行），ORDER BY可以用（后执行）\n\n### SQL核心语法速查\n| 操作 | 语法 |\n|------|------|\n| 窗口函数 | ROW_NUMBER/RANK/LAG/LEAD OVER(PARTITION BY...ORDER BY...) |\n| 连续N天 | 日期 - ROW_NUMBER() |\n| 留存率 | LEFT JOIN + 日期偏移 |\n| 条件聚合 | SUM(CASE WHEN...THEN 1 ELSE 0 END) |\n| 日期函数 | DATE_ADD, DATE_SUB, DATEDIFF |\n\n---\n\n## 每日练习计划\n\n**每天15分钟Python + 15分钟SQL，坚持到面试前**\n\n- Python：从上面题库中随机挑1题，不看答案手写\n- SQL：重点练连续打卡、留存率、窗口函数\n- 手写！不用IDE不用AI！\n\n---\n\n*Keep一面：代码部分自认不足，面试官明确\"老板要求高\"*\n"}, {"id": "m5", "title": "05 PM产品能力", "raw": "# 模块5：PM产品能力\n\n> 面试高频指数：★★★★\n> 你的掌握程度：★★★★（有实战经验，需要方法论化表达）\n\n---\n\n## Q1：需求推进五步法\n\n1. **需求理解与定义**：解决谁的什么问题？成功标准是什么？\n2. **需求评估与优先级**：用户价值×业务价值 vs 开发成本+机会成本（ICE模型）\n3. **方案设计**：用户故事→交互→技术方案→MVP边界→PRD评审\n4. **跟进落地**：排期→日站会→验收→灰度上线\n5. **效果验证与迭代**：埋点→A/B测试→用户反馈→bad case分析→决策\n\n你的项目完整走过这5步，面试时讲故事而不是背框架。\n\n---\n\n## Q2：需求ROI评估\n\n**ROI = 预期收益 / 投入成本**\n\n收益侧：指标提升×商业价值 + 效率提升 + 战略价值\n成本侧（⚠️容易忽略）：\n- 开发人力×工时\n- 持续运营成本（API调用费）\n- 机会成本（不能做其他需求）\n- 维护成本（后续迭代、技术债）\n\n---\n\n## Q3：AI产品效果指标体系（三层）\n\n| 层级 | 指标 |\n|------|------|\n| 功能可用性 | 响应延迟P50/P95、回答准确率、任务完成率、幻觉率 |\n| 用户体验 | 使用率、使用频次/深度、留存率、满意度、点赞/踩比 |\n| 业务价值 | 训练完成率、付费转化、课程参与率、LTV提升 |\n\n---\n\n## Q4：Bad Case归因流程（你的王牌素材）\n\n1. **发现**：人工抽检，AI输出 vs 原始内容对比\n2. **分类**：ASR错误 / Prompt理解偏差 / 知识缺失 / 模型能力不足\n3. **归因决策**：改Prompt还是热词库还是知识库\n4. **验证**：同批bad case回测 + 新数据抽检（回归测试）\n5. **闭环**：建立bad case库，持续改进\n\n### 项目升级：企微聊天记录版的Bad Case实例\n\n扩展到微信聊天记录后，发现了新的bad case类型：\n\n| Bad Case | 归因 | 优化措施 |\n|----------|------|---------|\n| 一段群聊讨论了2个患者，AI只输出了1个 | Prompt缺少多病例拆分逻辑 | 加入\"第一步：扫描并列出所有患者\"的强制步骤 |\n| 医生意见通过客服转述，AI漏掉了医生的判断 | 未考虑\"转述\"场景 | 新增转述识别规则 |\n| 群聊噪音太多（表情/系统消息/寒暄），干扰核心信息提取 | Prompt过滤规则不够 | 明确列出忽略项清单 |\n| 碎片化短消息理解错误 | 多条短消息未被聚合理解 | 加入消息聚合指令 |\n| 同一输入跑3次结果不一致（v1漏掉\"易伟杨\"病例） | Prompt约束力不够+Temperature | 加入强制扫描步骤，确保0遗漏 |\n\n**一致性测试**：同一段聊天记录跑3次，v1有一次漏掉了一个患者（2/3一致），优化Prompt后v2实现3/3一致且正确识别所有3位患者。\n\n---\n\n## Q5：准确率怎么计算的（Keep一面未问但必须准备）\n\n- 定义：人工评审通过率（非传统precision/recall）\n- 方法：随机抽样50-100条 × 按四个模块分别评估 × 全部合格才算通过\n- 分层分析：按场景类型、难度、数据源分别看\n- v1→v2：70% → 90%+\n- 局限性：评估人主观性、样本量有限、场景覆盖不均\n\n---\n\n## Q6：算法给95%准确率怎么核验\n\n1. 搞清楚定义：测试集是什么？口径是什么？\n2. 真实数据独立抽检：200-500条，人工标注对比\n3. 分层分析：按难度/类别/场景拆开看\n4. Bad case归因：错误的严重程度和规律\n5. 定义产品侧验收标准：不只看算法指标\n\n---\n\n## Q7：职业规划\n\n**为什么AI PM**：专业契合（统计学）+ 实践验证（时代天使AI项目成就感）+ 行业判断（垂直场景AI早期阶段）\n\n**规划**：短期扎根一线积累经验 → 中长期成为领域专家型PM\n\n---\n\n## Q8：研发说做不了怎么办\n\n1. 先理解原因（技术不可行/资源不够/方案复杂）\n2. 分情况处理：替代方案/需求拆解/简化方案\n3. 用数据说话：拿预期收益帮研发理解重要性\n4. 必要时升级给leader协调\n\n---\n\n## Q9：MVP与迭代平衡\n\n你的做法：2周MVP→灰度1周收集反馈→每周一轮迭代→每次只改一个变量\n\n好处：业务方第一周就能用，每周感受到产品在变好，信任感强\n\n---\n\n---\n\n## 补充知识点（JD审查后新增）\n\n### Q10：如何做竞品分析？\n\n框架：**产品定位 → 核心功能对比 → 用户评价 → 商业模式 → 技术路径 → SWOT → 差异化机会**\n\n输出模板：\n```\n1. 竞品概况（一句话定位）\n2. 核心功能对比表（功能×竞品矩阵）\n3. 用户评价分析（App Store评分、社区反馈）\n4. 商业模式对比\n5. 我们的差异化机会\n```\n\n### Q11：如何做用户调研？\n\n| 方法 | 适用阶段 | 样本量 | 输出 |\n|------|---------|--------|------|\n| 深度访谈 | 探索期 | 5-15人 | 用户痛点、需求洞察 |\n| 问卷调查 | 验证期 | 100+ | 量化数据、优先级排序 |\n| 可用性测试 | 设计期 | 5-8人 | 交互问题、体验优化 |\n| 数据分析 | 上线后 | 全量 | 行为模式、转化漏斗 |\n| A/B测试 | 优化期 | 按样本量计算 | 方案效果验证 |\n\n### Q12：如何设计AI产品的北极星指标？\n\n**原则**：一个核心指标 + 若干辅助指标\n\n**Keep AI教练示例**：\n- 北极星：AI教练用户的**月训练完成次数**\n- 辅助指标：AI教练使用率、方案采纳率、留存率、满意度\n\n**设计方法**：\n1. 指标要能反映**用户价值**（用户用了AI教练后运动更多了）\n2. 指标要能**被产品改进驱动**（优化AI教练能提升这个指标）\n3. 指标要有**先导性**（能预测长期商业价值如付费转化）\n\n---\n\n*Keep一面重点考了：项目讲述(好)、难点(好)、产品流程(好)*\n"}, {"id": "m6", "title": "06 行业与产品分析", "raw": "# 模块6：行业与产品分析\n\n> 面试高频指数：★★★★\n> 核心原则：每投一家公司，就必须深度体验和分析其AI产品\n\n---\n\n## 一、Keep AI产品分析（已面试）\n\n### 产品概况\n- AI教练\"卡卡(Kaka)\"，基于自研模型Kinetic.ai\n- 2026年战略：All in AI → Agent化 → App 9.0 AI版 → 海外出海\n\n### 核心功能\n| 功能 | 说明 | 技术推测 |\n|------|------|---------|\n| 个性化运动方案 | 根据目标/场地/器械/身体数据生成 | LLM + 用户画像 + 课程库检索 |\n| 语音训练指导 | 实时语音陪伴和动作指导 | TTS + 实时数据分析 |\n| 食物图片识别 | 拍照识别卡路里 | 多模态模型 |\n| 课程推荐 | 个性化课程匹配 | 推荐系统 + LLM |\n\n### 优缺点分析（面试必备）\n**优点**：垂类数据壁垒、内容壁垒、全链条场景闭环、品牌心智\n**不足**：被动对话缺主动性、方案个性化不够深、实时反馈闭环缺失、社交激励弱\n\n### LUI分发模式理解\n- 从\"人找内容\"→\"内容找人\"\n- 供给：由用户需求驱动实时生成（无限供给）\n- 效率：自然语言去结构化，一句话直达服务\n- 冷启动：在核心场景（运动/搜索）主动嵌入AI教练\n\n### Keep AI Agent三大关键能力\n1. 用户状态感知（穿戴设备+行为数据+环境数据）\n2. 长期记忆与个性化建模（运动偏好/伤病/进步轨迹）\n3. 多工具编排与行动执行（排课/提醒/记录/周报）\n\n### 面试官透露的关键信息\n- PM自己会在Dify上搭工作流\n- 算法更多做线上部署和性能优化\n- 主动型AI教练是探索方向\n\n---\n\n## 二、产品分析模板（投其他公司前填写）\n\n### [公司名] [产品名] 分析\n\n**产品定位**：（一句话）\n**核心用户**：（谁在什么场景下用）\n**AI功能清单**：\n1. 功能A：... → 技术推测：...\n2. 功能B：... → 技术推测：...\n\n**体验记录**：\n- 好的体验：...\n- 不好的体验：...\n- 我的改进建议：...\n\n**如果我来做下一版**：\n- 优先做什么功能？为什么？\n- 核心指标是什么？\n- 技术方案大致是什么？\n\n---\n\n## 三、AI PM行业全景认知\n\n### AI产品经理分类\n| 类型 | 做什么 | 典型公司 |\n|------|--------|---------|\n| 应用型toC | AI驱动用户产品 | Keep、字节、小红书 |\n| 应用型toB | AI赋能企业服务 | 钉钉、飞书、百融 |\n| 平台型 | AI开发平台/中间件 | 火山引擎、阿里云 |\n| 模型型 | 基座模型产品化 | 豆包、通义、文心 |\n\n### AI PM的核心能力模型\n```\n        技术理解力\n       /          \\\n      /            \\\n 产品设计力 ——— 数据决策力\n      \\            /\n       \\          /\n        商业洞察力\n```\n\n- **技术理解力**：不需要写模型，但要理解能力边界和选型逻辑\n- **产品设计力**：把AI能力翻译成用户价值\n- **数据决策力**：用数据验证AI效果，驱动迭代\n- **商业洞察力**：判断AI在哪个场景能创造最大商业价值\n\n### 2026年AI PM趋势\n- 大厂AI岗位占比60-90%（字节90%、百度90%、阿里60%+）\n- Agent是今年最大主题（从被动应答到主动服务）\n- 多模态是下一个爆发点（图像/语音/视频理解）\n- 垂直场景深耕比通用助手更有价值\n\n---\n\n*每投一家公司，在此文件中新增该公司的产品分析*\n"}, {"id": "m7", "title": "07 Prompt与工作流", "raw": "# 模块7：Prompt Engineering与工作流设计（新增）\n\n> 面试高频指数：★★★★★\n> 缺失原因：之前散落在各模块中，未系统化整理。这是AI PM的日常核心工作技能。\n\n---\n\n## 一、Prompt Engineering系统方法论\n\n### 1. Prompt的五要素结构\n\n一个高质量的Prompt应包含：\n\n| 要素 | 说明 | 示例 |\n|------|------|------|\n| **角色定义** | 告诉模型它是谁 | \"你是口腔正畸行业的通话记录分析专家\" |\n| **核心任务** | 明确要做什么 | \"请根据通话转写文本生成结构化总结\" |\n| **约束条件** | 边界和限制 | \"不得跳过任何字段，禁止'无法判定'\" |\n| **输出格式** | 期望的输出结构 | \"必须包含四个模块：问题描述、处理描述...\" |\n| **示例（Few-shot）** | 输入→输出的参考样例 | 提供1-2个优质分析样例 |\n\n### 2. 核心Prompt技巧\n\n| 技巧 | 原理 | 适用场景 |\n|------|------|---------|\n| **Zero-shot** | 不给示例，直接描述任务 | 简单、通用任务 |\n| **Few-shot** | 给1-3个示例 | 格式要求严格、领域特殊 |\n| **CoT（Chain of Thought）** | 要求模型\"一步步思考\" | 复杂推理、数学、逻辑判断 |\n| **ReAct** | 思考(Reason)+行动(Act)交替 | Agent任务编排 |\n| **ToT（Tree of Thought）** | 探索多个推理路径 | 需要创造性/多方案比较 |\n| **Self-Consistency** | 多次生成取多数投票 | 提高答案可靠性 |\n\n### 3. Prompt调试方法论（面经原题）\n\n**\"怎么确定是Prompt问题还是模型问题\"**：\n\n```\nStep1: 换模型测试（同一Prompt跑多模型）\n  → 所有模型都不行 = Prompt问题\n  → 只有某个模型不行 = 模型能力问题\n\nStep2: 简化任务（复杂任务拆成小步骤测试）\n  → 定位具体哪一步失败\n\nStep3: 检查Prompt本身\n  → 指令是否有歧义？是否矛盾？上下文是否过长？\n\nStep4: 看错误模式\n  → \"有时对有时错\" = Prompt边界不清 / Temperature太高\n  → \"稳定地错\" = 模型能力上限 / Prompt逻辑有误\n\nStep5: 用COT让模型输出推理过程\n  → 看它在哪一步出了问题\n```\n\n### 4. 你的项目中的Prompt优化实例\n\n| v1问题 | 归因 | v2优化 |\n|--------|------|--------|\n| LLM写\"无法判定\" | 允许回避 | 增加强制规则禁止回避 |\n| 自创分析维度 | 格式约束不够 | 填空式模板+限定选项 |\n| 缺少评级 | 未强制要求 | S/A/B/C/D作为必填字段 |\n| 纠错不稳定 | 依赖RAG召回 | Prompt中直接内置高频纠错映射 |\n\n**核心经验**：Prompt是代码，改一行Prompt就能快速迭代，比改模型成本低几个数量级。\n\n---\n\n## 二、MCP协议（2026年最热概念）\n\n### 什么是MCP\n\n**MCP（Model Context Protocol）**= AI世界的USB-C接口\n\n- 由Anthropic开源，2025年底捐赠给Linux基金会\n- OpenAI、Google、Microsoft、AWS为联合创始成员\n- 统一了大模型与外部工具/数据源的连接标准\n- 2026年初月下载量突破9700万次\n\n### 解决什么问题\n\n**之前**：每集成一个新工具都要写自定义代码（N个模型 × M个工具 = N×M种适配）\n**现在**：MCP统一接口，一次适配到处可用（N+M种适配）\n\n### 三层架构\n\n```\nHost（应用层，如Cursor/Claude Desktop）\n  ↓\nClient（协议桥梁，管理连接）\n  ↓\nServer（业务逻辑封装，如数据库/API/文件系统）\n```\n\n### 三大核心原语\n\n| 原语 | 说明 | 类比 |\n|------|------|------|\n| **Prompts** | 可复用的提示模板 | 函数模板 |\n| **Resources** | 结构化只读数据源 | GET接口 |\n| **Tools** | 可执行函数 | POST接口 |\n\n### 面试中怎么答\"你了解MCP吗？\"\n\n> \"MCP是Anthropic开源的标准协议，本质是统一了大模型和外部工具的连接方式，类似USB-C之于硬件。之前每个模型对接每个工具都要写定制代码，现在通过MCP标准化后，工具只需实现一次MCP Server，就能被任何支持MCP的模型调用。它的三层架构是Host→Client→Server，三大原语是Prompts、Resources和Tools。2026年它已经成为行业标准，OpenAI、Google等都加入了。对于AI PM来说，MCP的意义是大幅降低了Agent的工具集成成本，让我们可以更专注于产品逻辑而非底层适配。\"\n\n---\n\n## 补充：Context Engineering（上下文工程）\n\n> 2025年由Shopify CEO Tobi Lütke提出，迅速成为AI工程核心概念。JD中\"Context Engineering\"指的就是这个。\n\n### 什么是Context Engineering\n\n**一句话定义**：Context Engineering是为LLM构建最优上下文的系统工程——决定在每次LLM调用时，传入哪些信息、以什么结构传入、顺序如何安排。\n\n**与Prompt Engineering的关系**：\n\n| | Prompt Engineering | Context Engineering |\n|---|---|---|\n| **范围** | 单条Prompt的措辞和结构 | 整个上下文窗口的信息架构 |\n| **关注点** | \"怎么问\" | \"给模型看什么\" |\n| **层次** | 微观（一个Prompt） | 宏观（系统级） |\n| **类比** | 写好一个问题 | 为学生准备考前复习资料包 |\n\nPrompt Engineering是Context Engineering的子集。Context Engineering更全面——它涵盖了系统级的信息供给策略。\n\n### 上下文窗口的构成\n\nLLM的上下文窗口（Context Window）中通常包含以下信息：\n\n```\n┌─────────────────────────────────────────────────┐\n│                Context Window                    │\n│                                                  │\n│  ┌────────────────────────────────────────────┐ │\n│  │ 1. System Prompt（角色+规则+约束）          │ │\n│  ├────────────────────────────────────────────┤ │\n│  │ 2. Few-shot Examples（示例）               │ │\n│  ├────────────────────────────────────────────┤ │\n│  │ 3. Retrieved Context（RAG检索结果）        │ │\n│  ├────────────────────────────────────────────┤ │\n│  │ 4. Tool Results（工具调用返回结果）         │ │\n│  ├────────────────────────────────────────────┤ │\n│  │ 5. Conversation History（对话历史）        │ │\n│  ├────────────────────────────────────────────┤ │\n│  │ 6. User Query（当前用户输入）              │ │\n│  └────────────────────────────────────────────┘ │\n└─────────────────────────────────────────────────┘\n```\n\n**Context Engineering就是优化这6个部分的内容、比例和排列顺序。**\n\n### 核心技术手段\n\n| 手段 | 解决什么问题 | 具体做法 |\n|------|------------|---------|\n| **Write（写入）** | 重要信息持久化 | 将关键信息存入长期记忆/数据库，而非丢在对话流中 |\n| **Select（选择）** | 上下文窗口有限，不能什么都塞 | RAG检索、记忆过滤、对话历史压缩——只选最相关的信息 |\n| **Compress（压缩）** | 信息太多塞不下 | 对话历史摘要化、长文档提取关键信息、去除冗余 |\n| **Isolate（隔离）** | 不同任务需要不同上下文 | 多Agent架构中，每个Agent只看到自己需要的上下文 |\n| **Order（排序）** | LLM对信息位置敏感 | 最重要的信息放在开头和结尾（\"Lost in the Middle\"问题） |\n| **Format（格式化）** | 结构影响理解效果 | Markdown/XML/JSON等结构化格式 > 纯文本 |\n\n### \"Lost in the Middle\" 问题\n\n研究发现LLM对上下文中**开头和结尾**的信息关注度最高，**中间部分容易被忽略**。\n\n```\n注意力分布：\n高 ████████░░░░░░░░░░░░░░░░░░░░░░████████  高\n   ↑开头                    中间↑         ↑结尾\n```\n\n**应对策略**：\n- 最关键的规则放在System Prompt开头\n- RAG检索结果按相关度排序，最相关的放最前\n- 用户query放在最后（靠近生成位置）\n- 长上下文中插入\"提醒\"标记，防止遗忘\n\n### Context Engineering在你的项目中的体现\n\n| 技术手段 | 你的项目实践 |\n|---------|------------|\n| **Select** | RAG混合检索+TopK=4+Score阈值0.5，只选最相关的知识库内容 |\n| **Format** | 用Markdown模板强约束输出结构，用`##`分隔不同分析模块 |\n| **Order** | 角色定义放最前，强制规则放System Prompt末尾（靠近User Prompt） |\n| **Compress** | 企微版v2加入噪音过滤规则，只保留医生+设计师的病例对话 |\n| **Write** | 知识库存储术语表和优质样例，作为持久化的上下文来源 |\n| **Isolate** | 通话版和企微版用不同的System Prompt，但共享同一套知识库 |\n\n### 面试回答模板\n\n> \"Context Engineering是比Prompt Engineering更高一层的概念。Prompt Engineering关注的是'怎么问'，Context Engineering关注的是'给模型看什么'——在有限的上下文窗口中，如何选择、组织、排列信息，让LLM获得最优的理解和生成效果。\n>\n> 核心手段包括：Write（持久化关键信息）、Select（RAG检索最相关内容）、Compress（压缩冗余信息）、Order（利用Lost in the Middle效应合理排序）、Format（结构化格式提升理解）、Isolate（多Agent场景下隔离上下文）。\n>\n> 在我的项目中，我通过RAG的TopK和Score阈值控制Select，通过噪音过滤规则实现Compress，通过Markdown模板实现Format，通过知识库实现Write。这些本质上都是Context Engineering的实践。\"\n\n---\n\n## 补充：工具集成技术（OpenAPI、RPC）\n\n> JD关键词：\"熟悉工具集成技术，掌握OpenAPI、RPC、MCP等协议\"\n\n### 工具集成的三种协议对比总览\n\n| | OpenAPI | RPC/gRPC | MCP |\n|---|---|---|---|\n| **定位** | RESTful API描述标准 | 高性能远程调用协议 | AI模型与工具的连接标准 |\n| **通信方式** | HTTP + JSON | HTTP/2 + Protobuf（二进制） | JSON-RPC over stdio/SSE |\n| **设计哲学** | 面向资源（URL=资源） | 面向方法（像调用本地函数） | 面向AI（模型驱动工具调用） |\n| **主要用户** | Web开发者 | 后端/微服务开发者 | AI应用开发者 |\n| **在Agent中的角色** | 工具的接口描述 | 工具的高性能调用 | 工具的标准注册和发现 |\n\n### OpenAPI（Swagger）\n\n#### 是什么\n\nOpenAPI是一种**RESTful API的标准描述格式**（YAML/JSON），告诉调用者：这个API有哪些接口、每个接口需要什么参数、返回什么数据。\n\n类比：OpenAPI是API的\"说明书\"，就像餐厅菜单——列出所有菜品、价格、配料，顾客看菜单点菜。\n\n#### 核心结构\n\n```yaml\nopenapi: 3.0.0\ninfo:\n  title: 正畸病例管理API\n  version: 1.0.0\npaths:\n  /patients/{id}:\n    get:\n      summary: 获取患者信息\n      parameters:\n        - name: id\n          in: path\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: 成功\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  name: { type: string }\n                  diagnosis: { type: string }\n                  stage: { type: string }\n```\n\n#### 在Agent系统中的作用\n\n1. **工具注册**：Agent通过读取OpenAPI文档，自动了解可用工具的功能和参数\n2. **Function Call的基础**：LLM的Function Calling本质上就是根据类似OpenAPI的Schema来生成调用参数\n3. **自动化集成**：有了OpenAPI文档，可以自动生成SDK、测试用例、文档\n4. **MCP Server的底层**：很多MCP Server的Tools实际上是对OpenAPI接口的封装\n\n#### RESTful核心概念速查\n\n| 概念 | 说明 | 举例 |\n|------|------|------|\n| **Resource** | URL代表一个资源 | `/patients/123` 代表ID为123的患者 |\n| **HTTP Method** | 操作类型 | GET（查）POST（增）PUT（改）DELETE（删） |\n| **Status Code** | 返回状态 | 200成功、400参数错、401未授权、404不存在、500服务器错 |\n| **JSON** | 数据格式 | 请求和响应都用JSON |\n\n### RPC / gRPC\n\n#### 是什么\n\nRPC（Remote Procedure Call）= 远程过程调用，让调用远程服务**像调用本地函数一样简单**。gRPC是Google开源的高性能RPC框架。\n\n类比：OpenAPI像发邮件（写清楚格式、等回复），RPC像打电话（直接说，实时响应）。\n\n#### gRPC的核心特点\n\n| 特点 | 说明 | 为什么重要 |\n|------|------|-----------|\n| **Protocol Buffers** | 二进制序列化格式（比JSON小3-10倍） | 高性能，低带宽 |\n| **HTTP/2** | 多路复用、服务端推送 | 支持双向流式通信 |\n| **强类型** | 用.proto文件定义接口和数据类型 | 编译时校验，减少运行时错误 |\n| **多语言** | 自动生成10+种语言的客户端代码 | 异构系统集成 |\n| **流式通信** | 支持单向流和双向流 | 适合实时数据传输 |\n\n#### Proto文件示例\n\n```protobuf\nservice PatientService {\n  rpc GetPatient (PatientRequest) returns (PatientResponse);\n  rpc StreamUpdates (PatientRequest) returns (stream UpdateEvent);\n}\n\nmessage PatientRequest {\n  string patient_id = 1;\n}\n\nmessage PatientResponse {\n  string name = 1;\n  string diagnosis = 2;\n  string stage = 3;\n}\n```\n\n#### gRPC的四种通信模式\n\n| 模式 | 说明 | 适用场景 |\n|------|------|---------|\n| **Unary** | 一请求一响应 | 查询患者信息 |\n| **Server Streaming** | 一请求多响应（服务端持续推送） | LLM流式输出 |\n| **Client Streaming** | 多请求一响应（客户端持续发送） | 批量上传数据 |\n| **Bidirectional Streaming** | 双向持续通信 | 实时对话、语音交互 |\n\n#### 在Agent系统中的作用\n\n| 场景 | 为什么用gRPC |\n|------|-------------|\n| 模型推理服务 | 大量并发调用，需要高性能（Triton等推理服务都用gRPC） |\n| Agent间通信 | 多Agent系统中Agent之间需要低延迟通信 |\n| 流式输出 | LLM逐token生成时，用Server Streaming实时推送 |\n| 微服务架构 | 后端各服务间高性能调用 |\n\n### OpenAPI vs RPC vs MCP：选型指南\n\n| 场景 | 推荐协议 | 原因 |\n|------|---------|------|\n| 对外提供API给第三方 | OpenAPI | 标准化、易理解、生态好 |\n| 内部微服务通信 | gRPC | 高性能、强类型 |\n| AI模型调用外部工具 | MCP | AI原生、自动发现、标准化 |\n| LLM流式输出 | gRPC (Server Streaming) 或 SSE | 支持逐token推送 |\n| Agent注册新工具 | MCP + OpenAPI | MCP注册，底层可能调用OpenAPI接口 |\n\n### 三者的协作关系\n\n```\n用户 → Agent（MCP Client）→ MCP Server → OpenAPI接口 / gRPC服务 → 后端系统\n                                ↑\n                          MCP统一了\"注册和发现\"\n                     OpenAPI/gRPC负责\"实际调用\"\n```\n\n实际工程中三者经常搭配使用：\n- **MCP** 负责工具的**注册、发现和权限管理**\n- **OpenAPI** 描述HTTP接口的**参数和返回格式**\n- **gRPC** 负责高性能场景下的**实际数据传输**\n\n### 面试回答模板\n\n> \"这三种协议在Agent系统中各有分工：OpenAPI是API的标准描述格式，定义了接口有哪些、参数是什么、返回什么，它让Agent能'读懂'一个工具的说明书；gRPC是高性能的远程调用协议，用二进制+HTTP/2实现低延迟通信，适合模型推理和Agent间通信；MCP是AI原生的连接标准，统一了模型与工具的注册和发现。\n>\n> 三者的协作关系是：MCP负责工具的注册和发现，OpenAPI描述接口格式，gRPC负责高性能调用。在我的项目中，Dify的知识检索节点本质上就是通过类似OpenAPI的方式调用向量检索服务，LLM的Function Call也是基于类似OpenAPI Schema来生成调用参数的。\"\n\n---\n\n## 三、工作流编排\n\n### Dify工作流设计\n\n**节点类型**：\n- 开始节点 → 代码节点（数据处理） → 知识检索节点（RAG） → LLM节点（生成） → 结束节点\n- 条件分支节点（if/else） → 循环节点 → HTTP请求节点\n\n**你的项目工作流**：\n```\n录音链接输入 → ASR转写节点 → 文本格式化（代码节点）→ 知识检索节点（RAG）→ LLM节点（DeepSeek）→ 输出结构化摘要\n```\n\n### LangChain 深入理解\n\n#### LangChain是什么\n\nLangChain是一个开源的LLM应用开发框架（Python/JS），提供了构建LLM应用所需的各种模块化组件。它不是一个模型，而是**连接模型、数据源、工具的\"胶水框架\"**。\n\n类比：如果LLM是发动机，LangChain就是汽车的底盘和传动系统——把发动机的动力转化为可驱动的产品。\n\n#### 核心架构（六大模块）\n\n```\n┌─────────────────────────────────────────────────────────┐\n│                    LangChain 架构                        │\n│                                                         │\n│  ┌──────────┐  ┌──────────┐  ┌──────────┐              │\n│  │  Models   │  │ Prompts  │  │  Chains  │              │\n│  │ 模型接口  │  │ 提示词管理│  │ 链式调用  │              │\n│  └──────────┘  └──────────┘  └──────────┘              │\n│  ┌──────────┐  ┌──────────┐  ┌──────────┐              │\n│  │  Memory   │  │  Agents  │  │Retrieval │              │\n│  │ 对话记忆  │  │ 智能代理  │  │ 检索增强  │              │\n│  └──────────┘  └──────────┘  └──────────┘              │\n│                                                         │\n│  ┌─────────────────────────────────────────────────┐    │\n│  │         LangSmith（可观测性平台）                  │    │\n│  │         LangGraph（多Agent编排）                   │    │\n│  │         LangServe（API部署）                       │    │\n│  └─────────────────────────────────────────────────┘    │\n└─────────────────────────────────────────────────────────┘\n```\n\n| 模块 | 作用 | 核心概念 |\n|------|------|---------|\n| **Models** | 统一接口调用各种LLM | ChatOpenAI、ChatAnthropic等，切换模型只需改一行 |\n| **Prompts** | 管理和复用Prompt模板 | PromptTemplate、FewShotPromptTemplate、变量填充 |\n| **Chains** | 将多个步骤串联成处理链 | LLMChain、SequentialChain、MapReduceChain |\n| **Memory** | 管理对话历史和上下文 | ConversationBufferMemory、ConversationSummaryMemory |\n| **Agents** | 让LLM自主决定调用哪些工具 | 工具定义 + ReAct推理 + 自主规划 |\n| **Retrieval** | RAG相关功能 | 文档加载 → 分块 → 向量化 → 检索 → QA链 |\n\n#### LCEL（LangChain Expression Language）\n\nLangChain的核心编程范式，用管道符 `|` 串联组件：\n\n```python\nchain = prompt | llm | output_parser\n\n# 等价于：先填充Prompt → 调用LLM → 解析输出\nresult = chain.invoke({\"question\": \"什么是正畸？\"})\n```\n\n优点：代码简洁、支持流式、支持异步、支持批量、易于调试\n\n#### LangGraph：多Agent编排引擎\n\nLangGraph是LangChain生态中专门用于**多Agent编排**的库，基于**有向图**（Graph）来定义Agent之间的流转：\n\n```python\nfrom langgraph.graph import StateGraph\n\ngraph = StateGraph(AgentState)\ngraph.add_node(\"classifier\", classify_intent)\ngraph.add_node(\"retriever\", search_knowledge)\ngraph.add_node(\"generator\", generate_answer)\ngraph.add_node(\"reviewer\", review_quality)\n\ngraph.add_edge(\"classifier\", \"retriever\")\ngraph.add_conditional_edges(\"reviewer\", should_retry, {\n    \"pass\": END,\n    \"retry\": \"generator\"  # 质量不过关则重新生成\n})\n```\n\nLangGraph vs 普通Chain：\n- Chain是线性的（A→B→C）\n- Graph支持**条件分支、循环、并行**，可以表达复杂的Agent协作逻辑\n\n#### LangSmith：可观测性平台\n\n解决LLM应用\"黑盒\"问题——追踪每次调用的输入/输出/延迟/token消耗：\n- 每个Chain的中间步骤可视化\n- 自动记录Prompt版本和效果\n- 内置评估功能（人工标注 + 自动化评分）\n- 生产环境的监控和报警\n\n#### LangChain vs Dify 深度对比\n\n| 维度 | Dify | LangChain |\n|------|------|-----------|\n| **定位** | 低代码工作流平台 | 代码框架 |\n| **使用者** | 产品经理、业务人员 | 开发者 |\n| **上手速度** | 分钟级（拖拽搭建） | 小时/天级（写代码） |\n| **灵活性** | 有限（受限于内置节点） | 极高（任意定制） |\n| **多Agent** | 简单支持（串行/并行） | LangGraph支持复杂编排 |\n| **可观测性** | 内置日志 | LangSmith专业级追踪 |\n| **部署** | 自带Web界面和API | 需自行部署（LangServe） |\n| **RAG** | 内置知识库管理 | 需自行集成向量库 |\n| **版本管理** | 弱 | 代码天然支持Git |\n| **生态** | 封闭 | 开源生态丰富 |\n\n**AI PM的选型原则**：\n- MVP/概念验证阶段 → **Dify**（快速验证想法，降低沟通成本）\n- 生产环境/复杂需求 → **LangChain**（定制化、可维护、可扩展）\n- 你的项目：MVP阶段用Dify验证，如果产品化落地会考虑迁移到LangChain\n\n#### 主流多Agent框架（速查表）\n\n| 框架 | 特点 | 适用场景 |\n|------|------|---------|\n| **CrewAI** | 角色扮演式，定义Agent角色+目标+工具 | 团队协作类任务 |\n| **AutoGen**（微软） | 支持对话式多Agent交互 | 代码生成、研究分析 |\n| **LangGraph** | LangChain生态，基于图结构编排 | 复杂条件分支工作流 |\n| **MetaGPT** | 模拟软件公司组织架构 | 软件开发全流程 |\n| **Dify** | 低代码，支持简单多Agent编排 | MVP验证 |\n\n#### 面试回答模板\n\n> \"LangChain是一个LLM应用开发框架，核心价值是提供了模型接口、Prompt管理、链式调用、记忆管理、Agent、检索增强六大模块，让开发者可以模块化地构建LLM应用。它的LCEL语法用管道符串联组件，代码非常简洁。\n>\n> 生态上，LangGraph负责多Agent编排（基于有向图，支持条件分支和循环），LangSmith负责可观测性（追踪每次调用）。\n>\n> 和Dify相比，LangChain更适合工程化落地——灵活性高、支持Git版本管理、LangGraph可以编排复杂的多Agent协作。在我的项目中，MVP阶段用Dify快速验证（20分钟搭建），但如果这个产品要大规模上线，我会建议用LangChain重构，因为Dify在复杂逻辑和版本管理上有瓶颈。\"\n\n### Multi-Agent编排模式（速查表）\n\n> 详见 `02-RAG与Agent框架.md` 中的「多Agent系统与协作模式」章节\n\n| 模式 | 说明 | 适用场景 |\n|------|------|---------|\n| 串行 | Agent A完成后交给Agent B | 流水线式任务 |\n| 并行 | 多个Agent同时执行 | 独立子任务 |\n| 路由 | 一个Agent分发任务给不同Agent | 意图分类后分流 |\n| 层级 | Manager拆解分配+审核Worker结果 | 复杂项目管理 |\n| 辩论 | 多个Agent互相质疑，裁判综合 | 需要多视角决策 |\n\n---\n\n## 四、Prompt Engineering面试高频题补充\n\n### Q1：CoT和ReAct的区别？\n\n> - **CoT**：让模型在回答前先\"思考\"，输出推理链。适合数学、逻辑推理\n> - **ReAct**：思考和行动交替进行——思考(需要查天气) → 行动(调用天气API) → 观察(结果是晴天) → 思考(可以推荐户外跑步) → 行动(生成方案)。适合需要调用工具的Agent场景\n\n### Q2：如何设计一个好的System Prompt？\n\n> 1. 明确角色和专业领域\n> 2. 定义任务边界（做什么、不做什么）\n> 3. 输出格式强约束（用模板而非自然语言描述）\n> 4. 加入关键的负面指令（\"不要...\"、\"禁止...\"）\n> 5. 提供1-2个优质示例（Few-shot）\n> 6. 设定兜底策略（不确定时的默认行为）\n\n### Q3：Prompt版本管理怎么做？\n\n> 1. 每个版本的Prompt存档（你的项目有v1/v2）\n> 2. 记录每次改动的原因和效果\n> 3. 用同一批测试数据做AB对比\n> 4. 建立Prompt变更日志：改了什么 → 解决了什么问题 → 指标变化\n\n---\n\n## 五、你的Prompt迭代实战案例（企微聊天版）\n\n> 面试时用自己的真实案例讲Prompt迭代，比背方法论有说服力100倍\n\n### 背景\n\n将AI摘要系统从通话场景扩展到企微群聊场景，用真实聊天记录测试后发现多个问题。\n\n### v1→v2迭代过程\n\n#### 问题1：多病例遗漏\n\n**现象**：一段群聊讨论了3个患者（易伟杨、袁茹、辛晓煌），v1 Prompt跑3次，有1次只输出了2个患者的分析\n\n**归因**：LLM倾向于关注信息密度高的病例，\"易伟杨\"只有一问一答2条消息，容易被跳过\n\n**优化**：在Prompt中新增强制的\"预扫描\"步骤：\n```\n## 第一步：扫描并列出所有患者\n在开始分析之前，你必须先完整扫描全部聊天记录，找出所有被提及的患者姓名。\n扫描规则：\n- 即使某个患者只被提到一次、只有一问一答，也必须列出\n```\n\n**效果**：一致性从66%（2/3）→ 100%（3/3）\n\n**Prompt设计原理**：利用LLM的\"先规划后执行\"特性，强制做全局扫描再逐个分析，避免遗漏\n\n#### 问题2：转述场景丢失\n\n**现象**：客服转述医生意见（\"临床说：这个患者...\"），v1没有提取到医生的判断\n\n**优化**：新增角色识别规则：\n```\n- **客服/中间人**：名称中含\"客服\"、转述他人意见（如\"临床说...\"、\"麻烦告知X医生...\"）\n特殊规则：如果医生意见是通过他人转述的，仍然基于转述内容分析医生的性格特征，但标注\"（通过XX转述）\"\n```\n\n#### 问题3：噪音干扰\n\n**现象**：群聊中大量的系统消息、表情、寒暄影响分析质量\n\n**优化**：明确过滤规则（白名单思维 > 黑名单思维）：\n```\n忽略以下内容：\n- 群创建信息、系统消息\n- 客服的流程性消息（如\"收到\"、\"已转达\"）\n- 质量管理、产品管理等非病例讨论内容\n- 纯表情、纯寒暄\n```\n\n#### 问题4：术语纠错扩展\n\n**现象**：真实聊天中出现通话版未覆盖的错别字\n\n**优化**：基于真实数据补充纠错规则：\n```\n- \"桥治\" → \"矫治\"\n- \"丢抗\" → \"丢失支抗/失抗\"\n```\n\n### 一致性测试方法论\n\n同一输入跑3次，对比输出的：\n1. **信息覆盖一致性**：是否每次都识别到相同的患者/问题\n2. **判断一致性**：性格判定、风格评级是否基本一致\n3. **结构一致性**：输出格式是否每次都符合模板\n\n### 关键认知\n\n1. **Prompt迭代必须由数据驱动**：不是\"我觉得该改什么\"，而是\"真实数据告诉我哪里有问题\"\n2. **白名单优于黑名单**：与其列出所有不要的内容，不如明确只提取什么\n3. **强制步骤>建议步骤**：LLM会偷懒，\"必须先...\"比\"请尝试...\"有效\n4. **一致性测试是AI产品的基本功**：单次结果好不代表稳定好\n\n---\n\n*这是AI PM的日常核心工作技能，面试官会通过你的项目经验来判断你的Prompt能力*\n"}, {"id": "m8", "title": "08 AI产品设计与商业化", "raw": "# 模块8：AI产品设计与商业化（新增）\n\n> 面试高频指数：★★★★\n> 缺失原因：之前侧重技术和方法论，忽略了AI产品特有的设计方法论、成本分析、伦理风险等维度。\n\n---\n\n## 一、AI产品PRD与传统PRD的区别\n\n### 传统PRD = 确定性产品\n\n用户点击A按钮 → 一定发生B事件 → 展示C结果\n\n### AI产品PRD = 概率性产品\n\n用户输入X → 模型推理 → **可能**输出Y1/Y2/Y3\n\n### AI PRD额外需要的4个模块\n\n| 模块 | 内容 | 示例（你的项目） |\n|------|------|----------------|\n| **模型输出定义** | AI要解决什么类型问题，输出格式是什么 | 输出四部分结构化摘要 |\n| **数据接入要求** | 数据来源、格式、规模、更新频率 | ASR转写文本+知识库文档 |\n| **性能指标** | 模型指标+业务指标+延迟要求 | 准确率≥90%，延迟≤45秒 |\n| **异常与兜底** | 模型失败/幻觉/超时时的降级方案 | 超时提示\"生成失败，请重试\" |\n\n### AI PRD的核心公式\n\n```\nAI产品PRD = 传统PRD + 模型能力边界定义 + 数据需求 + 评估标准 + 兜底方案\n```\n\n---\n\n## 二、Agent产品设计方法论\n\n### Agent Story（替代传统User Story）\n\n传统：作为[用户]，我想要[功能]，以便[价值]\nAgent：当[触发条件]时，Agent[执行动作]，通过[工具调用]，达成[业务目标]\n\n**Keep场景示例**：\n> 当用户连续3天未运动时，AI教练主动推送消息 → 调用用户数据API获取偏好 → 调用课程库匹配轻量级课程 → 生成个性化激励文案 → 推送到用户\n\n### Agent交互七步闭环\n\n```\n听（接收用户输入）→ 懂（意图理解）→ 补（信息不足时追问）→ \n做（调用工具执行）→ 想（推理和规划）→ 说（生成回答）→ 学（记录反馈迭代）\n```\n\n### Agent产品的核心设计决策\n\n| 决策点 | 选项 | 考量因素 |\n|--------|------|---------|\n| 主动 vs 被动 | 用户触发 / Agent主动 | 用户接受度、打扰感 |\n| 单轮 vs 多轮 | 一次性回答 / 持续对话 | 任务复杂度 |\n| 确认 vs 直接执行 | 先确认再执行 / 直接做 | 操作可逆性、风险等级 |\n| 记忆深度 | 仅当轮 / 跨会话记忆 | 隐私、存储成本 |\n| 兜底策略 | 重试 / 转人工 / 给默认 | 错误严重程度 |\n\n---\n\n## 三、AI产品成本分析（面试高频）\n\n### API调用成本计算\n\n以DeepSeek为例：\n- 输入：1元/百万tokens\n- 输出：2元/百万tokens\n\n**你的项目成本估算**：\n```\n每次通话摘要：\n- 输入tokens ≈ 转写文本2000 + System Prompt1500 + RAG上下文2000 = 5500 tokens\n- 输出tokens ≈ 摘要内容1500 tokens\n- 单次成本 ≈ 5500/1M×1 + 1500/1M×2 = 0.0085元\n\n每天100通电话 × 0.0085元 = 0.85元/天\n每月 ≈ 25.5元\n```\n\n**面试回答要点**：AI产品的边际成本极低，核心成本是前期的开发人力和知识库建设。\n\n### AI产品成本结构全景\n\n| 成本类型 | 内容 | 占比 |\n|----------|------|------|\n| 模型API调用 | token费用、并发费用 | 变动成本 |\n| 基础设施 | 向量数据库、服务器 | 固定成本 |\n| 开发人力 | PM + 研发 + 算法 | 前期大、后期小 |\n| 数据标注 | 知识库建设、评估标注 | 前期大 |\n| 运营维护 | Prompt优化、知识库更新 | 持续投入 |\n\n---\n\n## 四、AI产品商业模式\n\n| 模式 | 说明 | 案例 |\n|------|------|------|\n| **免费增值（Freemium）** | 基础免费，高级功能付费 | Keep AI教练（基础免费，会员解锁） |\n| **按量计费** | 按API调用次数收费 | OpenAI API |\n| **订阅制** | 按月/年收费 | ChatGPT Plus |\n| **效果付费** | 按实际效果收费 | 广告/推荐系统 |\n| **嵌入式增值** | AI作为产品增值手段提升留存/付费 | Keep通过AI教练提升会员转化 |\n\n---\n\n## 五、AI伦理与风险管理\n\n### 必须了解的风险类型\n\n| 风险 | 说明 | 应对 |\n|------|------|------|\n| **幻觉风险** | 模型生成错误信息 | RAG锚定、Prompt约束、置信度阈值 |\n| **隐私风险** | 用户数据泄露/滥用 | 数据脱敏、最小必要原则、合规审查 |\n| **偏见风险** | 模型对某群体不公平 | 多样性测试、偏见审计 |\n| **安全风险** | 生成有害/违法内容 | 内容安全过滤、敏感词检测 |\n| **依赖风险** | 用户过度信任AI | 标注\"AI生成仅供参考\"、保留人工兜底 |\n\n### 法律法规认知\n\n- **《个人信息保护法》**：收集个人信息需明示目的、方式和范围，获得同意\n- **《生成式人工智能服务管理暂行办法》**：生成内容不得违法，需标明AI生成\n- **GDPR**（出海需要）：数据最小化原则、被遗忘权、数据可携权\n\n### 面试回答模板\n\n> \"AI产品的风险管理我关注三个层面：一是**技术层**——通过RAG降低幻觉、设置温度参数控制输出稳定性；二是**产品层**——标注AI生成标识、保留人工编辑入口、设置严重场景的兜底提示（如Keep的运动伤痛建议必须加'建议咨询专业医生'）；三是**合规层**——遵循个人信息保护法的最小必要原则，用户数据脱敏处理。\"\n\n---\n\n## 六、微调方法概览（面试可能被问）\n\n| 方法 | 原理 | 成本 | 适用场景 |\n|------|------|------|---------|\n| **Full Fine-tuning** | 更新所有参数 | 极高（需大量GPU） | 数据充足、有专属需求 |\n| **LoRA** | 冻结原参数，只训练低秩矩阵 | 低 | 最常用的轻量微调 |\n| **QLoRA** | LoRA + 4bit量化 | 更低 | 资源极有限时 |\n| **P-Tuning** | 冻结模型，只训练可学习的前缀embedding | 低 | 特定任务适配 |\n\n**PM视角的选型判断**：\n- 先RAG不够再考虑微调\n- 微调首选LoRA（成本低、效果好）\n- 需要大量高质量标注数据（通常1000+条）\n\n---\n\n## 七、AI产品技术栈全景\n\n```\n用户端\n  ↓\nAPI网关（鉴权、限流、路由）\n  ↓\n应用服务层（业务逻辑、工作流编排）\n  ↓\n┌──────────┬──────────┬──────────┐\n│ LLM推理  │ 向量数据库 │  缓存层   │\n│(DeepSeek)│ (Milvus) │ (Redis)  │\n└──────────┴──────────┴──────────┘\n  ↓\n数据层（用户数据、知识库、日志）\n  ↓\n监控与评估（延迟监控、准确率追踪、成本统计）\n```\n\n**面试中被问\"你了解AI产品的技术栈吗\"**：\n> \"从上到下大致是：用户端 → API网关做鉴权和限流 → 应用服务层做业务逻辑和工作流编排 → 核心能力层包括LLM推理引擎、向量数据库做检索、Redis做缓存 → 底层是数据存储和监控系统。作为PM我不需要自己搭建这些，但需要理解每一层的作用和瓶颈点，才能在产品设计中做出合理的性能和成本权衡。\"\n\n---\n\n## 八、数据标注与评估体系\n\n### 标注流程设计（PM职责）\n\n1. **定义标注规范**：明确每个字段的标注标准和边界case\n2. **标注工具选型**：Label Studio、Doccano、自建工具\n3. **质量控制**：\n   - 多人交叉标注 → 计算**Cohen's Kappa**一致性系数（>0.8为优秀）\n   - 设置金标数据（预先标注的标准答案）做质检\n4. **迭代优化**：定期回顾标注规范，根据实际case更新\n\n### 评估指标体系\n\n| 场景 | 自动评估指标 | 人工评估指标 |\n|------|------------|------------|\n| 分类任务 | 准确率、精确率、召回率、F1 | 抽检通过率 |\n| 生成任务 | BLEU、ROUGE（字面匹配） | 人工评审（语义层面） |\n| 检索任务 | Recall@K、MRR、NDCG | 相关性人工打分 |\n| 对话任务 | 任务完成率、平均轮次 | 满意度评分、NPS |\n\n**你的项目用人工评审而非BLEU/ROUGE的原因**：\n> 通话摘要是结构化分析任务，同一段通话可以有多种合格的表述方式。BLEU/ROUGE衡量字面相似度，不适合评价语义层面的准确性。\n\n---\n\n*这个模块补齐了AI PM在产品设计、商业化和技术栈方面的认知框架*\n"}, {"id": "tracker", "title": "目标岗位追踪", "raw": "# 目标岗位追踪\n\n> 这是 AI 求职战略局里的“求职 CRM”，用于管理岗位池、判断优先级、追踪进度和安排动作。\n\n---\n\n## 这个模块解决什么问题\n\n很多求职者的问题不是投得少，而是：\n\n- 不知道哪些岗位更值得先投\n- 投递后没有统一进度管理\n- 只看公司名，不看岗位匹配度\n- 面试和投递节奏混乱，容易顾此失彼\n\n岗位追踪模块的作用，就是把“投什么、什么时候投、投完做什么”都放进同一套系统里管理。\n\n## 系统会记录哪些字段\n\n| 字段 | 作用 |\n|------|------|\n| 公司 / 岗位 | 记录目标机会 |\n| 岗位方向 | 产品 / 运营 / 数据 |\n| 匹配度 | 结合用户画像和 JD 生成匹配评分 |\n| 当前状态 | 待投递、已投递、约面、面试中、Offer、淘汰 |\n| 当前轮次 | 一面、二面、HR面、Offer沟通 |\n| 优先级 | 立即推进、持续跟进、观察、放弃 |\n| 备注 | JD关键词、风险点、下一步动作 |\n\n---\n\n## 示例：林然的岗位池\n\n> 最后更新：2026年3月\n> 总岗位数：9 | 立即推进：3 | 面试中：2 | 待投递：3 | Offer：1\n\n### 投递进度总览\n\n| # | 公司 | 岗位 | 方向 | 匹配度 | 状态 | 当前轮次 | 下一步动作 |\n|---|------|------|------|--------|------|----------|------------|\n| 1 | A公司 | 增长产品经理 | 产品 | 91% | 面试中 | 二面 | 完成面试准备 |\n| 2 | B公司 | 产品运营 | 运营 | 89% | 已约面 | 一面 | 整理自我介绍 |\n| 3 | C公司 | 数据产品经理 | 数据 | 86% | 待投递 | - | 优化简历版本 |\n| 4 | D公司 | 商业化产品经理 | 产品 | 82% | 待投递 | - | 补充行业认知 |\n| 5 | E公司 | 增长运营 | 运营 | 80% | 已投递 | - | 等待反馈 |\n| 6 | F公司 | 数据分析师 | 数据 | 78% | 待投递 | - | 补充案例表达 |\n| 7 | G公司 | 用户运营 | 运营 | 76% | 已投递 | - | 跟进 HR |\n| 8 | H公司 | AI产品经理 | 产品 | 74% | 淘汰 | 一面未通过 | 复盘并沉淀短板 |\n| 9 | I公司 | 商家运营 | 运营 | 70% | 观察 | - | 暂不优先 |\n\n## 系统如何做优先级判断\n\n### 1. 匹配度\n\n系统会参考以下信息综合判断：\n\n- 目标岗位和用户画像是否匹配\n- 用户已有经历是否能支撑该岗位表达\n- 当前知识短板是否能在短时间补齐\n- 公司与岗位的投入产出比是否合理\n\n### 2. 梯队分层\n\n| 梯队 | 定义 | 建议动作 |\n|------|------|----------|\n| 第一梯队 | 匹配度 85% 以上 | 优先投递，重点准备 |\n| 第二梯队 | 匹配度 75%-84% | 有选择地投，边投边补 |\n| 第三梯队 | 匹配度 75% 以下 | 作为补充机会，不投入过多时间 |\n\n### 3. 风险判断\n\n除了匹配度，系统还会提醒隐藏风险：\n\n- 岗位描述很好，但经历不容易讲圆\n- 公司方向匹配，但岗位技能要求偏重技术\n- 当前手上已有高优先级面试，不适合分散精力\n\n---\n\n## 示例洞察\n\n### 梯队分布\n\n| 梯队 | 岗位 | 结论 |\n|------|------|------|\n| 第一梯队 | A公司增长产品、B公司产品运营、C公司数据产品 | 立即推进 |\n| 第二梯队 | D公司商业化产品、E公司增长运营、F公司数据分析 | 结合时间窗口推进 |\n| 第三梯队 | G公司用户运营、I公司商家运营 | 保留但不优先 |\n\n### 系统给出的策略建议\n\n```\n当前最值得投入的不是“继续海投”，而是：\n1. 先拿下 A、B 两场面试\n2. 为 C 公司准备一份更偏数据产品的简历版本\n3. 把 H 公司一面失败的原因沉淀到知识库和自我介绍里\n```\n\n---\n\n## 这个模块如何帮助用户\n\n| 产品能力 | 体现方式 |\n|----------|----------|\n| 全局视角 | 一张表看清全部岗位和状态 |\n| 节奏管理 | 明确每个岗位下一步动作 |\n| 优先级决策 | 不再凭感觉决定先投哪个 |\n| 资源分配 | 把时间投入最有胜率的机会 |\n| 复盘闭环 | 把失败岗位转化为下一轮改进依据 |\n\n## 推荐使用节奏\n\n1. 每周统一更新一次岗位池\n2. 每次收到面试邀请，立刻把状态切换为“约面/面试中”\n3. 每次面试结束，回写到复盘模块\n4. 每次新增短板，反哺用户画像和知识库\n\n岗位追踪不是简单记录表，而是整套求职系统的节奏中枢。\n"}, {"id": "prep", "title": "面试准备", "raw": "# 面试准备\n\n> 这是 AI 求职战略局里的“面试工单”模块。每收到一个面试邀请，系统都会生成一份可直接使用的准备文档。\n\n---\n\n## 这个模块解决什么问题\n\n很多求职者面试前的问题不是“不努力”，而是准备方式低效：\n\n- 只会查公司简介，不会做岗位拆解\n- 只会背八股，不会把回答和自己的经历绑定\n- 准备内容分散，面试前很难快速回顾\n- 不同岗位共用同一套答案，导致表达不够精准\n\n面试准备模块的目标，就是把一场面试变成一张结构化工单。\n\n## 系统输入什么\n\n| 输入项 | 示例 |\n|--------|------|\n| 公司名称 | 某本地生活平台 |\n| 目标岗位 | 增长产品经理 |\n| 面试轮次 | 一面 / 二面 / HR面 |\n| JD 关键词 | 增长策略、实验分析、跨团队推进 |\n| 用户资产 | 过往实习、项目、优势标签、短板清单 |\n\n## 系统输出什么\n\n| 输出项 | 作用 |\n|--------|------|\n| 公司与岗位认知 | 帮用户快速理解面试上下文 |\n| JD 匹配分析 | 知道哪些经历最该讲，哪些短板要补 |\n| 高频问题清单 | 提前预判最可能被问到的题 |\n| 个性化回答框架 | 不是模板答案，而是结合用户经历定制 |\n| 面试前检查清单 | 最后 30 分钟快速回顾 |\n\n---\n\n## 示例工单\n\n### 某本地生活平台 · 增长产品经理 · 一面准备\n\n> 用户：林然  \n> 目标岗位：增长产品经理  \n> 轮次：一面  \n> 准备日期：2026年3月\n\n## 一、公司与岗位认知\n\n### 1. 公司画像\n\n| 维度 | 内容 |\n|------|------|\n| 业务类型 | 本地生活平台，覆盖到店、到家、营销等业务 |\n| 核心目标 | 提升用户留存、交易频次和商家增长效率 |\n| 岗位特点 | 强调增长策略、数据分析、跨团队推进 |\n| 面试重点 | 业务理解、指标思维、增长实验、项目表达 |\n\n### 2. JD 匹配分析\n\n| JD 要求 | 用户可讲资产 | 匹配判断 |\n|---------|--------------|----------|\n| 具备增长思维 | 做过拉新活动和转化复盘 | 强匹配 |\n| 会数据分析和实验设计 | 有 SQL、看板、A/B 测试经验 | 强匹配 |\n| 能推动跨团队协作 | 有运营、数据、产品协同经历 | 中强匹配 |\n| 有系统化产品表达 | 项目表达还需补强 | 需要准备 |\n\n**系统建议**：这场面试不要把自己讲成“纯执行型运营”，而要讲成“能基于数据发现问题、提出方案并推动落地的人”。 \n\n---\n\n## 二、高概率问题\n\n### Q1：你如何理解增长产品经理这个岗位？\n\n**回答角度**：\n\n- 不是单纯做活动，而是围绕用户增长目标设计长期机制\n- 要能把业务目标拆成可验证的指标和实验\n- 需要兼顾用户体验、业务结果和执行落地\n\n### Q2：讲一个你做过的增长或转化优化案例\n\n**优先调用的项目素材**：\n\n- 拉新活动复盘项目\n- 指标看板和转化漏斗项目\n\n**回答结构**：\n\n1. 背景和问题是什么  \n2. 你如何判断关键流失点  \n3. 提出了什么方案  \n4. 最终结果和复盘是什么\n\n### Q3：如果一个增长策略效果不好，你会怎么排查？\n\n**建议回答框架**：\n\n- 先看目标定义和指标口径是否一致\n- 再看流量、触达、转化链路哪个环节出问题\n- 再区分是方案问题、执行问题还是用户匹配问题\n- 最后通过分群分析或实验验证找到改进方向\n\n### Q4：你为什么适合这个岗位？\n\n**系统建议强调**：\n\n- 你有运营视角，知道业务如何落地\n- 你有数据能力，能拆指标、做分析、看实验\n- 你在补强产品表达，这让你更适合增长产品这类跨职能岗位\n\n---\n\n## 三、个性化回答示例\n\n### 问题：请做一个自我介绍\n\n> 我目前主要在投增长产品、产品运营和数据产品相关岗位。过往经历里，我既做过内容运营，也做过数据分析，所以我的优势是能从业务目标出发拆解问题，并用数据去验证方案。相比只讲执行，我更想强调自己是一个能把业务问题结构化、并推动落地的人。这也是我选择增长产品方向的原因。\n\n### 问题：你最有代表性的项目是什么？\n\n> 我会优先讲一个拉新活动复盘项目。这个项目里，我不是只看结果，而是把整个转化链路拆开，定位关键流失点，再结合用户分群提出优化建议。这个经历让我意识到，增长岗位最关键的能力不是做了多少动作，而是能不能形成“发现问题 - 设计方案 - 数据验证 - 复盘迭代”的闭环。\n\n---\n\n## 四、面试前 30 分钟检查清单\n\n- [ ] 把这场面试最该讲的 2 个项目重新顺一遍\n- [ ] 自我介绍控制在 60-90 秒\n- [ ] 准备好“为什么是你”而不是只准备“你做过什么”\n- [ ] 准备 2 个反问问题\n- [ ] 最后再看一次岗位 JD 的关键词\n\n## 五、这个模块的产品价值\n\n| 产品能力 | 体现方式 |\n|----------|----------|\n| 个性化 | 基于用户画像和经历生成，不是通用模板 |\n| 结构化 | 一场面试变成一张准备工单 |\n| 可复用 | 同类岗位可直接复用准备框架 |\n| 可迭代 | 面试结果会反哺下次准备 |\n\n面试准备模块的本质，是帮助用户把“临时抱佛脚”变成“围绕目标岗位系统作战”。\n"}, {"id": "review", "title": "面试复盘", "raw": "# 面试复盘\n\n> 这是 AI 求职战略局里的“复盘工单”模块，用来把一场面试转化成下一次面试的优势。\n\n---\n\n## 这个模块解决什么问题\n\n很多求职者面试结束后只会得到一句模糊结论：\n\n- 感觉答得一般\n- 不知道哪里失分最多\n- 下次还会重复犯同样的问题\n- 好的表达没有被沉淀下来\n\n复盘模块的意义，是把“主观感受”变成“结构化诊断”。\n\n## 系统输入什么\n\n| 输入项 | 说明 |\n|--------|------|\n| 面试记录 | 录音转写、手写笔记、关键词回忆 |\n| 岗位信息 | 公司、岗位、轮次、面试官角色 |\n| 目标表达 | 这场面试本来想突出什么优势 |\n| 面试结果 | 进入下一轮 / 待定 / 未通过 |\n\n## 系统输出什么\n\n| 输出项 | 作用 |\n|--------|------|\n| 面试流程还原 | 还原考察重点分布 |\n| 逐题评分 | 定位高分题与低分题 |\n| 信号分析 | 解读面试官关注点和态度 |\n| 通过概率判断 | 给出理性预期 |\n| 行动计划 | 明确下次该补什么、怎么改 |\n\n---\n\n## 示例工单\n\n### 某消费互联网公司 · 产品运营 · 一面复盘\n\n> 面试时间：2026年3月  \n> 面试轮次：一面  \n> 面试时长：约35分钟  \n> 整体评价：中上，执行经历扎实，但产品判断表达偏弱\n\n## 一、面试流程还原\n\n| 阶段 | 时间占比 | 考察重点 |\n|------|----------|----------|\n| 自我介绍 | 10% | 基础背景与方向匹配 |\n| 项目深挖 | 35% | 是否具备结果导向与复盘意识 |\n| 数据分析能力 | 25% | 是否会看指标、做分析、讲判断 |\n| 岗位理解 | 20% | 是否理解产品运营岗位价值 |\n| 反问环节 | 10% | 求职动机与成熟度 |\n\n**系统判断**：这场面试最看重的不是“你做过多少执行”，而是“你能不能把执行升级成运营判断”。\n\n---\n\n## 二、逐题评分\n\n### Q1：请做一个自我介绍\n\n**评分**：4/5\n\n**优点**：\n\n- 时长控制较好\n- 经历顺序清晰\n- 能突出“运营 + 数据”的组合优势\n\n**问题**：\n\n- 开头记忆点不够强\n- 目标岗位指向还可以更明确\n\n### Q2：讲一个你做过的运营项目\n\n**评分**：5/5\n\n**优点**：\n\n- 背景、动作、结果完整\n- 有数据支撑，不是泛泛描述\n- 能体现执行与复盘闭环\n\n**值得沉淀的表达**：\n\n> 我不是只复盘活动效果，而是会把过程拆成关键转化节点，看每个节点的问题在哪里，再决定下一轮优化方向。\n\n### Q3：如果一个活动效果不达预期，你会怎么分析？\n\n**评分**：4/5\n\n**优点**：\n\n- 先看目标，再看链路，再看执行，逻辑比较清楚\n\n**问题**：\n\n- 还可以补一个“如何验证猜想”的实验思路\n\n### Q4：你为什么想做产品运营？\n\n**评分**：3/5\n\n**问题**：\n\n- 回答偏经历罗列，缺少岗位理解\n- 没有把“为什么你适合”说透\n\n**建议改法**：\n\n- 少讲“我做过什么”\n- 多讲“我为什么适合在产品和业务之间做连接”\n\n---\n\n## 三、面试官信号分析\n\n### 积极信号\n\n| 信号 | 解读 |\n|------|------|\n| 在项目部分连续追问 | 说明对项目内容有兴趣 |\n| 针对数据分析细节继续深挖 | 说明这部分是你的优势项 |\n| 反问阶段认真回答团队情况 | 说明并未快速结束对话 |\n\n### 风险信号\n\n| 信号 | 解读 |\n|------|------|\n| 岗位理解题没有继续追问 | 可能说明回答没有打中重点 |\n| 自我介绍后没有明显正反馈 | 说明记忆点还不够强 |\n\n---\n\n## 四、综合评估\n\n### 表现好的地方\n\n1. 项目经历有结果、有数据，容易建立可信度\n2. 分析问题的逻辑比较清楚\n3. 执行闭环能力强，适合运营与增长类岗位\n\n### 需要改进的地方\n\n1. 要把“执行经验”升级成“岗位判断”\n2. 岗位理解题不能只靠经历堆砌\n3. 自我介绍的开场需要更有记忆点\n\n### 通过概率评估\n\n**通过概率：65%-75%**\n\n有利因素：项目答得稳、数据意识较强  \n不利因素：岗位理解表达不够突出\n\n---\n\n## 五、行动计划\n\n1. 把“为什么适合产品运营”打磨成固定回答\n2. 在项目题里补上“为什么这样判断”的产品视角\n3. 把这次高分项目回答沉淀到简历与自我介绍模块\n4. 把“岗位理解”相关短板反哺到知识库模块 5 和模块 6\n\n## 六、复盘如何反哺整个系统\n\n```\n面试复盘\n  ↓\n更新用户短板画像\n  ↓\n更新定制知识库学习优先级\n  ↓\n更新下一场面试准备重点\n  ↓\n更新简历与自我介绍表达版本\n```\n\n这也是 AI 求职战略局最关键的闭环能力：\n\n**不是只记录一场面试，而是让每场面试都推动整套求职系统变得更强。**\n"}, {"id": "resume", "title": "简历与自我介绍", "raw": "# 简历与自我介绍\n\n> 这个模块负责把同一份经历，改写成适配不同岗位的表达版本。\n\n---\n\n## 这个模块解决什么问题\n\n很多求职者并不是经历不够，而是：\n\n- 简历写成了流水账，没有重点\n- 自我介绍总是“背简历”，没有记忆点\n- 同一项目不会按不同岗位重写\n- 面试追问时，故事细节和结构容易散\n\n这个模块的目标，是把用户已有的经历沉淀成可以复用的表达资产。\n\n## 输出内容\n\n| 输出项 | 作用 |\n|--------|------|\n| 简历 bullet 版本 | 把同一项目改写成适合不同岗位的描述 |\n| 自我介绍版本 | 30 秒、90 秒、深挖版 |\n| STAR 素材库 | 便于应对行为面与项目追问 |\n| 亮点词库 | 统一表达口径，避免每次临场重讲 |\n\n---\n\n## 简历优化逻辑\n\n### 一条好 bullet 的基本结构\n\n```\n做了什么 + 为什么做 + 怎么做 + 结果如何\n```\n\n### 常见问题\n\n- 只写动作，不写结果\n- 只写结果，不写判断过程\n- 只写执行过程，看不出岗位匹配度\n- 不同岗位投递时完全共用一份简历\n\n### 系统优化方式\n\n| 优化动作 | 说明 |\n|----------|------|\n| 提炼关键词 | 从 JD 中提炼高频要求，映射到经历表达 |\n| 统一结构 | 每条 bullet 尽量遵循问题、动作、结果结构 |\n| 强化数据 | 能量化就量化，优先写提升、效率、转化、节省 |\n| 岗位改写 | 同一项目至少生成产品版、运营版、数据版三种表达 |\n\n---\n\n## 同一项目如何按岗位重写\n\n### 原始项目\n\n项目：新用户拉新活动复盘与优化\n\n原始描述：参与了一次新用户拉新活动，做了数据分析和复盘，最后效果有提升。\n\n### 改写为产品岗版本\n\n> 围绕新用户激活率偏低的问题，梳理拉新链路关键节点，结合用户行为数据定位流失环节，提出激励机制与流程优化方案，并推动上线验证，最终提升次日激活率。\n\n### 改写为运营岗版本\n\n> 参与拉新活动从策划、执行到复盘的完整流程，跟踪渠道效果与转化表现，优化活动玩法与触达节奏，推动活动效果持续改善。\n\n### 改写为数据岗版本\n\n> 基于拉新活动数据搭建转化分析框架，拆解曝光、点击、注册、激活各环节指标，定位关键流失节点，并输出优化建议支持业务决策。\n\n### 核心差异\n\n| 岗位 | 重点强调 |\n|------|----------|\n| 产品岗 | 问题定义、方案判断、推进落地 |\n| 运营岗 | 活动执行、用户触达、增长闭环 |\n| 数据岗 | 指标拆解、分析框架、归因结论 |\n\n---\n\n## 自我介绍怎么生成\n\n### 30 秒版本\n\n适合开场、校招 AI 面、时间很短的场景。\n\n> 我是一名互联网求职者，过往经历主要集中在运营和数据分析，也做过一些产品方案与 AI 工具原型。我的优势是能用数据理解问题、推动执行落地，并把零散项目沉淀成结构化方法论。目前我主要在投增长产品、产品运营和数据产品相关岗位。\n\n### 90 秒版本\n\n适合一面开场，既要讲背景，又要讲核心武器。\n\n> 我目前的求职方向主要是增长产品、产品运营和数据产品相关岗位。过往经历里，我分别做过内容运营、业务数据分析和 AI 工具原型，这让我形成了一个比较稳定的能力组合：一是能看数据、拆指标、做实验分析；二是能推动项目落地，关注执行闭环；三是会把经历沉淀成结构化的方案和复盘。  \n> 所以我会把自己定位成一个兼具数据分析能力和业务理解能力的候选人。相比只会讲执行，我更强调自己如何发现问题、做判断、推动方案落地。这也是我希望继续往产品和增长方向发展的原因。\n\n### 深挖版\n\n适合“介绍一个你最有成就感的项目”或“展开说说你最匹配这个岗位的经历”。\n\n这类内容不会直接背，而是调用 STAR 素材库进行组合。\n\n---\n\n## STAR 素材库\n\n### 素材 1：拉新活动优化\n\n| 维度 | 内容 |\n|------|------|\n| Situation | 新用户注册后激活率偏低，活动投入产出不稳定 |\n| Task | 需要定位转化流失点，并提出优化方案 |\n| Action | 搭建转化漏斗、分析分群差异、提出激励和流程优化建议 |\n| Result | 激活率提升，后续成为复用方案 |\n\n### 素材 2：指标看板搭建\n\n| 维度 | 内容 |\n|------|------|\n| Situation | 团队监控依赖人工汇总，口径不统一 |\n| Task | 需要建立统一的指标视图支持日常监控 |\n| Action | 梳理核心指标口径、搭建看板、定义异常追踪流程 |\n| Result | 提升监控效率，缩短问题发现时间 |\n\n### 素材 3：AI 工具原型\n\n| 维度 | 内容 |\n|------|------|\n| Situation | 求职准备材料零散，复盘难沉淀 |\n| Task | 需要搭建一个可持续迭代的求职系统原型 |\n| Action | 设计模块结构，整理知识资产，搭建演示版网站 |\n| Result | 形成可演示、可复用、可持续更新的产品原型 |\n\n---\n\n## 这个模块如何和其它模块联动\n\n| 来源模块 | 如何影响简历与自我介绍 |\n|----------|------------------------|\n| 用户画像 | 决定重点突出哪些能力标签 |\n| 定制知识库 | 决定哪些岗位知识需要临时补强 |\n| 岗位追踪 | 决定每家公司使用哪一版简历 |\n| 面试准备 | 决定这场面试开场怎么讲 |\n| 面试复盘 | 决定哪些表达要删、哪些亮点要强化 |\n\n## 推荐使用方式\n\n1. 先把经历和项目整理成素材池，不急着写成最终简历\n2. 按岗位生成不同版本的 bullet 和自我介绍\n3. 每次面试后，把面试官认可的表达回写进素材库\n4. 让“最顺口、最有记忆点”的版本成为下一轮面试默认版本\n\n这样，简历与自我介绍就不再是一次性的文档，而会成为整个求职系统里最重要的表达资产。\n"}, {"id": "project", "title": "能力来源：AI沟通摘要系统", "raw": "# 项目深度讲解：AI沟通记录摘要系统\n\n> 面试时如何讲好这个项目——从背景到技术到产品思维的完整叙事\n\n---\n\n## 一、一句话介绍（30秒版）\n\n\"我在时代天使实习期间，主导设计了一套AI沟通记录摘要系统，覆盖通话录音和企微聊天两个场景，通过ASR+LLM+RAG+Dify构建全链路MVP，准确率超过90%，帮助设计师团队从每天手动整理2小时的沟通记录，缩减到5分钟自动生成结构化总结。\"\n\n---\n\n## 二、STAR完整叙事（3-5分钟版）\n\n### Situation（背景）\n\n时代天使是国内领先的隐形正畸公司，设计师团队每天需要与全国数百家诊所的医生沟通病例方案。沟通渠道有两种：\n\n- **电话**：设计师与医生一对一讨论具体病例\n- **企微群聊**：一个群里可能讨论多个患者，且有客服、管理人员等多角色参与\n\n**痛点**：每位设计师每天要花约2小时手动整理沟通记录，产出结构化总结（问题描述、方案、结论），不仅耗时，还容易遗漏关键信息。\n\n### Task（任务）\n\n作为AI产品经理实习生，我需要：\n1. 设计一套AI自动生成结构化摘要的产品方案\n2. 从0到1完成MVP搭建、测试、迭代\n3. 建立可量化的评估体系，验证产品质量\n\n### Action（行动）\n\n#### 第一阶段：通话版MVP（Python脚本）\n\n技术方案：\n- **ASR**：阿里云语音转写API（支持热词库纠错正畸术语）\n- **LLM**：DeepSeek-V3，Temperature=0.1（低随机性保证一致性）\n- **RAG**：正畸知识库（术语纠错表、术语解释库、场景识别规则、优质分析样例）\n- **输出结构**：四模块（问题描述→处理描述→性格判定→风格判定）\n\n我的产品决策：\n- 选择四模块输出结构而非自由文本，因为下游使用场景（CRM录入、质检）需要标准化格式\n- 热词库先覆盖高频术语50个，观察bad case后迭代补充\n- Temperature设置为0.1而非0，保留极少创造性但确保稳定\n\n#### 第二阶段：企微聊天版（Dify Workflow）\n\n发现通话版成功后，业务方提出企微聊天场景需求更大。但微信聊天与电话有本质差异：\n\n| 差异维度 | 电话 | 企微聊天 |\n|---------|------|---------|\n| 参与人数 | 1v1 | 多人群聊（3-8人） |\n| 话题数量 | 通常1个病例 | 可能讨论多个病例 |\n| 噪音 | 几乎没有 | 大量（表情、系统消息、寒暄） |\n| 角色识别 | 通过说话人ID | 通过群昵称（如\"高级设计师一华南\"） |\n| 信息转述 | 无 | 存在（客服转述医生意见） |\n| 消息形态 | 连续语句 | 碎片化短消息 |\n\n我的产品决策：\n1. **技术选型**：从Python脚本升级到Dify Workflow，降低运维成本、支持非技术人员使用\n2. **Prompt架构重构**：\n   - 新增\"第一步：扫描并列出所有患者\"的强制步骤（解决多病例遗漏）\n   - 新增转述识别规则（支持\"临床说...\"等间接表达）\n   - 新增角色识别规则（适配企微群昵称格式）\n   - 新增过滤规则（明确列出忽略项清单）\n3. **评估体系设计**：\n   - 100分制评分表（5维度：问题描述15 + 处理描述25 + 性格判定30 + 风格判定20 + 通用质量10）\n   - MVP通过标准：3个以上样本≥70分，且无<55分样本\n   - Bad Case归因模板（Prompt缺陷 / 知识库缺失 / 模型能力 / 输入质量）\n4. **MVP测试方法论**：3天结构化测试\n   - Day1：准备3-5段典型样本 + 第一轮测试\n   - Day2：Bad Case归因分析 + Prompt v1→v2迭代\n   - Day3：新样本验证 + 输出结论\n\n#### Prompt迭代实战：v1→v2的5项改动\n\n| 改动项 | v1 | v2 | 驱动因素 |\n|--------|----|----|---------|\n| 病例拆分 | 无，假设一段聊天=一个话题 | 强制按病例拆分，每个病例独立分析 | 真实数据：一段群聊讨论2个患者 |\n| 转述识别 | 无 | 支持\"临床说...\"等转述场景 | 真实数据：医生不一定直接在群里发言 |\n| 角色识别 | 通用规则 | 适配真实命名（\"高级设计师一华南\"等） | 企微群名格式特殊 |\n| 过滤逻辑 | 过滤表情/系统消息 | 明确只提取医生+设计师的病例对话 | 用户核心需求是过滤 |\n| 术语纠错 | 通用错别字 | 基于真实数据新增\"桥治→矫治\"等 | 真实聊天中发现的实际错误 |\n\n#### 一致性测试\n\n同一段聊天记录（含3位患者）跑3次：\n- **v1 Prompt**：2次识别出2位患者，1次识别出3位（遗漏\"易伟杨\"）→ 一致性 66%\n- **v2 Prompt**（加入强制扫描步骤后）：3次均正确识别出3位患者 → 一致性 100%\n\n### Result（结果）\n\n- 通话版准确率 >90%（基于人工抽检100条）\n- 企微版MVP在3天内完成验证，达到B级以上标准\n- 设计师每日整理时间从2小时降至5分钟\n- 沉淀了一套可复用的AI产品MVP测试方法论\n\n---\n\n## 三、高频追问及回答要点\n\n### Q1：\"准确率90%是怎么算的？\"\n\n通话版：从100条分析结果中随机抽取50条，人工对照原始录音/聊天记录进行逐项核验——\n- 核心信息覆盖率（是否遗漏关键问题和方案）\n- 术语准确性（专业术语是否正确识别和使用）\n- 角色识别准确率\n- 结论判断准确性\n\n加权计算综合准确率。每周抽检一批，持续监控，发现bad case立即归因并迭代Prompt。\n\n### Q2：\"为什么不用Fine-tune，而是用RAG+Prompt？\"\n\n四个原因：\n1. **数据量不足**：正畸领域标注数据有限，Fine-tune需要数千条高质量样本\n2. **迭代速度**：Prompt可以当天改当天验，Fine-tune需要重新训练\n3. **成本**：Fine-tune需要GPU资源和标注人力，MVP阶段投入产出比不合理\n4. **知识更新**：术语表、场景规则需要频繁更新，RAG只需更新知识库文档\n\n如果未来数据量达到5000+条、且输出质量仍有瓶颈，会考虑LoRA微调。\n\n### Q3：\"你怎么设计的评估体系？\"\n\n我设计了三层评估机制：\n- **第一层：100分制评分表**——每个样本从5个维度评分（问题描述、处理描述、性格判定、风格判定、通用质量），确保评估全面且可量化\n- **第二层：MVP达标线**——A级(≥85)可上线、B级(70-84)微调后上线、C级(55-69)大改、D级(<55)重做\n- **第三层：Bad Case归因模板**——每个bad case归因到四类之一（Prompt缺陷 / 知识库缺失 / 模型能力 / 输入质量），指导精准优化\n\n设计逻辑：评分告诉我\"好不好\"，达标线告诉我\"能不能上线\"，归因告诉我\"怎么改\"。\n\n### Q4：\"从通话版到企微版，最大的技术挑战是什么？\"\n\n**多病例拆分**。一段群聊讨论了3个患者，v1 Prompt有33%概率漏掉其中一个。分析原因：LLM倾向于关注信息密度高的病例，跳过只有1-2条对话的简短病例。\n\n解决方案：在Prompt中加入强制的\"预扫描\"步骤——先列出所有患者名单，再逐个分析。这利用了LLM的\"先规划后执行\"特性，效果显著（一致性从66%→100%）。\n\n### Q5：\"Dify vs Python脚本，你为什么选Dify做企微版？\"\n\n| 维度 | Python脚本 | Dify Workflow |\n|------|-----------|---------------|\n| 开发速度 | 需要写代码 | 拖拽搭建20分钟 |\n| 维护成本 | 需要开发者 | 业务人员可自行调参 |\n| 知识库管理 | 自建向量库 | 内置知识库（支持混合检索） |\n| 可复用性 | 需要改代码 | 改Prompt即可适配新场景 |\n\n通话版用Python是因为需要集成ASR API（Dify不直接支持阿里云ASR）；企微版输入就是文本，Dify是更优选择。\n\n### Q6：\"如果让你继续优化，下一步做什么？\"\n\n短期：\n1. 增加自动触发机制（@机器人即可生成总结，无需手动粘贴）\n2. 增加多模态支持（聊天中的图片、文件识别）\n3. 扩大测试样本量，验证更多边界场景（超长聊天、纯闲聊、混合中英文术语）\n\n中期：\n1. 接入CRM系统，生成的总结自动填充到对应病例记录中\n2. 基于历史数据做设计师能力画像，辅助管理者识别培训需求\n3. 探索LoRA微调，进一步提升术语识别和分析深度\n\n---\n\n## 四、面试节奏建议\n\n- **30秒版**：背景+方案+结果（用于自我介绍中穿插）\n- **2分钟版**：STAR结构精简版（用于\"介绍你最有成就感的项目\"）\n- **5分钟版**：完整STAR + 技术决策 + 迭代故事（用于深入追问）\n- **应对追问**：准备好Q1-Q6的回答，这些是面试官最可能追问的方向\n\n---\n\n*最后更新：2026年3月1日*\n"}];
 
 function handleSearch(query) {
   var results = document.getElementById('searchResults');
@@ -3871,7 +4459,7 @@ document.addEventListener('click', function(e) {
 }
 </style>
 
-<button class="chat-fab" id="chatFab" onclick="toggleChat()" title="AI 助手">
+<button class="chat-fab" id="chatFab" onclick="toggleChat()" title="AI 求职教练">
   <svg id="fabIconChat" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.2L4 17.2V4h16v12z"/><path d="M7 9h10v2H7zm0-3h10v2H7z"/></svg>
   <svg id="fabIconClose" style="display:none" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
 </button>
@@ -3883,8 +4471,8 @@ document.addEventListener('click', function(e) {
         <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.2L4 17.2V4h16v12z"/></svg>
       </div>
       <div>
-        <div class="chat-header-title">AI 知识助手</div>
-        <div class="chat-header-sub">基于知识库的智能问答</div>
+        <div class="chat-header-title">AI 求职教练</div>
+        <div class="chat-header-sub">基于知识库与模板的求职问答</div>
       </div>
     </div>
     <div class="chat-header-actions">
@@ -3921,13 +4509,13 @@ document.addEventListener('click', function(e) {
       <div class="chat-welcome-icon">
         <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.2L4 17.2V4h16v12z"/><path d="M7 9h10v2H7zm0-3h10v2H7z"/></svg>
       </div>
-      <h3>知识库 AI 助手</h3>
-      <p>基于知识库内容回答你的问题<br>点击设置按钮配置 API Key 开始使用</p>
+      <h3>AI 求职教练</h3>
+      <p>基于知识库与求职模板回答你的问题<br>点击设置按钮配置 API Key 开始使用</p>
       <div class="chat-quick-btns">
-        <button class="chat-quick-btn" onclick="quickAsk('什么是RAG？核心原理是什么？')">什么是RAG</button>
-        <button class="chat-quick-btn" onclick="quickAsk('Prompt Engineering有哪些核心技巧？')">Prompt技巧</button>
-        <button class="chat-quick-btn" onclick="quickAsk('AB测试的完整流程是什么？')">AB测试流程</button>
-        <button class="chat-quick-btn" onclick="quickAsk('AI产品经理需要哪些核心能力？')">PM核心能力</button>
+        <button class="chat-quick-btn" onclick="quickAsk('如何根据目标岗位做JD匹配？')">JD匹配</button>
+        <button class="chat-quick-btn" onclick="quickAsk('自我介绍应该怎么准备？')">自我介绍</button>
+        <button class="chat-quick-btn" onclick="quickAsk('面试复盘最该看哪些信号？')">面试复盘</button>
+        <button class="chat-quick-btn" onclick="quickAsk('岗位追踪应该如何分优先级？')">岗位追踪</button>
       </div>
     </div>
   </div>
@@ -3953,8 +4541,8 @@ document.addEventListener('click', function(e) {
     openai:   { url: 'https://api.openai.com/v1/chat/completions',   model: 'gpt-4o-mini' }
   };
 
-  var SYSTEM_PROMPT = '你是一个AI产品经理知识库助手。基于以下知识库内容回答用户的问题。\n' +
-    '要求：\n1. 优先使用知识库中的内容回答\n2. 回答要简洁、专业、有条理\n' +
+  var SYSTEM_PROMPT = '你是一个AI求职教练。基于以下知识库内容和求职管理模板回答用户的问题。\n' +
+    '要求：\n1. 优先使用知识库和求职模板中的内容回答\n2. 回答要简洁、专业、有条理\n' +
     '3. 适当使用**加粗**和`代码`格式\n4. 如果知识库中没有相关内容，请诚实说明并给出你的理解\n' +
     '5. 用中文回答';
 
