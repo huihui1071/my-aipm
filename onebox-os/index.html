@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OneBox OS | AI Task Router + Personal Memory</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="grain"></div>
+    <div class="shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">OneBox OS</p>
+          <h1>让一句话先找到路径，再调出真正有用的长期记忆。</h1>
+          <p class="hero-text">
+            OneBox OS 把 <strong>AI Task Router</strong> 和
+            <strong>Personal Memory OS</strong> 放在同一个入口里。你只要输入一句话，系统先判断当前更适合澄清、搜索、写作、分析还是执行，再按需调用长期记忆，让过去的笔记、截图、网页和语音真正参与当前任务。
+          </p>
+        </div>
+
+        <aside class="hero-card">
+          <span class="card-label">How To Start</span>
+          <ol class="starter-list">
+            <li>先直接输入一句话，不用预设模式。</li>
+            <li>看系统怎么理解你的任务，并查看引用来源。</li>
+            <li>只有当回答缺背景时，再去补长期记忆。</li>
+          </ol>
+          <div class="hero-status">
+            <div class="status-line">
+              <span class="status-label">当前模式</span>
+              <span id="model-status-badge" class="status-badge status-fallback">本地启发式</span>
+            </div>
+            <p id="settings-status" class="hero-status-text">
+              先保存真实模型配置，再把 OneBox OS 从原型切到可真正使用的产品模式。
+            </p>
+          </div>
+        </aside>
+      </header>
+
+      <main class="main-flow">
+        <section class="workspace">
+          <section class="panel panel-chat">
+            <div class="panel-head panel-head-tight">
+              <div>
+                <p class="panel-kicker">Step 1</p>
+                <h2>从一句话开始</h2>
+              </div>
+              <button class="ghost-button" id="seed-query">试一个示例</button>
+            </div>
+
+            <form id="query-form" class="query-form">
+              <label class="sr-only" for="query-input">输入一句话</label>
+              <textarea
+                id="query-input"
+                rows="4"
+                placeholder="比如：基于我的个人记忆，帮我写一段适合 AI 产品经理面试的 60 秒自我介绍。"
+              ></textarea>
+              <div class="query-actions">
+                <p class="hint">
+                  你不需要先决定该搜索、写作还是分析。系统会先判断，再选择路径。
+                </p>
+                <button type="submit" class="primary-button">开始处理</button>
+              </div>
+            </form>
+
+            <div class="example-block">
+              <div class="example-head">
+                <p class="panel-kicker">Try These</p>
+                <span class="muted">先点一个示例，最容易理解这个产品怎么工作。</span>
+              </div>
+              <div class="example-list" id="example-list"></div>
+            </div>
+          </section>
+
+          <aside class="panel panel-start">
+            <div class="panel-head panel-head-tight">
+              <div>
+                <p class="panel-kicker">What Happens</p>
+                <h2>系统会先做什么</h2>
+              </div>
+            </div>
+
+            <div class="guide-stack">
+              <div class="guide-card">
+                <span class="guide-index">01</span>
+                <div>
+                  <h3>判断任务模式</h3>
+                  <p>区分现在更需要澄清、搜索、写作、分析，还是做轻量执行。</p>
+                </div>
+              </div>
+              <div class="guide-card">
+                <span class="guide-index">02</span>
+                <div>
+                  <h3>按需调用长期记忆</h3>
+                  <p>只有问题真的依赖个人背景时，才会召回笔记、截图和历史记录。</p>
+                </div>
+              </div>
+              <div class="guide-card">
+                <span class="guide-index">03</span>
+                <div>
+                  <h3>给出可继续推进的结果</h3>
+                  <p>除了答案，还会展示路由理由、引用来源和下一步动作。</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="chip-group">
+              <span class="chip chip-clarify">Clarify</span>
+              <span class="chip chip-search">Search</span>
+              <span class="chip chip-write">Write</span>
+              <span class="chip chip-analyze">Analyze</span>
+              <span class="chip chip-act">Act</span>
+            </div>
+
+            <section class="settings-card">
+              <div class="settings-head">
+                <div>
+                  <p class="panel-kicker">Real Product Mode</p>
+                  <h3>接入真实模型</h3>
+                </div>
+                <button class="ghost-button small-button" id="test-connection" type="button">
+                  测试连接
+                </button>
+              </div>
+              <form id="settings-form" class="settings-form">
+                <label class="full-width">
+                  Base URL
+                  <input
+                    id="settings-base-url"
+                    type="url"
+                    placeholder="https://api.deepseek.com/v1"
+                    autocomplete="off"
+                  />
+                </label>
+                <label>
+                  模型名
+                  <input id="settings-model" type="text" placeholder="deepseek-chat" autocomplete="off" />
+                </label>
+                <label>
+                  Temperature
+                  <input id="settings-temperature" type="number" min="0" max="1.5" step="0.1" />
+                </label>
+                <label class="full-width">
+                  API Key
+                  <input
+                    id="settings-api-key"
+                    type="password"
+                    placeholder="sk-..."
+                    autocomplete="off"
+                  />
+                </label>
+                <div class="query-actions compact-actions">
+                  <p class="hint">
+                    配置会只保存在当前浏览器。推荐填写 OpenAI 兼容接口，用于真实路由和生成。
+                  </p>
+                  <button type="submit" class="primary-button">保存配置</button>
+                </div>
+              </form>
+            </section>
+          </aside>
+        </section>
+
+        <section class="results-zone">
+          <div class="section-head">
+            <div>
+              <p class="panel-kicker">Step 2</p>
+              <h2>看系统如何处理你的问题</h2>
+            </div>
+          </div>
+
+          <div class="results-grid">
+            <div class="result-stack">
+              <div class="result-card">
+                <div class="result-header">
+                  <p class="panel-kicker">Routing Result</p>
+                  <span class="route-badge" id="route-badge">等待输入</span>
+                </div>
+                <div id="route-summary" class="result-body empty-state">
+                  输入一句话后，这里会显示模式判断、置信度和为什么这么判。
+                </div>
+              </div>
+
+              <div class="result-card">
+                <div class="result-header">
+                  <p class="panel-kicker">Response</p>
+                  <div class="toolbar">
+                    <button class="mini-button" data-action="shorten">改短一点</button>
+                    <button class="mini-button" data-action="formalize">更正式</button>
+                    <button class="mini-button" data-action="save">保存到记忆</button>
+                    <button class="mini-button" data-action="todo">生成待办</button>
+                  </div>
+                </div>
+                <div id="response-output" class="result-body empty-state">
+                  回答会显示在这里。若调用了长期记忆，下方会同步显示引用来源。
+                </div>
+              </div>
+            </div>
+
+            <aside class="trace-stack">
+              <section class="panel panel-trace">
+                <div class="panel-head panel-head-tight">
+                  <div>
+                    <p class="panel-kicker">Transparent AI</p>
+                    <h2>Trace</h2>
+                  </div>
+                </div>
+                <section class="trace-section">
+                  <h3>Router Trace</h3>
+                  <div id="trace-output" class="trace-output empty-state">
+                    这里会显示模式分数、是否触发澄清、是否调用长期记忆。
+                  </div>
+                </section>
+              </section>
+
+              <section class="panel panel-trace">
+                <div class="panel-head panel-head-tight">
+                  <div>
+                    <p class="panel-kicker">Memory Evidence</p>
+                    <h2>引用来源</h2>
+                  </div>
+                </div>
+                <section class="trace-section">
+                  <h3>Retrieved Memory</h3>
+                  <div id="evidence-list" class="evidence-list empty-state">
+                    相关记忆会显示在这里，所有回答都能追溯到来源。
+                  </div>
+                </section>
+              </section>
+            </aside>
+          </div>
+        </section>
+
+        <section class="memory-zone">
+          <div class="section-head">
+            <div>
+              <p class="panel-kicker">Step 3</p>
+              <h2>只有需要时，再补充长期记忆</h2>
+            </div>
+            <p class="section-note">
+              这里已经放入一组基础个人档案；后续只需要继续补那些会长期影响回答质量的背景，而不是一次性的临时上下文。
+            </p>
+          </div>
+
+          <div class="memory-grid">
+            <section class="panel panel-inbox">
+              <div class="panel-head panel-head-tight">
+                <div>
+                  <p class="panel-kicker">Memory Inbox</p>
+                  <h2>导入个人记忆</h2>
+                </div>
+              </div>
+
+              <form id="memory-form" class="memory-form">
+                <div class="form-grid">
+                  <label>
+                    类型
+                    <select id="memory-type">
+                      <option value="note">文字笔记</option>
+                      <option value="screenshot">截图摘录</option>
+                      <option value="voice">语音转写</option>
+                      <option value="web">网页剪藏</option>
+                    </select>
+                  </label>
+                  <label>
+                    标题
+                    <input
+                      id="memory-title"
+                      type="text"
+                      placeholder="比如：关于 AI Router 的新想法"
+                    />
+                  </label>
+                  <label class="full-width">
+                    来源
+                    <input
+                      id="memory-source"
+                      type="text"
+                      placeholder="比如：微信语音转写 / 浏览器收藏 / 周会记录"
+                    />
+                  </label>
+                  <label class="full-width">
+                    摘要
+                    <textarea
+                      id="memory-content"
+                      rows="4"
+                      placeholder="先写一段高密度摘要，方便 Router 快速检索。"
+                    ></textarea>
+                  </label>
+                  <label class="full-width">
+                    详细内容
+                    <textarea
+                      id="memory-detail"
+                      rows="6"
+                      placeholder="补充这条记忆真正的展开内容，比如评分表分项、流程步骤、关键口径或追问素材。"
+                    ></textarea>
+                  </label>
+                  <label class="full-width">
+                    标签
+                    <input
+                      id="memory-tags"
+                      type="text"
+                      placeholder="用逗号分隔，比如：长期记忆, 知识管理, 路由"
+                    />
+                  </label>
+                </div>
+                <div class="query-actions">
+                  <p class="hint">优先导入会反复被用到的背景、判断和长期偏好。</p>
+                  <button type="submit" class="primary-button">加入记忆库</button>
+                </div>
+              </form>
+            </section>
+
+            <section class="panel panel-library">
+              <div class="panel-head panel-head-tight">
+                <div>
+                  <p class="panel-kicker">Long-term Memory</p>
+                  <h2>Memory Library</h2>
+                </div>
+                <div class="library-actions">
+                  <button id="import-memories" class="ghost-button">导入 JSON</button>
+                  <button id="export-memories" class="ghost-button">导出记忆</button>
+                  <button id="reset-demo" class="ghost-button">恢复默认数据</button>
+                  <button id="clear-storage" class="ghost-button danger-button">
+                    清空本地数据
+                  </button>
+                </div>
+              </div>
+              <input id="import-file" type="file" accept="application/json" hidden />
+              <div id="memory-list" class="memory-list"></div>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
